@@ -12,14 +12,14 @@ export interface Testimonial {
   avatar?: string;
   /** Rating out of 5. */
   rating: number;
-  /** Short headline pull-quote (the bold line). */
-  quote: string;
-  /** Longer supporting review text. */
+  /** The testimonial body — the only text content the API carries. */
   review: string;
+  /** Publish flag set from the admin dashboard; inactive rows never render. */
+  isActive: boolean;
   /** ISO date string. */
-  createdAt?: string;
+  createdAt: string;
   /** ISO date string. */
-  updatedAt?: string;
+  updatedAt: string;
 }
 
 /** Pagination envelope returned under `meta`. */

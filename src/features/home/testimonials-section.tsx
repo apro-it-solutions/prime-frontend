@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { Quote, AlertTriangle } from "lucide-react";
 import { Container } from "@/components/layout/container";
+import { cn } from "@/lib/utils";
 import { useTestimonials } from "@/hooks/use-testimonials";
 import { TestimonialsCarousel } from "./testimonials-carousel";
 import testimonialBg from "../../../public/images/testimonial-bg.jpg";
@@ -12,41 +13,36 @@ function TestimonialsSkeleton() {
   return (
     <div
       aria-hidden="true"
-      className="flex animate-pulse flex-col gap-10 lg:flex-row lg:gap-[100px]"
+      className="grid animate-pulse gap-10 md:grid-cols-[40fr_60fr] md:grid-rows-[auto_1fr] md:gap-x-10 md:gap-y-8 lg:grid-cols-[360px_1fr] lg:gap-x-16"
     >
-      <div className="flex shrink-0 flex-col gap-6 lg:w-[360px]">
+      <div className="space-y-6 md:col-start-1 md:row-start-1">
         <div className="h-4 w-40 rounded bg-bg-sunken" />
         <div className="space-y-2">
           <div className="h-4 w-full rounded bg-bg-sunken" />
           <div className="h-4 w-11/12 rounded bg-bg-sunken" />
           <div className="h-4 w-2/3 rounded bg-bg-sunken" />
         </div>
-        <div className="mt-4 flex gap-4 lg:mt-auto lg:pt-16">
-          <div className="size-14 rounded-full bg-bg-sunken" />
-          <div className="size-14 rounded-full bg-bg-sunken" />
-        </div>
       </div>
-      <div
-        aria-hidden="true"
-        className="hidden w-px shrink-0 self-stretch bg-[#e6e8e2] lg:block"
-      />
-      <div className="flex min-w-0 flex-1 flex-col gap-6">
-        <div className="size-16 rounded bg-bg-sunken" />
-        <div className="space-y-3">
-          <div className="h-7 w-11/12 max-w-[720px] rounded bg-bg-sunken" />
-          <div className="h-7 w-3/4 max-w-[720px] rounded bg-bg-sunken" />
-        </div>
-        <div className="space-y-2">
+
+      <div className="min-w-0 md:col-start-2 md:row-start-1 md:row-span-2 md:border-l md:border-[#e6e8e2] md:pl-10 lg:pl-16">
+        <div className="size-12 rounded bg-bg-sunken" />
+        <div className="mt-8 space-y-3">
           <div className="h-4 w-full max-w-[720px] rounded bg-bg-sunken" />
-          <div className="h-4 w-5/6 max-w-[720px] rounded bg-bg-sunken" />
+          <div className="h-4 w-full max-w-[720px] rounded bg-bg-sunken" />
+          <div className="h-4 w-4/5 max-w-[720px] rounded bg-bg-sunken" />
         </div>
-        <div className="mt-4 flex items-center gap-4">
+        <div className="mt-8 flex items-center gap-4">
           <div className="size-[52px] rounded-full bg-bg-sunken" />
           <div className="space-y-2">
             <div className="h-4 w-32 rounded bg-bg-sunken" />
             <div className="h-4 w-48 rounded bg-bg-sunken" />
           </div>
         </div>
+      </div>
+
+      <div className="flex gap-4 md:col-start-1 md:row-start-2 md:self-end">
+        <div className="size-12 rounded-full bg-bg-sunken" />
+        <div className="size-12 rounded-full bg-bg-sunken" />
       </div>
     </div>
   );
@@ -93,12 +89,29 @@ function TestimonialsError({ onRetry }: { onRetry: () => void }) {
   );
 }
 
+interface TestimonialsSectionProps {
+  /** Green wash over the brushed-metal backdrop. Defaults to the home band. */
+  overlayClassName?: string;
+  /** The white card holding the carousel. Defaults to the home band. */
+  cardClassName?: string;
+  /** Bullet beside the "My Clients' Stories" eyebrow. */
+  dotClassName?: string;
+}
+
 /**
  * Insights & Testimonials — a single client story on a green-washed brushed-
  * metal band, presented as an autoplaying carousel. Data comes from the backend
  * via {@link useTestimonials}; UI branches on loading / error / empty / data.
+ *
+ * Shared by the home and about pages, which differ only in the wash opacity,
+ * card shadow, and eyebrow dot — passed in rather than forked into a second
+ * component so both stay on one data source.
  */
-export function TestimonialsSection() {
+export function TestimonialsSection({
+  overlayClassName = "bg-[rgba(15,93,70,0.7)]",
+  cardClassName = "shadow-[0_18px_50px_-24px_rgba(15,23,18,0.35)] transition-shadow duration-500 hover:shadow-[0_28px_70px_-24px_rgba(15,23,18,0.45)]",
+  dotClassName,
+}: TestimonialsSectionProps = {}) {
   const { data, isLoading, isError, refetch } = useTestimonials();
   const testimonials = data ?? [];
 
@@ -110,7 +123,12 @@ export function TestimonialsSection() {
   } else if (testimonials.length === 0) {
     content = <TestimonialsEmpty />;
   } else {
-    content = <TestimonialsCarousel testimonials={testimonials} />;
+    content = (
+      <TestimonialsCarousel
+        testimonials={testimonials}
+        dotClassName={dotClassName}
+      />
+    );
   }
 
   return (
@@ -133,11 +151,16 @@ export function TestimonialsSection() {
       />
       <div
         aria-hidden="true"
-        className="absolute inset-0 bg-[rgba(15,93,70,0.7)]"
+        className={cn("absolute inset-0", overlayClassName)}
       />
 
       <Container className="relative">
-        <div className="overflow-hidden rounded-[24px] bg-bg-card p-8 shadow-[0_18px_50px_-24px_rgba(15,23,18,0.35)] transition-shadow duration-500 hover:shadow-[0_28px_70px_-24px_rgba(15,23,18,0.45)] sm:p-12 lg:p-[80px]">
+        <div
+          className={cn(
+            "mx-auto max-w-[1200px] overflow-hidden rounded-[32px] bg-bg-card p-8 sm:p-12 lg:p-16",
+            cardClassName,
+          )}
+        >
           {content}
         </div>
       </Container>

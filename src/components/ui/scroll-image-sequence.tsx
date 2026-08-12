@@ -2,7 +2,9 @@
 
 import Image from "next/image";
 import {
+  createContext,
   useCallback,
+  useContext,
   useEffect,
   useMemo,
   useRef,
@@ -17,6 +19,7 @@ import {
   useScroll,
   useSpring,
   useTransform,
+  type MotionValue,
 } from "framer-motion";
 import { cn } from "@/lib/utils";
 
@@ -34,9 +37,9 @@ import { cn } from "@/lib/utils";
  *    any JavaScript runs. The canvas sits on top and covers it once the
  *    sequence is ready, so the handover is invisible.
  *
- * Memory: frames are retained as *encoded* bitmaps (~60 KB each). The browser
+ * Memory: frames are retained as *encoded* bitmaps (~90 KB each). The browser
  * decodes lazily on `drawImage` and manages its own decoded-image cache, so
- * holding 360 elements costs ~22 MB, not 360 full-size RGBA buffers.
+ * holding 400 elements costs ~38 MB, not 400 full-size RGBA buffers.
  */
 
 export type ScrollImageSequenceProps = {
@@ -119,6 +122,27 @@ const clamp = (value: number, min: number, max: number) =>
   Math.min(max, Math.max(min, value));
 
 const clamp01 = (value: number) => clamp(value, 0, 1);
+
+/**
+ * The sequence's live playhead, as a fractional frame index. Provided to
+ * `children` so overlay content can be keyed to the footage — copy that changes
+ * with the shot, markers that track a moment — without duplicating the scroll
+ * maths or re-rendering on every frame.
+ */
+const FrameContext = createContext<MotionValue<number> | null>(null);
+
+/**
+ * Read the playhead from inside a `ScrollImageSequence`'s children. Drive
+ * styles from it with `useTransform`; reading it in render would not update.
+ * Throws outside a sequence, where there is no frame to track.
+ */
+export function useSequenceFrame(): MotionValue<number> {
+  const frame = useContext(FrameContext);
+  if (!frame) {
+    throw new Error("useSequenceFrame must be used inside a ScrollImageSequence");
+  }
+  return frame;
+}
 
 export function ScrollImageSequence({
   frameCount,
@@ -550,7 +574,9 @@ export function ScrollImageSequence({
           />
         </motion.div>
 
-        {children}
+        <FrameContext.Provider value={frameValue}>
+          {children}
+        </FrameContext.Provider>
 
         {/* Dissolve. Sits above every layer of the sticky hero — media, the
             legibility gradients, the header and the copy — so the whole banner

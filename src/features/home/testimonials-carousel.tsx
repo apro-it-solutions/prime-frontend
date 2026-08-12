@@ -1,20 +1,42 @@
 "use client";
 
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import Image from "next/image";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import useEmblaCarousel from "embla-carousel-react";
-import Autoplay from "embla-carousel-autoplay";
+import Fade from "embla-carousel-fade";
 import type { EmblaCarouselType } from "embla-carousel";
+import { motion, type Variants } from "framer-motion";
 import { cn } from "@/lib/utils";
 import type { Testimonial } from "@/types/testimonials";
+
+/**
+ * Right-panel entrance. The whole slide rises 10px and fades as it becomes the
+ * selected one; children stagger so the review leads and the footer settles last.
+ */
+const slideVariants: Variants = {
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+    transition: { staggerChildren: 0.07, delayChildren: 0.05 },
+  },
+};
+
+const itemVariants: Variants = {
+  hidden: { opacity: 0, y: 10 },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.4, ease: [0.22, 1, 0.36, 1] },
+  },
+};
 
 /** Five-star rating rendered from a numeric score, with an SR-only label. */
 function Stars({ rating }: { rating: number }) {
   const filled = Math.round(rating);
   return (
     <span className="inline-flex items-center leading-none">
-      <span aria-hidden="true">
+      <span aria-hidden="true" className="tracking-[1px]">
         {Array.from({ length: 5 }, (_, i) => (
           <span
             key={i}
@@ -53,34 +75,57 @@ function Avatar({ src, name }: { src?: string; name: string }) {
   );
 }
 
+/** Circular 48px prev/next control. */
+function NavButton({
+  label,
+  onClick,
+  disabled,
+  children,
+}: {
+  label: string;
+  onClick: () => void;
+  disabled: boolean;
+  children: React.ReactNode;
+}) {
+  return (
+    <button
+      type="button"
+      aria-label={label}
+      onClick={onClick}
+      disabled={disabled}
+      className={cn(
+        "inline-flex size-12 shrink-0 items-center justify-center rounded-full bg-bg-sunken text-text-primary",
+        "transition-all duration-300 ease-out",
+        "hover:bg-green-soft hover:text-green-primary",
+        "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-green-accent focus-visible:ring-offset-2",
+        "disabled:pointer-events-none disabled:opacity-40",
+      )}
+    >
+      {children}
+    </button>
+  );
+}
+
 export function TestimonialsCarousel({
   testimonials,
+  dotClassName = "bg-green-accent-light",
 }: {
   testimonials: Testimonial[];
+  /** Bullet beside the "My Clients' Stories" eyebrow. */
+  dotClassName?: string;
 }) {
-  const canLoop = testimonials.length > 1;
-
-  const autoplay = useMemo(
-    () =>
-      Autoplay({
-        delay: 4000,
-        stopOnMouseEnter: true,
-        stopOnInteraction: false,
-      }),
-    [],
-  );
-
-  const [emblaRef, emblaApi] = useEmblaCarousel(
-    {
-      loop: canLoop,
-      align: "start",
-      duration: 30, // ~700–900ms premium ease-out travel
-      containScroll: "trimSnaps",
-    },
-    canLoop ? [autoplay] : [],
-  );
+  // Fade rather than translate: only the right panel's content changes, so the
+  // card never slides sideways. Non-looping so prev/next get real disabled ends.
+  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: false, duration: 25 }, [
+    Fade(),
+  ]);
 
   const [selected, setSelected] = useState(0);
+
+  // One slide per view and no looping, so the ends are a pure function of the
+  // index — no need to mirror Embla's canScrollPrev/Next into state.
+  const canPrev = selected > 0;
+  const canNext = selected < testimonials.length - 1;
 
   const onSelect = useCallback((api: EmblaCarouselType) => {
     setSelected(api.selectedScrollSnap());
@@ -97,10 +142,6 @@ export function TestimonialsCarousel({
 
   const scrollPrev = useCallback(() => emblaApi?.scrollPrev(), [emblaApi]);
   const scrollNext = useCallback(() => emblaApi?.scrollNext(), [emblaApi]);
-  const scrollTo = useCallback(
-    (i: number) => emblaApi?.scrollTo(i),
-    [emblaApi],
-  );
 
   const onKeyDown = useCallback(
     (e: React.KeyboardEvent) => {
@@ -121,14 +162,19 @@ export function TestimonialsCarousel({
       aria-roledescription="carousel"
       aria-label="Client testimonials"
       onKeyDown={onKeyDown}
-      className="flex flex-col gap-10 lg:flex-row lg:gap-[100px]"
+      className={cn(
+        "grid gap-10",
+        // Tablet splits 40/60; desktop pins the static column to a fixed width.
+        "md:grid-cols-[40fr_60fr] md:grid-rows-[auto_1fr] md:gap-x-10 md:gap-y-8",
+        "lg:grid-cols-[360px_1fr] lg:gap-x-16",
+      )}
     >
-      {/* Intro + controls */}
-      <div className="flex shrink-0 flex-col lg:w-[360px]">
+      {/* Intro — static, never re-renders between slides */}
+      <div className="md:col-start-1 md:row-start-1">
         <div className="flex items-center gap-2.5">
           <span
             aria-hidden="true"
-            className="size-2.5 rounded-full bg-green-accent-light"
+            className={cn("size-2.5 rounded-full", dotClassName)}
           />
           <p className="text-base leading-[1.5] text-text-primary">
             My Clients&apos; Stories
@@ -138,84 +184,46 @@ export function TestimonialsCarousel({
           Here&apos;s what people have to say about working with PrimeNMS. Real
           projects, real structures, real results.
         </p>
-
-        {canLoop && (
-          <div className="mt-10 flex items-center gap-4 lg:mt-auto lg:pt-16">
-            <button
-              type="button"
-              aria-label="Previous testimonial"
-              onClick={scrollPrev}
-              className="inline-flex size-14 shrink-0 items-center justify-center rounded-full border border-border text-text-primary transition-colors hover:bg-bg-sunken focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-green-accent focus-visible:ring-offset-2"
-            >
-              <ArrowLeft className="size-5" aria-hidden="true" />
-            </button>
-            <button
-              type="button"
-              aria-label="Next testimonial"
-              onClick={scrollNext}
-              className="inline-flex size-14 shrink-0 items-center justify-center rounded-full bg-bg-sunken text-text-primary transition-colors hover:bg-green-soft focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-green-accent focus-visible:ring-offset-2"
-            >
-              <ArrowRight className="size-5" aria-hidden="true" />
-            </button>
-
-            {/* Pagination dots */}
-            <div className="ml-2 flex items-center gap-2">
-              {testimonials.map((t, i) => (
-                <button
-                  key={t._id}
-                  type="button"
-                  aria-label={`Go to testimonial ${i + 1}`}
-                  aria-current={selected === i}
-                  onClick={() => scrollTo(i)}
-                  className={cn(
-                    "h-2 rounded-full transition-all duration-300 ease-out",
-                    selected === i
-                      ? "w-6 bg-green-accent"
-                      : "w-2 bg-text-secondary/30 hover:bg-text-secondary/50",
-                  )}
-                />
-              ))}
-            </div>
-          </div>
-        )}
       </div>
 
-      {/* Divider */}
+      {/* Slides — the only part that changes */}
       <div
-        aria-hidden="true"
-        className="hidden w-px shrink-0 self-stretch bg-[#e6e8e2] lg:block"
-      />
-
-      {/* Quote carousel */}
-      <div className="flex min-w-0 flex-1 flex-col">
+        className={cn(
+          "min-w-0",
+          "md:col-start-2 md:row-start-1 md:row-span-2",
+          "md:border-l md:border-[#e6e8e2] md:pl-10 lg:pl-16",
+        )}
+      >
         <span
           aria-hidden="true"
-          className="font-display text-[112px] font-bold leading-[0.6] tracking-[-2.24px] text-[#d6dad3]"
+          className="block font-display text-[80px] font-bold leading-[0.6] tracking-[-1.6px] text-[#d6dad3]"
         >
           &rdquo;
         </span>
 
-        <div ref={emblaRef} className="mt-2 overflow-hidden">
+        <div ref={emblaRef} className="mt-8 overflow-hidden">
           <div className="flex touch-pan-y">
             {testimonials.map((t, i) => (
-              <figure
+              <motion.figure
                 key={t._id}
                 role="group"
                 aria-roledescription="slide"
                 aria-label={`Testimonial ${i + 1} of ${testimonials.length}`}
+                variants={slideVariants}
+                initial="hidden"
+                animate={selected === i ? "show" : "hidden"}
                 className="min-w-0 shrink-0 grow-0 basis-full"
               >
-                <blockquote>
-                  <p className="max-w-[720px] font-body text-2xl font-medium leading-[1.15] tracking-[-0.32px] text-text-primary sm:text-[32px]">
-                    {t.quote}
-                  </p>
-                </blockquote>
-                {t.review && (
-                  <p className="mt-6 max-w-[720px] font-body text-lg leading-[1.65] text-text-secondary">
+                <motion.blockquote variants={itemVariants}>
+                  <p className="max-w-[720px] font-body text-base leading-[1.65] text-text-secondary lg:text-lg">
                     {t.review}
                   </p>
-                )}
-                <figcaption className="mt-8 flex items-center gap-4">
+                </motion.blockquote>
+
+                <motion.figcaption
+                  variants={itemVariants}
+                  className="mt-8 flex items-center gap-4"
+                >
                   <Avatar src={t.avatar} name={t.name} />
                   <div className="flex flex-col gap-1 text-base leading-[1.5]">
                     <div className="flex items-center gap-2">
@@ -230,11 +238,31 @@ export function TestimonialsCarousel({
                       {t.company ? `, ${t.company}` : ""}
                     </span>
                   </div>
-                </figcaption>
-              </figure>
+                </motion.figcaption>
+              </motion.figure>
             ))}
           </div>
         </div>
+      </div>
+
+      {/* Navigation — bottom of the static column on md+, below content on mobile.
+          Always rendered so the layout is stable; both ends simply sit disabled
+          when there is a single testimonial. */}
+      <div className="flex items-center gap-4 md:col-start-1 md:row-start-2 md:self-end">
+        <NavButton
+          label="Previous testimonial"
+          onClick={scrollPrev}
+          disabled={!canPrev}
+        >
+          <ArrowLeft className="size-5" aria-hidden="true" />
+        </NavButton>
+        <NavButton
+          label="Next testimonial"
+          onClick={scrollNext}
+          disabled={!canNext}
+        >
+          <ArrowRight className="size-5" aria-hidden="true" />
+        </NavButton>
       </div>
     </div>
   );

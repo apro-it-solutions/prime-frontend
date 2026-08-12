@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { AboutHero } from "@/features/about/about-hero";
 import { OurStory } from "@/features/about/our-story";
 import { VisionMission } from "@/features/about/vision-mission";
-import { Testimonials } from "@/features/about/testimonials";
+import { TestimonialsSection } from "@/features/home/testimonials-section";
 import { ValuesSection } from "@/features/about/values-section";
 import { AboutLeadership } from "@/features/about/about-leadership";
 import { AboutCta } from "@/features/about/about-cta";
@@ -27,7 +27,13 @@ export default function AboutPage() {
         <AboutHero />
         <OurStory />
         <VisionMission />
-        <Testimonials />
+        {/* Same backend-driven section as the home page, with the about band's
+            lighter wash, flat card, and solid accent dot. */}
+        <TestimonialsSection
+          overlayClassName="bg-[rgba(15,93,70,0.43)]"
+          cardClassName=""
+          dotClassName="bg-green-accent"
+        />
         <ValuesSection />
         <AboutLeadership />
         <AboutCta />

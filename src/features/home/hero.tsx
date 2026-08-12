@@ -1,14 +1,13 @@
 import { SiteHeader } from "@/components/layout/site-header";
 import { Container } from "@/components/layout/container";
-import { PillButton } from "@/components/ui/pill-button";
 import { ScrollImageSequence } from "@/components/ui/scroll-image-sequence";
-import { HeroStats } from "./hero-stats";
+import { HeroCopy } from "./hero-copy";
 
-/** `/public/banner-sequence/hero_00000.webp` … `hero_00359.webp` */
-const HERO_FRAME_COUNT = 360;
+/** `/public/banner-sequence/hero_00000.webp` … `hero_00623.webp` */
+const HERO_FRAME_COUNT = 624;
 
 /**
- * 01 — Hero. The aerial background is a scroll-driven 360-frame sequence: the
+ * 01 — Hero. The aerial background is a scroll-driven 624-frame sequence: the
  * banner pins for a 300vh runway while scrolling scrubs the footage, then
  * releases into the next section. Copy and header ride along on the sticky
  * layer.
@@ -37,24 +36,14 @@ export function Hero() {
 
       <SiteHeader />
 
-      <Container className="relative z-20 flex h-full flex-col justify-end pb-16 pt-40 lg:pb-[13%]">
-        <div className="flex flex-col gap-12 lg:flex-row lg:items-end lg:justify-between lg:gap-8">
-          {/* Headline */}
-          <div className="max-w-[864px]">
-            <p className="font-display text-lg leading-[1.65] text-white sm:text-xl">
-              PRE-ENGINEERED · GALVANIZED · BUILT TO LAST
-            </p>
-            <h1 className="mt-3 font-display text-[2.75rem] font-semibold leading-[1.15] tracking-[-0.72px] text-white sm:text-6xl lg:text-[72px]">
-              We Don&apos;t Follow the Future. We Build It.
-            </h1>
-            <div className="mt-6">
-              <PillButton label="Explore Our Services" href="/services" />
-            </div>
-          </div>
-
-          {/* Stats */}
-          <HeroStats className="shrink-0" />
-        </div>
+      {/* The copy layer fills the banner so each text group can anchor itself —
+          bottom-left, or centred against the right edge. The padding here is
+          what keeps every group clear of the edges, and `pt-40` reserves the
+          band the header floats over. Fixed spacing rather than a percentage:
+          a percentage padding resolves against the container's *width*, so the
+          copy would sit at a different height on every viewport. */}
+      <Container className="relative z-20 h-full pb-16 pt-40 lg:pb-24">
+        <HeroCopy className="relative h-full" />
       </Container>
     </ScrollImageSequence>
   );
