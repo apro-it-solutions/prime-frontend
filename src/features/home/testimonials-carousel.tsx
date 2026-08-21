@@ -181,7 +181,7 @@ export function TestimonialsCarousel({
           </p>
         </div>
         <p className="mt-6 max-w-[360px] text-base leading-[1.5] text-text-primary">
-          Here&apos;s what people have to say about working with PrimeNMS. Real
+          Here&apos;s what people have to say about working with Prime NMS. Real
           projects, real structures, real results.
         </p>
       </div>

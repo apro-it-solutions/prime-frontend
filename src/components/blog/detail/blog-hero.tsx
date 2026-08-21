@@ -1,8 +1,8 @@
-import Image from "next/image";
 import { Container } from "@/components/layout/container";
 import type { Blog } from "@/types/blog";
 import { BlogMeta } from "./blog-meta";
 import { BlogAuthor } from "./blog-author";
+import { ImageWithFallback } from "@/components/ui/image-with-fallback";
 
 /**
  * Blog Detail hero (Figma 258:159 → 258:168): breadcrumb + category badge,
@@ -30,14 +30,16 @@ export function BlogHero({ blog }: { blog: Blog }) {
         </div>
 
         <div className="relative mt-8 aspect-[16/10] w-full overflow-hidden rounded-[24px] bg-bg-sunken sm:aspect-[2/1] lg:mt-5 lg:aspect-[40/13]">
-          <Image
-            src={blog.featuredImage}
-            alt={blog.title}
-            fill
-            priority
-            sizes="(max-width: 1024px) 100vw, 1600px"
-            className="object-cover"
-          />
+          {blog.featuredImage && (
+            <ImageWithFallback
+              src={blog.featuredImage}
+              alt={blog.title}
+              fill
+              priority
+              sizes="(max-width: 1024px) 100vw, 1600px"
+              className="object-cover"
+            />
+          )}
         </div>
       </Container>
     </section>

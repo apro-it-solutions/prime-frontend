@@ -24,41 +24,47 @@ type ContainerCustom = { delay: number; stagger: number };
 /** Travel for the `up` preset. Small enough to stay inside a section's padding. */
 const RISE = 32;
 
+/**
+ * Every `show` takes its duration from the element's `custom`, so a caller can
+ * pace one reveal differently without a second set of variants. Callers always
+ * pass an explicit number: an unset `custom` falls through to the *parent's*,
+ * which here is the container's `{delay, stagger}` object.
+ */
 const itemVariants: Record<RevealPreset, Variants> = {
   left: {
     hidden: { opacity: 0, x: -80 },
-    show: {
+    show: (duration: number = DURATION) => ({
       opacity: 1,
       x: 0,
-      transition: { duration: DURATION, ease: EASE_OUT },
-    },
+      transition: { duration, ease: EASE_OUT },
+    }),
   },
   // Pure fade + rise, no direction and no scale. Paired with `stagger={0}` it
   // lets a whole group resolve as a single movement rather than a sequence.
   up: {
     hidden: { opacity: 0, y: RISE },
-    show: {
+    show: (duration: number = DURATION) => ({
       opacity: 1,
       y: 0,
-      transition: { duration: DURATION, ease: EASE_OUT },
-    },
+      transition: { duration, ease: EASE_OUT },
+    }),
   },
   image: {
     hidden: { opacity: 0, y: 80, scale: 0.96 },
-    show: {
+    show: (duration: number = DURATION) => ({
       opacity: 1,
       y: 0,
       scale: 1,
-      transition: { duration: DURATION, ease: EASE_OUT },
-    },
+      transition: { duration, ease: EASE_OUT },
+    }),
   },
   right: {
     hidden: { opacity: 0, x: 80 },
-    show: {
+    show: (duration: number = DURATION) => ({
       opacity: 1,
       x: 0,
-      transition: { duration: DURATION, ease: EASE_OUT },
-    },
+      transition: { duration, ease: EASE_OUT },
+    }),
   },
 };
 
@@ -147,6 +153,8 @@ interface RevealItemProps {
    * case — and the block travels as one piece instead.
    */
   stagger?: number;
+  /** Seconds the travel takes. Defaults to the shared premium duration. */
+  duration?: number;
   className?: string;
 }
 
@@ -163,6 +171,7 @@ export function RevealItem({
   preset,
   children,
   stagger,
+  duration = DURATION,
   className,
 }: RevealItemProps) {
   const shouldReduceMotion = useReducedMotion();
@@ -182,7 +191,11 @@ export function RevealItem({
   }
 
   return (
-    <motion.div className={className} variants={itemVariants[preset]}>
+    <motion.div
+      className={className}
+      variants={itemVariants[preset]}
+      custom={duration}
+    >
       {children}
     </motion.div>
   );
@@ -207,7 +220,13 @@ export function RevealChild({
   }
 
   return (
-    <motion.div className={className} variants={itemVariants[preset]}>
+    <motion.div
+      className={className}
+      variants={itemVariants[preset]}
+      // Explicit, so it never inherits the enclosing block's `custom` — which
+      // in staggered mode is the stagger, not a duration.
+      custom={DURATION}
+    >
       {children}
     </motion.div>
   );

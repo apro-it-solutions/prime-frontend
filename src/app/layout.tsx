@@ -4,7 +4,7 @@ import { fontVariables } from "@/lib/fonts";
 import { Providers } from "./providers";
 
 export const metadata: Metadata = {
-  title: "prime NMS — The Galvanized Building Specialist",
+  title: "Prime NMS — The Galvanized Building Specialist",
   description:
     "Pre-engineered, galvanized, built to last. prime delivers durable steel buildings across India — 500+ projects and 6,000T annual production capacity.",
   keywords: [
@@ -12,10 +12,10 @@ export const metadata: Metadata = {
     "galvanized steel",
     "PEB",
     "industrial buildings",
-    "prime NMS",
+    "Prime NMS",
   ],
   openGraph: {
-    title: "prime NMS — The Galvanized Building Specialist",
+    title: "Prime NMS — The Galvanized Building Specialist",
     description:
       "We Don't Follow the Future. We Build It. Pre-engineered, galvanized, built to last.",
     type: "website",

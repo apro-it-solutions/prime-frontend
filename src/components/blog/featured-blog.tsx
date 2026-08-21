@@ -1,7 +1,7 @@
-import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import type { Blog } from "@/types/blog";
+import { ImageWithFallback } from "@/components/ui/image-with-fallback";
 
 /** Formats an ISO date as "March 2026". */
 function formatMonthYear(iso: string): string {
@@ -21,15 +21,17 @@ export function FeaturedBlog({ blog }: { blog: Blog }) {
       href={`/blog/${blog.slug}`}
       className="group flex flex-col overflow-hidden rounded-[28px] bg-bg-card shadow-[0px_12px_32px_0px_rgba(15,23,18,0.08)] transition-shadow duration-300 hover:shadow-[0px_18px_44px_0px_rgba(15,23,18,0.14)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-green-accent focus-visible:ring-offset-2 lg:flex-row lg:items-stretch"
     >
-      <div className="relative aspect-[760/460] w-full shrink-0 overflow-hidden lg:aspect-auto lg:w-[760px]">
-        <Image
-          src={blog.featuredImage}
-          alt={blog.title}
-          fill
-          priority
-          sizes="(max-width: 1024px) 100vw, 760px"
-          className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
-        />
+      <div className="relative aspect-[760/460] w-full shrink-0 overflow-hidden bg-bg-sunken lg:aspect-auto lg:w-[760px]">
+        {blog.featuredImage && (
+          <ImageWithFallback
+            src={blog.featuredImage}
+            alt={blog.title}
+            fill
+            priority
+            sizes="(max-width: 1024px) 100vw, 760px"
+            className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+          />
+        )}
       </div>
 
       <div className="flex flex-1 flex-col justify-center gap-5 p-8 sm:p-12 lg:p-14">

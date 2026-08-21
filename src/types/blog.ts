@@ -21,7 +21,11 @@ export interface Blog {
   excerpt: string;
   /** HTML string. */
   content: string;
-  featuredImage: string;
+  /**
+   * Cover image. Optional because the service drops URLs it cannot resolve to
+   * the configured backend origin — see `backendImageUrl`.
+   */
+  featuredImage?: string;
   gallery: string[];
   category: BlogCategoryRef;
   tags: string[];

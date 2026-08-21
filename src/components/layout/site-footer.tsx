@@ -18,7 +18,7 @@ const FOOTER_COLUMNS: FooterColumn[] = [
   {
     title: "Location",
     links: [
-      { label: "PrimeNMS Private Limited", href: "/contact" },
+      { label: "Prime NMS Private Limited", href: "/contact" },
       { label: "Kerala, India", href: "/contact" },
     ],
   },
@@ -81,7 +81,7 @@ export function SiteFooter() {
         <hr className="mt-14 border-white/15" />
 
         <div className="mt-6 flex flex-col gap-2 text-base leading-[1.5] text-white/60 sm:flex-row sm:items-center sm:justify-between">
-          <p>© 2026 PrimeNMS Private Limited. All rights reserved.</p>
+          <p>© 2026 Prime NMS Private Limited. All rights reserved.</p>
           <p>
             Crafted by{" "}
             <a

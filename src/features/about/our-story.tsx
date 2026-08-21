@@ -15,7 +15,7 @@ export function OurStory() {
             </h2>
             <div className="flex max-w-[620px] flex-col gap-[60px] font-body text-lg leading-[1.65] text-text-secondary">
               <p>
-                PrimeNMS Private Limited was formed to combine two proven
+                Prime NMS Private Limited was formed to combine two proven
                 strengths — New Malayalam Steel&apos;s material and manufacturing
                 scale, and Prime Group&apos;s engineering and project-execution
                 expertise.
@@ -31,7 +31,7 @@ export function OurStory() {
 
           <Image
             src={primeLogo}
-            alt="PrimeNMS — The Steel Building Specialist"
+            alt="Prime NMS — The Steel Building Specialist"
             className="h-auto w-[280px] shrink-0 lg:w-[390px]"
             sizes="390px"
           />

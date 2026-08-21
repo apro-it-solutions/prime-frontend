@@ -25,12 +25,12 @@ export async function generateMetadata({
 
   if (!service) {
     return {
-      title: "Service not found — PrimeNMS",
+      title: "Service not found — Prime NMS",
       robots: { index: false, follow: false },
     };
   }
 
-  const title = `${service.title} — PrimeNMS`;
+  const title = `${service.title} — Prime NMS`;
   const url = `${SITE_URL}/services/${service.slug}`;
 
   return {

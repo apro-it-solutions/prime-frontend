@@ -13,7 +13,7 @@ const STATS: ServiceStat[] = [
   { value: "12", label: "States served" },
 ];
 
-/** 02 — Why Choose PrimeNMS. */
+/** 02 — Why Choose Prime NMS. */
 export function WhyChooseUs() {
   return (
     <section className="bg-bg-base py-20 lg:py-[90px]">
@@ -34,7 +34,7 @@ export function WhyChooseUs() {
           <div className="relative aspect-[760/380] w-full shrink-0 overflow-hidden rounded-[24px] lg:aspect-auto lg:h-[380px] lg:w-[760px]">
             <Image
               src={facility}
-              alt="PrimeNMS facility and engineering team on site"
+              alt="Prime NMS facility and engineering team on site"
               fill
               sizes="(max-width: 1024px) 100vw, 760px"
               className="object-cover"

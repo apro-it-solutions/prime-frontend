@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { Container } from "@/components/layout/container";
 import { SectionEyebrow } from "@/components/services/section-eyebrow";
-import { BlurRevealHeading } from "@/components/ui/blur-reveal-heading";
+import { FadeHeading } from "@/components/ui/fade-heading";
 import { RevealRow, RevealItem } from "@/components/ui/reveal-row";
 import { ServiceFeatureCard } from "./service-feature-card";
 import type { ServiceFeature, ServiceImage } from "../services-data";
@@ -36,9 +36,9 @@ export function ServiceOverview({
           variant="plain"
           className="text-green-accent"
         />
-        <BlurRevealHeading
+        <FadeHeading
           text={heading}
-          className="mt-3.5 max-w-[735px] font-heading text-[34px] font-semibold leading-[1.15] tracking-[-0.56px] text-text-primary sm:text-[44px] lg:text-[56px]"
+          className="mt-3.5 max-w-[735px] whitespace-pre-line font-heading text-[34px] font-semibold leading-[1.15] tracking-[-0.56px] text-text-primary sm:text-[44px] lg:text-[56px]"
         />
 
         <RevealRow className="mt-8 grid gap-6 lg:mt-[30px] lg:grid-cols-[620fr_1076fr] lg:items-stretch">

@@ -96,7 +96,7 @@ export function ExperienceSection() {
             </RevealChild>
             <RevealChild className="mt-4">
               <p className="text-base leading-[1.5] text-text-secondary">
-                At PrimeNMS, we combine steel manufacturing strength with
+                At Prime NMS, we combine steel manufacturing strength with
                 engineering precision to deliver durable, on-time galvanized
                 buildings.
               </p>

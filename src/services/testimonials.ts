@@ -1,4 +1,5 @@
 import axios from "axios";
+import { backendImageUrl } from "@/lib/backend-image";
 import type {
   TestimonialListResponse,
   TestimonialQuery,
@@ -32,5 +33,15 @@ export async function getTestimonials(
       },
     },
   );
-  return data;
+
+  // Avatars come back with the origin the row was written against, which is not
+  // necessarily this one. Corrected here so no component ever sees a host
+  // `next/image` would reject.
+  return {
+    ...data,
+    data: data.data.map((testimonial) => ({
+      ...testimonial,
+      avatar: backendImageUrl(testimonial.avatar),
+    })),
+  };
 }

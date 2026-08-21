@@ -5,7 +5,7 @@ import { Plus } from "lucide-react";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { Container } from "@/components/layout/container";
 import { SectionEyebrow } from "@/components/services/section-eyebrow";
-import { BlurRevealHeading } from "@/components/ui/blur-reveal-heading";
+import { FadeHeading } from "@/components/ui/fade-heading";
 import { cn } from "@/lib/utils";
 import type { ServiceFaqItem } from "../services-data";
 
@@ -38,9 +38,9 @@ export function ServiceFaq({ faq }: { faq: ServiceFaqItem[] }) {
               variant="plain"
               className="text-green-accent"
             />
-            <BlurRevealHeading
+            <FadeHeading
               text={"Questions we\nget asked."}
-              className="mt-3.5 font-heading text-[28px] font-semibold leading-[1.18] tracking-[-0.2px] text-text-primary sm:text-[34px] lg:text-[40px]"
+              className="mt-3.5 whitespace-pre-line font-heading text-[28px] font-semibold leading-[1.18] tracking-[-0.2px] text-text-primary sm:text-[34px] lg:text-[40px]"
             />
           </div>
 

@@ -205,7 +205,7 @@ export const SERVICES: ServiceDetail[] = [
         title: "Manufacturing Facilities",
         heroImage: {
           src: projectPrime,
-          alt: "Manufacturing facility built by PrimeNMS",
+          alt: "Manufacturing facility built by Prime NMS",
         },
         content: {
           overview: {
@@ -265,7 +265,7 @@ export const SERVICES: ServiceDetail[] = [
         title: "Warehouse Buildings",
         heroImage: {
           src: projectGreenfield,
-          alt: "Warehouse building constructed by PrimeNMS",
+          alt: "Warehouse building constructed by Prime NMS",
         },
         content: {
           overview: {
@@ -325,7 +325,7 @@ export const SERVICES: ServiceDetail[] = [
         title: "Cold Storage",
         heroImage: {
           src: projectHighland,
-          alt: "Cold storage facility built by PrimeNMS",
+          alt: "Cold storage facility built by Prime NMS",
         },
         content: {
           overview: {
@@ -385,7 +385,7 @@ export const SERVICES: ServiceDetail[] = [
         title: "Logistics Centers",
         heroImage: {
           src: projectMetro,
-          alt: "Logistics and distribution centre built by PrimeNMS",
+          alt: "Logistics and distribution centre built by Prime NMS",
         },
         content: {
           overview: {
@@ -445,7 +445,7 @@ export const SERVICES: ServiceDetail[] = [
         title: "Aircraft Hangars",
         heroImage: {
           src: projectFeatured,
-          alt: "Large-span steel hangar structure built by PrimeNMS",
+          alt: "Large-span steel hangar structure built by Prime NMS",
         },
         content: {
           overview: {
@@ -534,7 +534,7 @@ export const SERVICES: ServiceDetail[] = [
       body: "Send us your span, bay spacing and site location — we'll engineer and quote the right frame.",
       image: {
         src: ctaBuilding,
-        alt: "Completed PrimeNMS pre-engineered steel building",
+        alt: "Completed Prime NMS pre-engineered steel building",
       },
     },
     metaDescription:
@@ -1583,7 +1583,7 @@ export const SERVICES: ServiceDetail[] = [
         title: "Chiller Rooms",
         heroImage: {
           src: projectHighland,
-          alt: "Chilled storage facility built by PrimeNMS",
+          alt: "Chilled storage facility built by Prime NMS",
         },
         content: {
           overview: {
@@ -1643,7 +1643,7 @@ export const SERVICES: ServiceDetail[] = [
         title: "Blast Freezers",
         heroImage: {
           src: projectCoastal,
-          alt: "Blast freezing facility built by PrimeNMS",
+          alt: "Blast freezing facility built by Prime NMS",
         },
         content: {
           overview: {
@@ -2065,7 +2065,7 @@ export const SERVICES: ServiceDetail[] = [
         title: "Bespoke Components",
         heroImage: {
           src: whyFacility,
-          alt: "PrimeNMS fabrication floor",
+          alt: "Prime NMS fabrication floor",
         },
         content: {
           overview: {
@@ -2123,7 +2123,7 @@ export const SERVICES: ServiceDetail[] = [
     ],
     gallery: [
       { src: fabricationImg, alt: "Fabricated steel components" },
-      { src: whyFacility, alt: "PrimeNMS manufacturing facility" },
+      { src: whyFacility, alt: "Prime NMS manufacturing facility" },
       { src: projectPrime, alt: "Prime manufacturing plant" },
       { src: featuredFacility, alt: "Fabrication floor" },
     ],

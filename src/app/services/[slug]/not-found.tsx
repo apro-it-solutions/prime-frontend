@@ -18,7 +18,7 @@ export default function ServiceNotFound() {
       </h1>
       <p className="mt-5 max-w-[520px] font-body text-lg leading-[1.65] text-text-secondary">
         The page you&apos;re looking for may have been moved or renamed. Browse
-        everything PrimeNMS manufactures instead.
+        everything Prime NMS manufactures instead.
       </p>
 
       <div className="mt-9 flex flex-wrap items-center justify-center gap-4">

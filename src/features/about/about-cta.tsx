@@ -14,7 +14,7 @@ export function AboutCta() {
             <div className="relative h-64 w-full shrink-0 sm:h-80 lg:h-[633px] lg:w-[800px]">
               <Image
                 src={ctaBuilding}
-                alt="Aerial view of a completed PrimeNMS building project"
+                alt="Aerial view of a completed Prime NMS building project"
                 fill
                 sizes="(max-width: 1024px) 100vw, 800px"
                 className="object-cover"
@@ -26,7 +26,7 @@ export function AboutCta() {
               <h2 className="font-body text-3xl font-medium leading-[1.15] tracking-[-0.32px] text-white lg:text-[32px]">
                 Start Your Project
                 <br />
-                With PrimeNMS
+                With Prime NMS
               </h2>
               <p className="max-w-[560px] font-body text-base leading-[1.5] text-white/75">
                 Send us your building requirements and our team will prepare a

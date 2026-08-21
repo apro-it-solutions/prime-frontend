@@ -14,7 +14,7 @@ export function ProjectsCta() {
             <div className="relative h-64 w-full shrink-0 sm:h-80 lg:h-[538px] lg:w-[800px]">
               <Image
                 src={ctaBuilding}
-                alt="Aerial view of a completed PrimeNMS building project"
+                alt="Aerial view of a completed Prime NMS building project"
                 fill
                 sizes="(max-width: 1024px) 100vw, 800px"
                 className="object-cover"

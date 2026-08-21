@@ -2,7 +2,7 @@ import Image from "next/image";
 import { Container } from "@/components/layout/container";
 import { PillButton } from "@/components/ui/pill-button";
 import { GhostPill } from "@/components/ui/ghost-pill";
-import { BlurRevealHeading } from "@/components/ui/blur-reveal-heading";
+import { FadeHeading } from "@/components/ui/fade-heading";
 import { RevealRow, RevealItem } from "@/components/ui/reveal-row";
 import { ServiceBreadcrumb } from "./service-breadcrumb";
 import type { ServiceDetail } from "../services-data";
@@ -26,10 +26,10 @@ export function ServiceDetailHero({ service }: { service: ServiceDetail }) {
         <div className="grid gap-10 lg:grid-cols-[36fr_56fr] lg:items-end lg:gap-x-16 xl:gap-x-24">
           {/* Headline, lead and CTAs */}
           <div className="max-w-[564px]">
-            <BlurRevealHeading
+            <FadeHeading
               as="h1"
               text={service.heroTitle}
-              className="font-display text-[40px] font-bold leading-[1.05] tracking-[-0.02em] text-text-primary sm:text-[64px] lg:text-[80px] xl:text-[96px]"
+              className="whitespace-pre-line font-display text-[32px] font-bold leading-[1.05] tracking-[-0.02em] text-text-primary sm:text-[44px] lg:text-[56px]"
             />
             <p className="mt-8 font-body text-lg leading-[1.65] text-text-secondary lg:mt-10 lg:text-xl">
               {service.description}

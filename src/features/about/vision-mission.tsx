@@ -83,7 +83,7 @@ export function VisionMission() {
             </h2>
             <p className="mt-6 max-w-[520px] font-body text-lg leading-[1.65] text-text-secondary">
               Two commitments guide every structure we manufacture — a clear
-              mission for how we build today, and a vision for where PrimeNMS is
+              mission for how we build today, and a vision for where Prime NMS is
               headed.
             </p>
             <div className="mt-8 h-1 w-14 rounded-full bg-green-accent-light" />

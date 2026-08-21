@@ -1,6 +1,6 @@
 import { Container } from "@/components/layout/container";
 import { SectionEyebrow } from "@/components/services/section-eyebrow";
-import { BlurRevealHeading } from "@/components/ui/blur-reveal-heading";
+import { FadeHeading } from "@/components/ui/fade-heading";
 import { RevealRow, RevealItem } from "@/components/ui/reveal-row";
 import type { ServiceSpec } from "../services-data";
 
@@ -30,9 +30,9 @@ export function ServiceSpecs({
               variant="plain"
               className="text-green-accent"
             />
-            <BlurRevealHeading
+            <FadeHeading
               text={heading}
-              className="mt-3.5 font-heading text-[28px] font-semibold leading-[1.18] tracking-[-0.2px] text-text-primary sm:text-[34px] lg:text-[40px]"
+              className="mt-3.5 whitespace-pre-line font-heading text-[28px] font-semibold leading-[1.18] tracking-[-0.2px] text-text-primary sm:text-[34px] lg:text-[40px]"
             />
           </div>
           <p className="max-w-[480px] font-body text-base leading-[1.5] text-text-secondary lg:pt-[34px] lg:text-right">

@@ -13,7 +13,7 @@ const CONTACT_DETAILS: ContactDetail[] = [
   {
     icon: MapPin,
     label: "Factory",
-    lines: ["PrimeNMS Private Limited,", "[Industrial Area], Kerala, India"],
+    lines: ["Prime NMS Private Limited,", "[Industrial Area], Kerala, India"],
   },
   {
     icon: Phone,

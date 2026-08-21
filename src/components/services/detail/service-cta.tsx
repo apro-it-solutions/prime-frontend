@@ -2,7 +2,7 @@ import Image from "next/image";
 import { Container } from "@/components/layout/container";
 import { PillButton } from "@/components/ui/pill-button";
 import { GhostPill } from "@/components/ui/ghost-pill";
-import { BlurRevealHeading } from "@/components/ui/blur-reveal-heading";
+import { FadeHeading } from "@/components/ui/fade-heading";
 import { RevealRow, RevealItem } from "@/components/ui/reveal-row";
 import type { ServiceDetail } from "../services-data";
 
@@ -33,9 +33,9 @@ export function ServiceCta({ service }: { service: ServiceDetail }) {
             <p className="font-body text-[13px] font-medium uppercase leading-[1.2] tracking-[1.2px] text-white/80">
               Ready when you are
             </p>
-            <BlurRevealHeading
+            <FadeHeading
               text={service.cta.heading}
-              className="mt-4 max-w-[560px] font-heading text-[28px] font-semibold leading-[1.15] tracking-[-0.44px] text-white sm:text-[36px] lg:text-[44px]"
+              className="mt-4 max-w-[560px] whitespace-pre-line font-heading text-[28px] font-semibold leading-[1.15] tracking-[-0.44px] text-white sm:text-[36px] lg:text-[44px]"
             />
             <p className="mt-6 max-w-[560px] font-body text-base leading-[1.6] text-white/85 lg:text-[17px]">
               {service.cta.body}

@@ -7,13 +7,14 @@ import { ValuesSection } from "@/features/about/values-section";
 import { AboutLeadership } from "@/features/about/about-leadership";
 import { AboutCta } from "@/features/about/about-cta";
 import { SiteFooter } from "@/components/layout/site-footer";
+import { PageFadeUp } from "@/components/ui/page-fade-up";
 
 export const metadata: Metadata = {
-  title: "About — PrimeNMS | The Galvanized Building Specialist",
+  title: "About — Prime NMS | The Galvanized Building Specialist",
   description:
-    "PrimeNMS is a joint venture of New Malayalam Steel and Prime Group, manufacturing durable galvanized pre-engineered buildings from a single facility in Kerala, delivered on time across India.",
+    "Prime NMS is a joint venture of New Malayalam Steel and Prime Group, manufacturing durable galvanized pre-engineered buildings from a single facility in Kerala, delivered on time across India.",
   openGraph: {
-    title: "About PrimeNMS",
+    title: "About Prime NMS",
     description:
       "Building India's future, one structure at a time. A joint venture of steel and engineering.",
     type: "website",
@@ -23,7 +24,7 @@ export const metadata: Metadata = {
 export default function AboutPage() {
   return (
     <>
-      <main className="flex-1">
+      <PageFadeUp className="flex-1">
         <AboutHero />
         <OurStory />
         <VisionMission />
@@ -37,7 +38,7 @@ export default function AboutPage() {
         <ValuesSection />
         <AboutLeadership />
         <AboutCta />
-      </main>
+      </PageFadeUp>
       <SiteFooter />
     </>
   );

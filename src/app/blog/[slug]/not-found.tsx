@@ -20,7 +20,7 @@ export default function BlogNotFound() {
           </h1>
           <p className="mt-5 max-w-[520px] font-body text-lg leading-[1.65] text-text-secondary">
             The blog post you&apos;re looking for may have been moved or removed.
-            Browse the latest stories from the PrimeNMS Journal instead.
+            Browse the latest stories from the Prime NMS Journal instead.
           </p>
 
           <div className="mt-9 flex flex-wrap items-center justify-center gap-4">

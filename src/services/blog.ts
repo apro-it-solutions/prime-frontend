@@ -1,4 +1,5 @@
 import axios from "axios";
+import { backendImageUrl } from "@/lib/backend-image";
 import type {
   Blog,
   BlogListResponse,
@@ -18,6 +19,22 @@ const client = axios.create({
   headers: { "Content-Type": "application/json" },
 });
 
+/**
+ * Corrects the origin on a blog's uploaded images. The backend bakes an
+ * absolute URL into each row at write time, so posts authored against a
+ * developer's machine come back pointing at localhost — a host `next/image`
+ * refuses, by throwing. See `backendImageUrl`.
+ */
+function withResolvedImages(blog: Blog): Blog {
+  return {
+    ...blog,
+    featuredImage: backendImageUrl(blog.featuredImage),
+    gallery: blog.gallery
+      .map((src) => backendImageUrl(src))
+      .filter((src): src is string => Boolean(src)),
+  };
+}
+
 /** GET /api/v1/blogs — paginated, filterable list. */
 export async function getBlogs(query: BlogQuery = {}): Promise<BlogListResponse> {
   const { data } = await client.get<BlogListResponse>("/api/v1/blogs", {
@@ -31,13 +48,13 @@ export async function getBlogs(query: BlogQuery = {}): Promise<BlogListResponse>
         : {}),
     },
   });
-  return data;
+  return { ...data, data: data.data.map(withResolvedImages) };
 }
 
 /** GET /api/v1/blogs/:slug — a single blog. */
 export async function getBlogBySlug(slug: string): Promise<BlogResponse> {
   const { data } = await client.get<BlogResponse>(`/api/v1/blogs/${slug}`);
-  return data;
+  return { ...data, data: withResolvedImages(data.data) };
 }
 
 /**

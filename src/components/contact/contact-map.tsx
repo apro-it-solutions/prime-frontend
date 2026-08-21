@@ -18,9 +18,9 @@ interface ContactMapProps {
  * pointer events pass through to the map beneath it.
  */
 export function ContactMap({
-  query = "PrimeNMS, Kerala, India",
-  title = "PrimeNMS factory location on Google Maps",
-  placeName = "PrimeNMS Factory",
+  query = "Prime NMS, Kerala, India",
+  title = "Prime NMS factory location on Google Maps",
+  placeName = "Prime NMS Factory",
   placeRegion = "Kerala, India",
   className,
 }: ContactMapProps) {

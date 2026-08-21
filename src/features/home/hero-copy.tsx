@@ -45,7 +45,7 @@ export const HERO_COPY: HeroCopyState[] = [
     to: 110,
     placement: "bottom",
     heading: "From Ground to Greatness.",
-    body: "Every PrimeNMS structure begins with a clear vision, precise planning, and a foundation built for what comes next.",
+    body: "Every Prime NMS structure begins with a clear vision, precise planning, and a foundation built for what comes next.",
   },
   {
     from: 130,

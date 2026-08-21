@@ -8,12 +8,20 @@ import type { EmblaCarouselType } from "embla-carousel";
 import {
   motion,
   motionValue,
+  useAnimationControls,
+  useInView,
   useMotionValueEvent,
   useReducedMotion,
   useSpring,
   useTransform,
   type MotionValue,
 } from "framer-motion";
+import {
+  FADE_UP_DURATION,
+  FADE_UP_EASE,
+  FADE_UP_STAGGER,
+  useFadeUpTravel,
+} from "@/components/ui/fade-up-group";
 import { cn } from "@/lib/utils";
 
 export type RibbonSlide = {
@@ -82,6 +90,30 @@ const ASPECT_H = 2;
 /** Offset jump that means Embla teleported a slide to the other end. */
 const TELEPORT_THRESHOLD = 1.5;
 
+const DOTS_ROW = "mt-8 flex items-center justify-center gap-2";
+
+/**
+ * Where a card is in its entrance: `hidden` before the band is on screen,
+ * `play` once it is, `none` when the entrance is skipped altogether.
+ */
+type Entrance = "hidden" | "play" | "none";
+
+/** Fraction of the band on screen that counts as the section having arrived. */
+const ENTRANCE_AMOUNT = 0.3;
+
+/**
+ * Seconds a card waits before rising, from where it stands on the band.
+ *
+ * Position rather than index: the track is a loop, so the node order bears no
+ * relation to the left-to-right order on screen — index 0 sits in the middle at
+ * rest, with the last few nodes wrapped around to its left. Measuring from the
+ * left edge of the arc instead sweeps the reveal across the band in the order
+ * the eye reads it, and it stays right at any breakpoint. Cards beyond the arc
+ * are off screen under the mask, so their clamped delay is never seen.
+ */
+const cardDelay = (offset: number) =>
+  (clamp(offset, -MAX_OFFSET, MAX_OFFSET) + MAX_OFFSET) * FADE_UP_STAGGER;
+
 const clamp = (n: number, min: number, max: number) =>
   Math.min(Math.max(n, min), max);
 
@@ -111,6 +143,8 @@ function RibbonSlide({
   className,
   sizes,
   smooth,
+  entrance,
+  travel,
 }: {
   slide: RibbonSlide;
   /** Signed distance from the centre of the viewport, in slide widths. */
@@ -120,6 +154,9 @@ function RibbonSlide({
   className?: string;
   sizes: string;
   smooth: boolean;
+  entrance: Entrance;
+  /** How far below its place on the band the card starts, in px. */
+  travel: number;
 }) {
   const spring = useSpring(offset, {
     stiffness: 320,
@@ -138,6 +175,24 @@ function RibbonSlide({
 
   const driver = smooth ? spring : offset;
   const position = useTransform(driver, (v) => clamp(v, -MAX_OFFSET, MAX_OFFSET));
+
+  // The entrance is a one-shot on top of the ribbon's own transforms, so it is
+  // driven by controls rather than by a variant: its delay is only known on the
+  // frame it fires, from where the card is standing on the band by then.
+  const entranceControls = useAnimationControls();
+
+  useEffect(() => {
+    if (entrance !== "play") return;
+    entranceControls.start({
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: FADE_UP_DURATION,
+        ease: FADE_UP_EASE,
+        delay: cardDelay(offset.get()),
+      },
+    });
+  }, [entrance, entranceControls, offset]);
 
   // Turned to the cylinder's tangent. Negative for a card on the right, which
   // brings its right-hand edge forward and lets its left-hand edge fall away —
@@ -173,6 +228,11 @@ function RibbonSlide({
           filter,
           backfaceVisibility: "hidden",
         }}
+        // The rise rides on the same element as the ribbon geometry: framer
+        // composes `y` ahead of `rotateY` in the transform, so the card is
+        // simply lower on the band — its turn, depth and size are untouched.
+        initial={entrance === "none" ? false : { opacity: 0, y: travel }}
+        animate={entranceControls}
       >
         <Image
           src={slide.src}
@@ -218,6 +278,7 @@ export function CurvedRibbonCarousel({
   className,
 }: CurvedRibbonCarouselProps) {
   const prefersReducedMotion = useReducedMotion();
+  const travel = useFadeUpTravel();
 
   // A seamless loop needs the track to be a good deal wider than the viewport,
   // so duplicate the source images until there are enough nodes for one.
@@ -256,6 +317,16 @@ export function CurvedRibbonCarousel({
     },
     prefersReducedMotion ? [] : autoplay,
   );
+
+  // `once`: the cards are left where they land, so scrolling back over the
+  // section — or the band looping a card back around — never replays it.
+  const rootRef = useRef<HTMLDivElement | null>(null);
+  const inView = useInView(rootRef, { once: true, amount: ENTRANCE_AMOUNT });
+  const entrance: Entrance = prefersReducedMotion
+    ? "none"
+    : inView
+      ? "play"
+      : "hidden";
 
   const [selected, setSelected] = useState(0);
   // The arc is a physical curve, so it needs a physical measurement: the
@@ -384,8 +455,27 @@ export function CurvedRibbonCarousel({
   const cornerFade =
     "radial-gradient(130% 108% at 50% 50%, #000 62%, rgba(0,0,0,0.6) 84%, transparent 100%)";
 
+  const dots = slides.map((_, i) => {
+    const isActive = selected % slides.length === i;
+    return (
+      <button
+        key={i}
+        type="button"
+        aria-label={`Go to slide ${i + 1}`}
+        aria-current={isActive}
+        onClick={() => emblaApi?.scrollTo(i)}
+        className={cn(
+          "h-2 rounded-full transition-all duration-300 ease-out",
+          isActive
+            ? "w-6 bg-green-primary"
+            : "w-2 bg-text-secondary/30 hover:bg-text-secondary/50",
+        )}
+      />
+    );
+  });
+
   return (
-    <div className={cn("group relative", className)}>
+    <div ref={rootRef} className={cn("group relative", className)}>
       <div style={{ maskImage: cornerFade, WebkitMaskImage: cornerFade }}>
         <div
           ref={setViewport}
@@ -413,6 +503,8 @@ export function CurvedRibbonCarousel({
                 offset={offsets[i]}
                 pitch={pitch}
                 smooth={!prefersReducedMotion}
+                entrance={entrance}
+                travel={travel}
                 // No gutter at all — each slide is exactly one track slot wide
                 // and overhangs it, so the band reads as continuous rather than
                 // as a row of separate cards.
@@ -446,26 +538,7 @@ export function CurvedRibbonCarousel({
       </button>
 
       {/* One dot per source image, tracked across the duplicated loop nodes. */}
-      <div className="mt-8 flex items-center justify-center gap-2">
-        {slides.map((_, i) => {
-          const isActive = selected % slides.length === i;
-          return (
-            <button
-              key={i}
-              type="button"
-              aria-label={`Go to slide ${i + 1}`}
-              aria-current={isActive}
-              onClick={() => emblaApi?.scrollTo(i)}
-              className={cn(
-                "h-2 rounded-full transition-all duration-300 ease-out",
-                isActive
-                  ? "w-6 bg-green-primary"
-                  : "w-2 bg-text-secondary/30 hover:bg-text-secondary/50",
-              )}
-            />
-          );
-        })}
-      </div>
+      <div className={DOTS_ROW}>{dots}</div>
     </div>
   );
 }

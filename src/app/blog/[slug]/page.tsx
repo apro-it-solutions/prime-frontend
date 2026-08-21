@@ -7,6 +7,7 @@ import { BlogHero } from "@/components/blog/detail/blog-hero";
 import { BlogContent } from "@/components/blog/detail/blog-content";
 import { BlogTags } from "@/components/blog/detail/blog-tags";
 import { RelatedPosts } from "@/components/blog/detail/related-posts";
+import { PageFadeUp } from "@/components/ui/page-fade-up";
 import { getBlog } from "@/lib/get-blog";
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000";
@@ -24,7 +25,7 @@ export async function generateMetadata({
 
   if (!blog) {
     return {
-      title: "Article not found — PrimeNMS Journal",
+      title: "Article not found — Prime NMS Journal",
       robots: { index: false, follow: false },
     };
   }
@@ -70,7 +71,7 @@ export default async function BlogDetailPage({ params }: BlogDetailPageProps) {
   return (
     <>
       <SiteHeader />
-      <main className="flex-1 bg-bg-base">
+      <PageFadeUp className="flex-1 bg-bg-base">
         <BlogHero blog={blog} />
 
         <Container>
@@ -81,7 +82,7 @@ export default async function BlogDetailPage({ params }: BlogDetailPageProps) {
         </Container>
 
         <RelatedPosts slug={blog.slug} categoryId={blog.category._id} />
-      </main>
+      </PageFadeUp>
       <SiteFooter />
     </>
   );

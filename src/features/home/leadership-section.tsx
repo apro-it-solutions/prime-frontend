@@ -185,7 +185,7 @@ export function LeadershipSection() {
             <h2 className="font-heading text-3xl font-semibold leading-[1.15] tracking-[-0.44px] text-white motion-safe:opacity-0 sm:text-4xl lg:text-[44px]">
               The People
               <br />
-              Behind PrimeNMS
+              Behind Prime NMS
             </h2>
             <p className="mt-6 max-w-[560px] text-lg leading-[1.65] text-white/80 motion-safe:opacity-0">
               Our leadership brings decades of combined steel manufacturing and

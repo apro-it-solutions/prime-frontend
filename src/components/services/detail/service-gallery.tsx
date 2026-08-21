@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { Container } from "@/components/layout/container";
 import { SectionEyebrow } from "@/components/services/section-eyebrow";
-import { BlurRevealHeading } from "@/components/ui/blur-reveal-heading";
+import { FadeHeading } from "@/components/ui/fade-heading";
 import { RevealRow, RevealItem } from "@/components/ui/reveal-row";
 import type { ServiceDetail } from "../services-data";
 
@@ -23,9 +23,9 @@ export function ServiceGallery({ service }: { service: ServiceDetail }) {
           variant="plain"
           className="text-green-accent"
         />
-        <BlurRevealHeading
+        <FadeHeading
           text={`${service.title} in the field.`}
-          className="mt-3.5 max-w-[735px] font-heading text-[28px] font-semibold leading-[1.18] tracking-[-0.2px] text-text-primary sm:text-[34px] lg:text-[40px]"
+          className="mt-3.5 max-w-[735px] whitespace-pre-line font-heading text-[28px] font-semibold leading-[1.18] tracking-[-0.2px] text-text-primary sm:text-[34px] lg:text-[40px]"
         />
 
         <RevealRow className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
