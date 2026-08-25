@@ -1,38 +1,43 @@
 "use client";
 
 import { cn } from "@/lib/utils";
-import type { ProjectTab } from "./projects-data";
+import { ALL_CATEGORIES } from "@/hooks/use-projects";
+import type { ProjectCategoryRef } from "@/types/project";
 
 interface ProjectTabsProps {
-  tabs: ProjectTab[];
+  /** Categories present on published projects; an "All" pill is prepended. */
+  categories: ProjectCategoryRef[];
+  /** Active category `_id`, or `ALL_CATEGORIES`. */
   activeId: string;
-  onChange: (id: string) => void;
+  onChange: (categoryId: string) => void;
   className?: string;
 }
 
-/** Filter pills for the portfolio. Controlled; active pill is a solid green pill. */
+/** Filter pills for the portfolio. Controlled; active pill is a solid dark pill. */
 export function ProjectTabs({
-  tabs,
+  categories,
   activeId,
   onChange,
   className,
 }: ProjectTabsProps) {
+  const pills = [{ _id: ALL_CATEGORIES, name: "All" }, ...categories];
+
   return (
     <div
       role="tablist"
       aria-label="Filter projects by category"
       className={cn("flex flex-wrap items-center gap-2.5", className)}
     >
-      {tabs.map((tab) => {
-        const isActive = tab.id === activeId;
+      {pills.map((tab) => {
+        const isActive = tab._id === activeId;
         return (
           <button
-            key={tab.id}
+            key={tab._id}
             type="button"
             role="tab"
             aria-selected={isActive}
             aria-controls="projects-grid"
-            onClick={() => onChange(tab.id)}
+            onClick={() => onChange(tab._id)}
             className={cn(
               "rounded-full border px-5 py-3 font-body text-base leading-none transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-green-accent focus-visible:ring-offset-2",
               isActive
@@ -40,7 +45,7 @@ export function ProjectTabs({
                 : "border-border bg-bg-card text-text-secondary hover:border-text-secondary/40 hover:text-text-primary",
             )}
           >
-            {tab.label}
+            {tab.name}
           </button>
         );
       })}

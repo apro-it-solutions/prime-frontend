@@ -52,7 +52,7 @@ export function ImageWithFallback({
         if (hasFailed) return;
         // Left deliberately loud: a missing upload is a backend/volume problem
         // and should stay findable after the UI has recovered from it.
-        console.error(`[blog] cover image failed to load, using placeholder: ${src}`);
+        console.error(`[image] upload failed to load, using placeholder: ${src}`);
         setFailedSrc(src);
       }}
     />

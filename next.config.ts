@@ -26,6 +26,7 @@ const nextConfig: NextConfig = {
   // one it has answered on rather than chasing the current lease.
   allowedDevOrigins: [
     "192.168.0.113",
+    "192.168.0.105",
     "192.168.0.118",
     "192.168.0.117",
     "192.168.0.115",
