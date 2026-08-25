@@ -1,4 +1,5 @@
 import { Container } from "@/components/layout/container";
+import { FadeHeading } from "@/components/ui/fade-heading";
 import { ImageWithFallback } from "@/components/ui/image-with-fallback";
 import { projectCategoryName } from "@/lib/project-format";
 import type { Project } from "@/types/project";
@@ -31,9 +32,12 @@ export function ProjectHero({ project }: { project: Project }) {
             )}
           </div>
 
-          <h1 className="mt-7 max-w-[760px] font-heading text-[32px] font-semibold leading-[1.15] tracking-[-0.48px] text-text-primary sm:text-[40px] lg:text-[48px]">
+          <FadeHeading
+            as="h1"
+            className="mt-7 max-w-[760px] font-heading text-[32px] font-semibold leading-[1.15] tracking-[-0.48px] text-text-primary sm:text-[40px] lg:text-[48px]"
+          >
             {project.title}
-          </h1>
+          </FadeHeading>
 
           {project.shortDescription && (
             <p className="mt-6 max-w-[720px] font-body text-lg leading-[1.65] text-text-secondary">

@@ -3,6 +3,7 @@
 import { useEffect, useMemo, useState } from "react";
 import { AlertTriangle, RotateCcw } from "lucide-react";
 import { Container } from "@/components/layout/container";
+import { FadeHeading } from "@/components/ui/fade-heading";
 import { ALL_CATEGORIES, useBlogCategories, useBlogs } from "@/hooks/use-blogs";
 import { SearchBar } from "./search-bar";
 import { CategoryFilter } from "./category-filter";
@@ -82,9 +83,9 @@ export function BlogListing() {
       <Container>
         {/* Heading + search */}
         <div className="flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
-          <h2 className="font-heading text-3xl font-semibold leading-[1.15] tracking-[-0.4px] text-text-primary lg:text-[40px]">
+          <FadeHeading className="font-heading text-3xl font-semibold leading-[1.15] tracking-[-0.4px] text-text-primary lg:text-[40px]">
             Latest articles
-          </h2>
+          </FadeHeading>
           <SearchBar value={searchInput} onChange={setSearchInput} />
         </div>
 

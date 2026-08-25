@@ -1,4 +1,5 @@
 import { Container } from "@/components/layout/container";
+import { FadeHeading } from "@/components/ui/fade-heading";
 import { cn } from "@/lib/utils";
 
 const VISION_GRADIENT =
@@ -76,11 +77,11 @@ export function VisionMission() {
             <p className="font-body text-[13px] font-medium uppercase tracking-[0.5px] text-green-accent">
               Vision &amp; Mission
             </p>
-            <h2 className="mt-4 font-heading text-4xl font-semibold leading-[1.15] tracking-[-0.56px] text-text-primary sm:text-5xl lg:text-[56px]">
+            <FadeHeading className="mt-4 font-heading text-4xl font-semibold leading-[1.15] tracking-[-0.56px] text-text-primary sm:text-5xl lg:text-[56px]">
               What we&apos;re
               <br />
               building toward.
-            </h2>
+            </FadeHeading>
             <p className="mt-6 max-w-[520px] font-body text-lg leading-[1.65] text-text-secondary">
               Two commitments guide every structure we manufacture — a clear
               mission for how we build today, and a vision for where Prime NMS is

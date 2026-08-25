@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { Container } from "@/components/layout/container";
+import { FadeHeading } from "@/components/ui/fade-heading";
 import { PillButton } from "@/components/ui/pill-button";
 import ctaBuilding from "../../../public/images/about-cta-building.png";
 
@@ -23,11 +24,11 @@ export function AboutCta() {
 
             {/* Copy */}
             <div className="flex flex-1 flex-col items-start justify-center gap-[19px] px-8 py-12 lg:px-[60px]">
-              <h2 className="font-body text-3xl font-medium leading-[1.15] tracking-[-0.32px] text-white lg:text-[32px]">
+              <FadeHeading className="font-body text-3xl font-medium leading-[1.15] tracking-[-0.32px] text-white lg:text-[32px]">
                 Start Your Project
                 <br />
                 With Prime NMS
-              </h2>
+              </FadeHeading>
               <p className="max-w-[560px] font-body text-base leading-[1.5] text-white/75">
                 Send us your building requirements and our team will prepare a
                 quote — from foundation to commissioning.

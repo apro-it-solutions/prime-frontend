@@ -2,6 +2,7 @@
 
 import { useState, type FormEvent } from "react";
 import { Container } from "@/components/layout/container";
+import { FadeHeading } from "@/components/ui/fade-heading";
 
 /** Newsletter CTA band (Figma 1600×280, green-primary). */
 export function Newsletter() {
@@ -24,9 +25,9 @@ export function Newsletter() {
               <p className="font-heading text-[13px] font-medium uppercase tracking-[1.2px] text-white/80">
                 Stay in the Loop
               </p>
-              <h2 className="mt-2 font-heading text-3xl font-semibold leading-[1.18] tracking-[-0.2px] text-white lg:text-[40px]">
+              <FadeHeading className="mt-2 font-heading text-3xl font-semibold leading-[1.18] tracking-[-0.2px] text-white lg:text-[40px]">
                 Get build stories in your inbox.
-              </h2>
+              </FadeHeading>
               <p className="mt-4 font-body text-base leading-[1.5] text-white/85">
                 Monthly insights on steel construction, projects and industry
                 news. No spam.

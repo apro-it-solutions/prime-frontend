@@ -1,6 +1,7 @@
 "use client";
 
 import { motion, useReducedMotion, type Variants } from "framer-motion";
+import type { ReactNode } from "react";
 import {
   FADE_UP_DURATION,
   FADE_UP_EASE,
@@ -24,8 +25,17 @@ const headingVariants: Variants = {
 };
 
 interface FadeHeadingProps {
-  /** Heading copy. A newline forces a line break. */
-  text: string;
+  /**
+   * Heading copy as plain text, where a newline forces a line break. Omit it
+   * when passing `children` instead.
+   */
+  text?: string;
+  /**
+   * Heading markup, for copy carrying its own `<br>`, entities or inline
+   * elements — anything `text` would flatten. Wins over `text` when both are
+   * given, so a heading keeps the exact markup it had before it animated.
+   */
+  children?: ReactNode;
   /** Rendered element. Defaults to `h2`. */
   as?: keyof typeof MOTION_TAGS;
   className?: string;
@@ -43,21 +53,25 @@ interface FadeHeadingProps {
  * The heading tag *is* the animated element rather than sitting inside a
  * wrapper, so margins and grid placement on the caller's className behave
  * exactly as they would on a static heading. Newlines in `text` are preserved
- * via `whitespace-pre-line`. Plays once on entering the viewport, and honors
- * prefers-reduced-motion by rendering static text.
+ * via `whitespace-pre-line`; copy passed as `children` renders untouched, so a
+ * responsive `<br>` keeps breaking exactly where it did. Plays once on
+ * entering the viewport, and honors prefers-reduced-motion by rendering
+ * static text.
  */
 export function FadeHeading({
   text,
+  children,
   as = "h2",
   className,
 }: FadeHeadingProps) {
   const shouldReduceMotion = useReducedMotion();
   const travel = useFadeUpTravel();
   const Tag = MOTION_TAGS[as];
+  const content = children ?? text;
 
   if (shouldReduceMotion) {
     const Static = as;
-    return <Static className={className}>{text}</Static>;
+    return <Static className={className}>{content}</Static>;
   }
 
   return (
@@ -69,7 +83,7 @@ export function FadeHeading({
       whileInView="show"
       viewport={{ once: true, amount: 0.3 }}
     >
-      {text}
+      {content}
     </Tag>
   );
 }

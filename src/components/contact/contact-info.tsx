@@ -1,4 +1,5 @@
 import { MapPin, Phone, Mail, CalendarClock, type LucideIcon } from "lucide-react";
+import { FadeHeading } from "@/components/ui/fade-heading";
 
 interface ContactDetail {
   icon: LucideIcon;
@@ -79,9 +80,9 @@ export function ContactInfo() {
       <p className="font-body text-[13px] font-medium uppercase tracking-[1.5px] text-green-accent">
         Get in Touch
       </p>
-      <h2 className="mt-4 font-heading text-4xl font-semibold leading-[1.15] tracking-[-0.56px] text-text-primary sm:text-5xl lg:text-[56px]">
+      <FadeHeading className="mt-4 font-heading text-4xl font-semibold leading-[1.15] tracking-[-0.56px] text-text-primary sm:text-5xl lg:text-[56px]">
         Talk to our team.
-      </h2>
+      </FadeHeading>
       <p className="mt-5 max-w-[560px] font-body text-lg leading-[1.65] text-text-secondary">
         Tell us about your building requirements and we&apos;ll get back within
         one business day with a quote and next steps.

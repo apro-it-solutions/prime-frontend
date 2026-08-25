@@ -6,6 +6,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { ArrowUpRight, ChevronDown, Loader2, CheckCircle2, AlertCircle } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { FadeHeading } from "@/components/ui/fade-heading";
 import { submitContactForm } from "@/services/contact";
 
 const PROJECT_TYPES = [
@@ -111,9 +112,9 @@ export function ContactForm() {
 
   return (
     <div className="rounded-[28px] border border-border bg-bg-card p-6 shadow-[0px_12px_32px_0px_rgba(15,23,18,0.06)] sm:p-8 lg:p-12">
-      <h2 className="font-body text-[28px] font-bold leading-[1.15] tracking-[-0.28px] text-text-primary">
+      <FadeHeading className="font-body text-[28px] font-bold leading-[1.15] tracking-[-0.28px] text-text-primary">
         Request a Quote
-      </h2>
+      </FadeHeading>
 
       <form
         noValidate

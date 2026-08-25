@@ -1,4 +1,5 @@
 import { Container } from "@/components/layout/container";
+import { FadeHeading } from "@/components/ui/fade-heading";
 import { LeaderCard, type Leader } from "@/components/ui/leader-card";
 import josephMathew from "../../../public/images/about-leader-joseph.jpg";
 import binduJoseph from "../../../public/images/about-leader-bindu.jpg";
@@ -17,9 +18,9 @@ export function AboutLeadership() {
   return (
     <section className="bg-text-primary py-20 lg:py-[100px]">
       <Container>
-        <h2 className="font-heading text-4xl font-semibold leading-[1.15] tracking-[-0.56px] text-bg-base sm:text-5xl lg:text-[56px]">
+        <FadeHeading className="font-heading text-4xl font-semibold leading-[1.15] tracking-[-0.56px] text-bg-base sm:text-5xl lg:text-[56px]">
           The people accountable.
-        </h2>
+        </FadeHeading>
 
         <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 xl:grid-cols-4">
           {LEADERS.map((leader) => (

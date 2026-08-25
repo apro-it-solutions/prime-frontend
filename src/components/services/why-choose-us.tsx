@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { Container } from "@/components/layout/container";
+import { FadeHeading } from "@/components/ui/fade-heading";
 import {
   ServiceStatCard,
   type ServiceStat,
@@ -19,9 +20,9 @@ export function WhyChooseUs() {
     <section className="bg-bg-base py-20 lg:py-[90px]">
       <Container>
         <div className="flex flex-col gap-6 lg:flex-row lg:items-start lg:justify-between lg:gap-16">
-          <h2 className="max-w-[1085px] font-heading text-4xl font-semibold leading-[1.15] tracking-[-0.56px] text-text-primary sm:text-5xl lg:text-[56px]">
+          <FadeHeading className="max-w-[1085px] font-heading text-4xl font-semibold leading-[1.15] tracking-[-0.56px] text-text-primary sm:text-5xl lg:text-[56px]">
             Build Your Future with Galvanized Steel Strong.
-          </h2>
+          </FadeHeading>
           <p className="max-w-[580px] shrink-0 font-body text-lg leading-[1.65] text-text-secondary lg:pt-2">
             Harness the strength of pre-engineered galvanized steel to build
             faster, cut lifetime cost, and structures that last. One

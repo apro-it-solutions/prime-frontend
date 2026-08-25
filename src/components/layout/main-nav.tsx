@@ -7,8 +7,13 @@ import { cn } from "@/lib/utils";
 
 /**
  * Sizing for the two places this nav appears. `compact` is the sticky bar's
- * instance in Figma (node 829:792), which is the hero nav at 78% — every value
- * below is that scale applied to the default, which is why they are fractional.
+ * instance in Figma (node 829:792), which is the hero nav at 78% — which is why
+ * its box values are fractional.
+ *
+ * Its labels are the one exception: they hold the full 15px rather than the
+ * scaled 11.695px, so the menu reads the same in the sticky bar as it does in
+ * the hero. Only the type opted out of the scale — the padding, gap and border
+ * still shrink, which is what keeps the nav inside the bar's 70px.
  */
 const SIZES = {
   default: {
@@ -22,7 +27,7 @@ const SIZES = {
     // field, which carries the single shadow for the whole header. Stacking a
     // second one here reads as a seam around the nav rather than depth.
     shell: "gap-[6.237px] border-[0.78px] p-[6.237px]",
-    link: "py-[7.797px] text-[11.695px]",
+    link: "py-[7.797px] text-[15px]",
     active: "px-[15.593px]",
     idle: "px-[14.034px]",
   },

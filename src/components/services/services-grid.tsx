@@ -1,4 +1,5 @@
 import { Container } from "@/components/layout/container";
+import { FadeHeading } from "@/components/ui/fade-heading";
 import { SectionEyebrow } from "./section-eyebrow";
 import { ServiceCard } from "./service-card";
 import { SERVICES } from "./services-data";
@@ -11,9 +12,9 @@ export function ServicesGrid() {
         <div className="flex flex-col gap-8 lg:flex-row lg:items-start lg:justify-between lg:gap-16">
           <div>
             <SectionEyebrow label="Our Expertise" />
-            <h2 className="mt-6 max-w-[640px] font-heading text-4xl font-semibold leading-[1.15] tracking-[-0.56px] text-text-primary sm:text-5xl lg:text-[56px]">
+            <FadeHeading className="mt-6 max-w-[640px] font-heading text-4xl font-semibold leading-[1.15] tracking-[-0.56px] text-text-primary sm:text-5xl lg:text-[56px]">
               Complete steel building solutions, under one roof.
-            </h2>
+            </FadeHeading>
           </div>
           <p className="max-w-[640px] shrink-0 font-body text-lg leading-[1.65] text-text-secondary lg:pt-[52px]">
             From pre-engineered structures to insulated panels, roofing and

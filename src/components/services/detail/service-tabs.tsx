@@ -46,6 +46,20 @@ export function ServiceTabs({ eyebrow, tabs, panels }: ServiceTabsProps) {
   const stripRef = useRef<HTMLDivElement | null>(null);
   const activeRef = useRef<HTMLButtonElement | null>(null);
 
+  // The panel cross-fade belongs to *switching* tabs, not to arriving on the
+  // page, so the panel first mounted is placed at rest rather than faded in.
+  // That skip lives on the panel rather than on AnimatePresence, because
+  // AnimatePresence’s own `initial={false}` reaches every motion element inside
+  // the panel through context — which silently cancelled the fade-up on the
+  // section headings the panel renders. Scoped here it suppresses one element:
+  // this one.
+  const [hasSwitched, setHasSwitched] = useState(false);
+
+  const selectTab = (i: number) => {
+    setHasSwitched(true);
+    setActiveIndex(i);
+  };
+
   // Keep the selected pill visible when the strip overflows. Scrolls the strip
   // itself rather than using scrollIntoView, which would also move the page.
   useEffect(() => {
@@ -73,7 +87,7 @@ export function ServiceTabs({ eyebrow, tabs, panels }: ServiceTabsProps) {
 
     if (next === null) return;
     e.preventDefault();
-    setActiveIndex(next);
+    selectTab(next);
     // Selection follows focus, so move focus with it.
     stripRef.current
       ?.querySelectorAll<HTMLButtonElement>("[role='tab']")
@@ -110,7 +124,7 @@ export function ServiceTabs({ eyebrow, tabs, panels }: ServiceTabsProps) {
                     aria-selected={isActive}
                     aria-controls={panelId(i)}
                     tabIndex={isActive ? 0 : -1}
-                    onClick={() => setActiveIndex(i)}
+                    onClick={() => selectTab(i)}
                     className={cn(
                       "relative inline-flex shrink-0 items-center whitespace-nowrap rounded-pill px-[22px] py-3 font-body text-base leading-[1.5] transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-green-accent focus-visible:ring-offset-2",
                       isActive
@@ -146,10 +160,12 @@ export function ServiceTabs({ eyebrow, tabs, panels }: ServiceTabsProps) {
         tabIndex={0}
         className="focus-visible:outline-none"
       >
-        <AnimatePresence mode="wait" initial={false}>
+        <AnimatePresence mode="wait">
           <motion.div
             key={activeTab.id}
-            initial={shouldReduceMotion ? false : { opacity: 0, y: 12 }}
+            initial={
+              shouldReduceMotion || !hasSwitched ? false : { opacity: 0, y: 12 }
+            }
             animate={{ opacity: 1, y: 0 }}
             exit={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, y: -8 }}
             transition={{ duration: 0.3, ease: EASE_OUT }}

@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { Container } from "@/components/layout/container";
+import { FadeHeading } from "@/components/ui/fade-heading";
 import { PillButton } from "@/components/ui/pill-button";
 import ctaBuilding from "../../../public/images/project-cta-building.png";
 
@@ -23,9 +24,9 @@ export function ProjectsCta() {
 
             {/* Copy */}
             <div className="flex flex-1 flex-col items-start justify-center gap-5 px-8 py-12 lg:px-[60px]">
-              <h2 className="max-w-[280px] font-body text-3xl font-medium leading-[1.15] tracking-[-0.32px] text-white lg:text-[32px]">
+              <FadeHeading className="max-w-[280px] font-body text-3xl font-medium leading-[1.15] tracking-[-0.32px] text-white lg:text-[32px]">
                 Your project could be next.
-              </h2>
+              </FadeHeading>
               <p className="max-w-[560px] font-body text-base leading-[1.5] text-white/75">
                 Tell us what you&apos;re building and we&apos;ll prepare a quote —
                 from foundation to commissioning.

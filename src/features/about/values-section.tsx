@@ -1,4 +1,5 @@
 import { Container } from "@/components/layout/container";
+import { FadeHeading } from "@/components/ui/fade-heading";
 import { ValueCard, type ValueItem } from "@/components/ui/value-card";
 
 const VALUES: ValueItem[] = [
@@ -36,9 +37,9 @@ export function ValuesSection() {
         <p className="font-body text-[13px] font-medium uppercase tracking-[0.5px] text-green-accent">
           What Drives Us
         </p>
-        <h2 className="mt-4 max-w-[640px] font-heading text-4xl font-semibold leading-[1.15] tracking-[-0.56px] text-text-primary sm:text-5xl lg:text-[56px]">
+        <FadeHeading className="mt-4 max-w-[640px] font-heading text-4xl font-semibold leading-[1.15] tracking-[-0.56px] text-text-primary sm:text-5xl lg:text-[56px]">
           The principles behind every structure.
-        </h2>
+        </FadeHeading>
 
         <div className="mt-14 grid grid-cols-1 gap-6 sm:grid-cols-2 xl:grid-cols-4">
           {VALUES.map((value) => (

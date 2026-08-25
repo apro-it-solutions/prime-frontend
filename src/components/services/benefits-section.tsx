@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { Check } from "lucide-react";
 import { Container } from "@/components/layout/container";
+import { FadeHeading } from "@/components/ui/fade-heading";
 import { SectionEyebrow } from "./section-eyebrow";
 import benefitsImg from "../../../public/images/service-benefits.png";
 
@@ -53,9 +54,9 @@ export function BenefitsSection() {
                 variant="plain"
                 className="text-green-accent"
               />
-              <h2 className="mt-3 max-w-[280px] font-heading text-3xl font-semibold leading-[1.15] tracking-[-0.32px] text-text-primary lg:text-[32px]">
+              <FadeHeading className="mt-3 max-w-[280px] font-heading text-3xl font-semibold leading-[1.15] tracking-[-0.32px] text-text-primary lg:text-[32px]">
                 Why galvanized steel wins.
-              </h2>
+              </FadeHeading>
 
               <ul className="mt-8 flex flex-col gap-6">
                 {BENEFITS.map((benefit) => (

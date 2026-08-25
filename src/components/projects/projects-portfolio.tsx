@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { Container } from "@/components/layout/container";
+import { FadeHeading } from "@/components/ui/fade-heading";
 import { SectionEyebrow } from "@/components/services/section-eyebrow";
 import {
   ALL_CATEGORIES,
@@ -47,9 +48,9 @@ export function ProjectsPortfolio() {
         <div className="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between lg:gap-12">
           <div>
             <SectionEyebrow label="Our Portfolio" variant="plain" className="text-green-accent" />
-            <h2 className="mt-4 font-heading text-4xl font-semibold leading-[1.15] tracking-[-0.56px] text-text-primary sm:text-5xl lg:text-[56px]">
+            <FadeHeading className="mt-4 font-heading text-4xl font-semibold leading-[1.15] tracking-[-0.56px] text-text-primary sm:text-5xl lg:text-[56px]">
               Selected work.
-            </h2>
+            </FadeHeading>
           </div>
           {categories.length > 0 && (
             <ProjectTabs
