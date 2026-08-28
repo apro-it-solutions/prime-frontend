@@ -31,6 +31,7 @@ const nextConfig: NextConfig = {
     "192.168.0.117",
     "192.168.0.115",
     "192.168.0.104",
+    "192.168.18.127",
   ],
   images: {
     dangerouslyAllowLocalIP: isLocalHost,

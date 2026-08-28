@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { fontVariables } from "@/lib/fonts";
+import { StickyHeaderSlot } from "@/components/layout/sticky-header-slot";
 import { Providers } from "./providers";
 
 export const metadata: Metadata = {
@@ -30,7 +31,10 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${fontVariables} h-full antialiased`}>
       <body className="min-h-full flex flex-col" suppressHydrationWarning>
-        <Providers>{children}</Providers>
+        <Providers>
+          <StickyHeaderSlot />
+          {children}
+        </Providers>
       </body>
     </html>
   );

@@ -11,7 +11,7 @@ export function VisitUs() {
           Visit the Factory
         </p>
         <FadeHeading className="mt-3 font-heading text-[28px] font-semibold leading-[1.15] tracking-[-0.32px] text-text-primary sm:text-3xl lg:text-[32px]">
-          Find us in Kerala.
+          Find us in Udupi.
         </FadeHeading>
 
         <div className="mt-10">

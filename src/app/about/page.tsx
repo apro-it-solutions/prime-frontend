@@ -12,7 +12,7 @@ import { PageFadeUp } from "@/components/ui/page-fade-up";
 export const metadata: Metadata = {
   title: "About — Prime NMS | The Galvanized Building Specialist",
   description:
-    "Prime NMS is a joint venture of New Malayalam Steel and Prime Group, manufacturing durable galvanized pre-engineered buildings from a single facility in Kerala, delivered on time across India.",
+    "Prime NMS is a joint venture of New Malayalam Steel and Prime Group, manufacturing durable galvanized pre-engineered buildings from a single facility in Karnataka, delivered on time across India.",
   openGraph: {
     title: "About Prime NMS",
     description:

@@ -18,10 +18,10 @@ interface ContactMapProps {
  * pointer events pass through to the map beneath it.
  */
 export function ContactMap({
-  query = "Prime NMS, Kerala, India",
+  query = "Prime NMS Private Limited, Aspeen South Gate, NH 66, Hejamady, Udupi, Karnataka 57410",
   title = "Prime NMS factory location on Google Maps",
   placeName = "Prime NMS Factory",
-  placeRegion = "Kerala, India",
+  placeRegion = "Hejamady, Udupi, Karnataka",
   className,
 }: ContactMapProps) {
   const src = `https://www.google.com/maps?q=${encodeURIComponent(query)}&output=embed`;

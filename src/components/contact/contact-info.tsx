@@ -14,19 +14,24 @@ const CONTACT_DETAILS: ContactDetail[] = [
   {
     icon: MapPin,
     label: "Factory",
-    lines: ["Prime NMS Private Limited,", "[Industrial Area], Kerala, India"],
+    lines: [
+      "Prime NMS Private Limited,",
+      "1/33/1/A/1, Aspeen South Gate, NH 66,",
+      "Hejamady, Udupi,",
+      "Karnataka 57410, India",
+    ],
   },
   {
     icon: Phone,
     label: "Phone",
-    lines: ["+91 XXXXX XXXXX"],
-    href: "tel:+910000000000",
+    lines: ["+91 95628 37777"],
+    href: "tel:+919562837777",
   },
   {
     icon: Mail,
     label: "Email",
-    lines: ["sales@primenms.com"],
-    href: "mailto:sales@primenms.com",
+    lines: ["info@primenms.com"],
+    href: "mailto:info@primenms.com",
   },
   {
     icon: CalendarClock,

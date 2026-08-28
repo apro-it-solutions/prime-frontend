@@ -9,8 +9,11 @@ import type { ServiceDetail } from "./services-data";
  * rounded photo. The card lifts and the photo zooms gently on hover.
  *
  * The title is the card's one link; its `after` pseudo-element covers the whole
- * card so the entire tile is clickable without adding a second tab stop or
- * nesting the photo inside the anchor.
+ * card so the entire tile is clickable — the photo and the arrow badge included
+ * — without adding a second tab stop or nesting the photo inside the anchor.
+ * The overlay is lifted above the photo: both are positioned, so without a
+ * z-index the photo wins on document order and swallows every click over it,
+ * which is the half of the card the arrow sits in.
  */
 export function ServiceCard({
   service,
@@ -29,7 +32,7 @@ export function ServiceCard({
       <h3 className="font-heading text-2xl font-semibold leading-[1.2] tracking-[-0.24px] text-text-primary">
         <Link
           href={`/services/${service.slug}`}
-          className="rounded-[24px] transition-colors after:absolute after:inset-0 after:rounded-[24px] after:content-[''] group-hover:text-green-primary focus-visible:outline-none focus-visible:after:ring-2 focus-visible:after:ring-green-accent focus-visible:after:ring-offset-2"
+          className="rounded-[24px] transition-colors after:absolute after:inset-0 after:z-10 after:rounded-[24px] after:content-[''] group-hover:text-green-primary focus-visible:outline-none focus-visible:after:ring-2 focus-visible:after:ring-green-accent focus-visible:after:ring-offset-2"
         >
           {service.title}
         </Link>

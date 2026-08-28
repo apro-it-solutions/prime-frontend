@@ -89,7 +89,7 @@ export function VisionMission() {
             </p>
             <div className="mt-8 h-1 w-14 rounded-full bg-green-accent-light" />
             <p className="mt-5 font-body text-base leading-[1.5] text-text-primary">
-              Engineered in Kerala · Delivered across India
+              Engineered in Karnataka · Delivered across India
             </p>
           </div>
 

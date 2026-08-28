@@ -22,7 +22,7 @@ export function OurStory() {
                 expertise.
               </p>
               <p>
-                The result is a single, fully operational facility in Kerala
+                The result is a single, fully operational facility in Karnataka
                 built to manufacture durable galvanized pre-engineered buildings
                 at scale — engineered, fabricated and delivered on time, across
                 India.
