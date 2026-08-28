@@ -1,4 +1,4 @@
-import DOMPurify from "isomorphic-dompurify";
+import { sanitizeRichText } from "@/lib/rich-text";
 
 /**
  * Renders the project's rich HTML description (the dashboard authors it in a
@@ -9,17 +9,14 @@ import DOMPurify from "isomorphic-dompurify";
  * site's one rich-text scale, used by every editor-authored body on the site.
  */
 export function ProjectContent({ html }: { html: string }) {
-  const clean = DOMPurify.sanitize(html ?? "", {
-    USE_PROFILES: { html: true },
-    ADD_ATTR: ["target"],
-  });
+  const clean = sanitizeRichText(html);
 
   if (!clean.trim()) return null;
 
   return (
     <div
       className="blog-content"
-      // Sanitized above with isomorphic-dompurify.
+      // Sanitized above — see `sanitizeRichText`.
       dangerouslySetInnerHTML={{ __html: clean }}
     />
   );

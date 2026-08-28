@@ -1,4 +1,4 @@
-import DOMPurify from "isomorphic-dompurify";
+import { sanitizeRichText } from "@/lib/rich-text";
 
 /**
  * Renders the article's rich HTML (headings, paragraphs, lists, images,
@@ -7,15 +7,12 @@ import DOMPurify from "isomorphic-dompurify";
  * styles in globals.css, mapped to the Figma article styles.
  */
 export function BlogContent({ html }: { html: string }) {
-  const clean = DOMPurify.sanitize(html ?? "", {
-    USE_PROFILES: { html: true },
-    ADD_ATTR: ["target"],
-  });
+  const clean = sanitizeRichText(html);
 
   return (
     <div
       className="blog-content"
-      // Sanitized above with isomorphic-dompurify.
+      // Sanitized above — see `sanitizeRichText`.
       dangerouslySetInnerHTML={{ __html: clean }}
     />
   );
