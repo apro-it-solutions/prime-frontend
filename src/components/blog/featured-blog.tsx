@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
+import { categoryLabel } from "@/lib/blog-format";
 import type { Blog } from "@/types/blog";
 import { ImageWithFallback } from "@/components/ui/image-with-fallback";
 
@@ -37,7 +38,7 @@ export function FeaturedBlog({ blog }: { blog: Blog }) {
       <div className="flex flex-1 flex-col justify-center gap-5 p-8 sm:p-12 lg:p-14">
         <div className="flex flex-wrap items-center gap-3">
           <span className="inline-flex items-center rounded-full bg-green-soft px-3.5 py-[7px] font-body text-xs font-medium uppercase tracking-[0.5px] text-green-primary">
-            {blog.category.name}
+            {categoryLabel(blog.category)}
           </span>
           <span className="font-body text-base leading-[1.5] text-text-secondary">
             · {blog.readingTime} min read · {formatMonthYear(blog.publishDate)}

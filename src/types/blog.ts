@@ -27,9 +27,14 @@ export interface Blog {
    */
   featuredImage?: string;
   gallery: string[];
-  category: BlogCategoryRef;
+  /**
+   * Populated category, or `null` — the backend leaves it unset on posts
+   * published without one, and every live post is currently in that state.
+   */
+  category: BlogCategoryRef | null;
   tags: string[];
-  author: BlogAuthor;
+  /** Populated author, or `null` when the account behind a post is gone. */
+  author: BlogAuthor | null;
   isFeatured: boolean;
   /** Estimated reading time in minutes. */
   readingTime: number;

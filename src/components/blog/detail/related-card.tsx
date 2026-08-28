@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { formatReadingTimeShort } from "@/lib/blog-format";
+import { categoryLabel, formatReadingTimeShort } from "@/lib/blog-format";
 import type { Blog } from "@/types/blog";
 import { ImageWithFallback } from "@/components/ui/image-with-fallback";
 
@@ -29,7 +29,7 @@ export function RelatedCard({ blog }: { blog: Blog }) {
         </div>
         <div className="flex flex-1 flex-col gap-2.5 px-6 pb-[26px] pt-[22px]">
           <p className="font-body text-xs font-medium uppercase leading-[1.2] tracking-[0.06px] text-green-accent">
-            {blog.category.name} · {formatReadingTimeShort(blog.readingTime)}
+            {categoryLabel(blog.category)} · {formatReadingTimeShort(blog.readingTime)}
           </p>
           <h3 className="font-body text-[28px] font-bold leading-[1.15] tracking-[-0.28px] text-text-primary">
             {blog.title}

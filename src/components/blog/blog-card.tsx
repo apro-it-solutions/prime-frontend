@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { categoryLabel } from "@/lib/blog-format";
 import type { Blog } from "@/types/blog";
 import { ImageWithFallback } from "@/components/ui/image-with-fallback";
 
@@ -30,7 +31,7 @@ export function BlogCard({ blog }: { blog: Blog }) {
         <div className="flex flex-1 flex-col gap-3 px-7 pb-[30px] pt-[26px]">
           <div className="flex items-center justify-between">
             <span className="font-body text-xs font-medium uppercase tracking-[0.5px] text-green-accent">
-              {blog.category.name}
+              {categoryLabel(blog.category)}
             </span>
             <span className="font-body text-base leading-[1.5] text-text-secondary">
               {blog.readingTime} min read

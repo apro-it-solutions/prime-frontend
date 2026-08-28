@@ -14,6 +14,15 @@ export const ALL_CATEGORIES = "all";
  * The blog list backend has no public categories endpoint, so we derive the
  * filter options from the categories present on the blogs themselves. Fetches a
  * large unfiltered page once and returns the unique categories, sorted by name.
+ *
+ * Deriving them from `blog.category` is also what keeps blog categories and the
+ * product categories apart: these are the rows behind Blogs → Blog Categories in
+ * the dashboard, reached through the posts that reference them. The backend's
+ * `/api/v1/categories` is the global product list and is auth-gated besides —
+ * it must not be wired up here.
+ *
+ * Posts with no category simply contribute nothing to the filter; they are
+ * still listed, under the "News" fallback label.
  */
 export function useBlogCategories() {
   return useQuery<BlogCategoryRef[]>({
@@ -22,9 +31,16 @@ export function useBlogCategories() {
       const { data } = await getBlogs({ limit: 100 });
       const byId = new Map<string, BlogCategoryRef>();
       for (const blog of data) {
-        if (blog.category?._id) byId.set(blog.category._id, blog.category);
+        // A post with no category contributes no filter pill; one with a blank
+        // name would contribute an unclickable-looking empty pill, so skip that
+        // too. Everything here is a Blog Category, never a product category.
+        if (blog.category?._id && blog.category.name?.trim()) {
+          byId.set(blog.category._id, blog.category);
+        }
       }
-      return [...byId.values()].sort((a, b) => a.name.localeCompare(b.name));
+      return [...byId.values()].sort((a, b) =>
+        (a.name ?? "").localeCompare(b.name ?? ""),
+      );
     },
     staleTime: 5 * 60 * 1000,
   });

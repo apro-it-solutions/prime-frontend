@@ -50,7 +50,7 @@ export async function generateMetadata({
       images,
       publishedTime: blog.publishDate,
       modifiedTime: blog.updatedAt,
-      authors: [blog.author.name],
+      authors: blog.author ? [blog.author.name] : undefined,
       tags: blog.tags,
     },
     twitter: {
@@ -81,7 +81,7 @@ export default async function BlogDetailPage({ params }: BlogDetailPageProps) {
           </article>
         </Container>
 
-        <RelatedPosts slug={blog.slug} categoryId={blog.category._id} />
+        <RelatedPosts slug={blog.slug} categoryId={blog.category?._id} />
       </PageFadeUp>
       <SiteFooter />
     </>

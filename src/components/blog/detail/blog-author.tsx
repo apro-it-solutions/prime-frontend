@@ -15,7 +15,8 @@ function initialsOf(name: string): string {
 }
 
 interface BlogAuthorProps {
-  author: BlogAuthorType;
+  /** `null` when the post carries no author; the byline then shows date only. */
+  author: BlogAuthorType | null;
   /** ISO publish date. */
   date: string;
   /** Reading time in minutes. */
@@ -30,14 +31,16 @@ interface BlogAuthorProps {
 export function BlogAuthor({ author, date, readingTime }: BlogAuthorProps) {
   return (
     <div className="flex items-center gap-3.5">
-      <span
-        aria-hidden="true"
-        className="flex size-12 shrink-0 items-center justify-center overflow-hidden rounded-full bg-green-soft font-heading text-base font-semibold text-green-primary"
-      >
-        {initialsOf(author.name)}
-      </span>
+      {author && (
+        <span
+          aria-hidden="true"
+          className="flex size-12 shrink-0 items-center justify-center overflow-hidden rounded-full bg-green-soft font-heading text-base font-semibold text-green-primary"
+        >
+          {initialsOf(author.name)}
+        </span>
+      )}
       <div className="flex flex-col gap-0.5 font-body text-base leading-[1.5]">
-        <span className="text-text-primary">{author.name}</span>
+        {author && <span className="text-text-primary">{author.name}</span>}
         <span className="text-text-secondary">
           {formatBlogDate(date)} · {formatReadingTime(readingTime)}
         </span>
