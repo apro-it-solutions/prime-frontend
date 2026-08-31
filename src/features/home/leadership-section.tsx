@@ -192,7 +192,7 @@ export function LeadershipSection() {
               engineering-execution experience to every project.
             </p>
             <div className="mt-8 motion-safe:opacity-0">
-              <PillButton label="View All Leadership" href="/leadership" />
+              <PillButton label="View All Leadership" href="/about#leadership" />
             </div>
           </div>
         </div>

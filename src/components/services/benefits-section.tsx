@@ -35,9 +35,9 @@ export function BenefitsSection() {
     <section className="bg-bg-base py-16 lg:py-[70px]">
       <Container>
         <div className="overflow-hidden rounded-[28px] bg-green-soft p-6 sm:p-8 lg:p-10">
-          <div className="flex flex-col gap-8 lg:flex-row lg:items-stretch lg:gap-10">
+          <div className="flex flex-col gap-8 xl:flex-row xl:items-stretch xl:gap-10">
             {/* Image */}
-            <div className="relative aspect-[760/484] w-full shrink-0 overflow-hidden rounded-[20px] lg:aspect-auto lg:w-[760px]">
+            <div className="relative aspect-[760/484] w-full shrink-0 overflow-hidden rounded-[20px] xl:aspect-auto xl:w-[540px] 2xl:w-[760px]">
               <Image
                 src={benefitsImg}
                 alt="Galvanized steel structure showcasing corrosion-resistant finish"

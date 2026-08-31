@@ -81,13 +81,13 @@ export function ExperienceSection() {
         <RevealRow
           active={hasLanded}
           stagger={0}
-          className="mt-16 flex flex-col items-center gap-12 lg:mt-20 lg:flex-row lg:items-center lg:justify-between lg:gap-10"
+          className="mt-16 flex flex-col items-center gap-12 lg:mt-20 xl:flex-row xl:items-center xl:justify-between xl:gap-10"
         >
           {/* Left — trusted partner. Slides in from the left, heading first. */}
           <RevealItem
             preset="left"
             stagger={CHILD_STAGGER}
-            className="order-2 w-full max-w-[360px] lg:order-1"
+            className="order-2 w-full max-w-[360px] xl:order-1"
           >
             <RevealChild>
               <h3 className="font-body text-[28px] font-medium leading-[1.15] tracking-[-0.28px] text-text-primary">
@@ -109,13 +109,13 @@ export function ExperienceSection() {
           {/* Center — featured facility. Fades up from slightly below. */}
           <RevealItem
             preset="image"
-            className="relative order-1 aspect-[536/526] w-full max-w-[536px] shrink-0 overflow-hidden rounded-[24px] lg:order-2"
+            className="relative order-1 aspect-[536/526] w-full max-w-[536px] shrink-0 overflow-hidden rounded-[24px] xl:order-2 xl:max-w-[420px] 2xl:max-w-[536px]"
           >
             <Image
               src={facility}
               alt="Galvanized steel structural framework under construction"
               fill
-              sizes="(max-width: 1024px) 100vw, 536px"
+              sizes="(max-width: 1279px) 100vw, (max-width: 1535px) 420px, 536px"
               className="object-cover"
             />
           </RevealItem>

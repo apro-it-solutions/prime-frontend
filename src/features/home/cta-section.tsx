@@ -16,9 +16,9 @@ export function CtaSection() {
     <section className="bg-green-soft py-20 lg:py-[86px]">
       <Container>
         <div className="overflow-hidden rounded-[28px] bg-text-primary">
-          <div className="flex flex-col lg:flex-row lg:items-stretch">
+          <div className="flex flex-col xl:flex-row xl:items-stretch">
             {/* Building image — static; only the copy beside it animates. */}
-            <div className="relative h-64 w-full shrink-0 sm:h-80 lg:h-[633px] lg:w-[800px]">
+            <div className="relative h-64 w-full shrink-0 sm:h-80 xl:h-[520px] xl:w-[560px] 2xl:h-[633px] 2xl:w-[800px]">
               <Image
                 src={ctaBuilding}
                 alt="Aerial view of a completed prime warehouse project"
@@ -29,7 +29,7 @@ export function CtaSection() {
             </div>
 
             {/* Copy */}
-            <FadeUpGroup className="flex flex-1 flex-col items-start justify-center gap-5 px-8 py-12 lg:px-[60px]">
+            <FadeUpGroup className="flex flex-1 flex-col items-start justify-center gap-5 px-8 py-12 xl:px-[60px]">
               <FadeUpItem>
                 <h2 className="font-heading text-4xl font-semibold leading-[1.15] tracking-[-0.48px] text-white lg:text-[48px]">
                   Start Your Project

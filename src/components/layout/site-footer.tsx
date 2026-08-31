@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Container } from "./container";
 import { Logo } from "./logo";
+import { SERVICES } from "@/components/services/services-data";
 
 interface FooterColumn {
   title: string;
@@ -28,20 +29,21 @@ const FOOTER_COLUMNS: FooterColumn[] = [
     ],
   },
   {
+    // Built from the service data itself, so the column can never drift out of
+    // sync with the pages it points at — a new service lands here on its own.
     title: "Services",
-    links: [
-      { label: "Warehouses", href: "/services" },
-      { label: "Industrial", href: "/services" },
-      { label: "Commercial", href: "/services" },
-    ],
+    links: SERVICES.map((service) => ({
+      label: service.title,
+      href: `/services/${service.slug}`,
+    })),
   },
   {
     title: "Company",
     links: [
       { label: "About", href: "/about" },
-      { label: "Leadership", href: "/leadership" },
-      { label: "Careers", href: "/careers" },
-      { label: "News", href: "/blog" },
+      { label: "Leadership", href: "/about#leadership" },
+      { label: "Projects", href: "/projects" },
+      { label: "Blog", href: "/blog" },
     ],
   },
 ];

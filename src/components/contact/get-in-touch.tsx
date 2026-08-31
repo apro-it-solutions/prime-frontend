@@ -7,9 +7,9 @@ export function GetInTouch() {
   return (
     <section className="bg-bg-base py-20 lg:py-[100px]">
       <Container>
-        <div className="flex flex-col gap-12 lg:flex-row lg:items-start lg:justify-between lg:gap-16">
+        <div className="flex flex-col gap-12 xl:flex-row xl:items-start xl:justify-between xl:gap-16">
           <ContactInfo />
-          <div className="w-full lg:w-[760px] lg:shrink-0">
+          <div className="w-full xl:w-[560px] xl:shrink-0 2xl:w-[760px]">
             <ContactForm />
           </div>
         </div>

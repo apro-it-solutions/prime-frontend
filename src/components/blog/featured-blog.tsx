@@ -20,9 +20,9 @@ export function FeaturedBlog({ blog }: { blog: Blog }) {
   return (
     <Link
       href={`/blog/${blog.slug}`}
-      className="group flex flex-col overflow-hidden rounded-[28px] bg-bg-card shadow-[0px_12px_32px_0px_rgba(15,23,18,0.08)] transition-shadow duration-300 hover:shadow-[0px_18px_44px_0px_rgba(15,23,18,0.14)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-green-accent focus-visible:ring-offset-2 lg:flex-row lg:items-stretch"
+      className="group flex flex-col overflow-hidden rounded-[28px] bg-bg-card shadow-[0px_12px_32px_0px_rgba(15,23,18,0.08)] transition-shadow duration-300 hover:shadow-[0px_18px_44px_0px_rgba(15,23,18,0.14)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-green-accent focus-visible:ring-offset-2 xl:flex-row xl:items-stretch"
     >
-      <div className="relative aspect-[760/460] w-full shrink-0 overflow-hidden bg-bg-sunken lg:aspect-auto lg:w-[760px]">
+      <div className="relative aspect-[760/460] w-full shrink-0 overflow-hidden bg-bg-sunken xl:aspect-auto xl:w-[540px] 2xl:w-[760px]">
         {blog.featuredImage && (
           <ImageWithFallback
             src={blog.featuredImage}
@@ -35,7 +35,7 @@ export function FeaturedBlog({ blog }: { blog: Blog }) {
         )}
       </div>
 
-      <div className="flex flex-1 flex-col justify-center gap-5 p-8 sm:p-12 lg:p-14">
+      <div className="flex flex-1 flex-col justify-center gap-5 p-8 sm:p-12 xl:p-14">
         <div className="flex flex-wrap items-center gap-3">
           <span className="inline-flex items-center rounded-full bg-green-soft px-3.5 py-[7px] font-body text-xs font-medium uppercase tracking-[0.5px] text-green-primary">
             {categoryLabel(blog.category)}

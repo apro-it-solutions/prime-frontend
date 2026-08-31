@@ -9,7 +9,7 @@ import { MainNav } from "./main-nav";
 import { MobileMenuButton, MobileMenuPanel } from "./mobile-menu";
 import { PillButton } from "@/components/ui/pill-button";
 import { cn } from "@/lib/utils";
-import primeLogo from "../../../public/images/prime-sticky.svg";
+import primeLogo from "../../../public/images/prime-logo-sticky.svg";
 
 /**
  * Scroll distance that counts as a deliberate change of direction. Below this
@@ -39,10 +39,12 @@ const HERO_CLEARANCE = 0.6;
  * The brand lockup as the sticky bar uses it (Figma node 829:789): the tagline
  * beside the mark rather than stacked beneath it.
  *
- * `prime-sticky.svg` is that horizontal lockup — the oval with the tagline set
- * beside it in dark type — so the tagline is part of the asset here rather than
- * separate markup, and the dark type reads on the bar's white field. The stacked
- * lockup on the dark hero and footer is the other asset, `prime-main-logo.svg`.
+ * `prime-logo-sticky.svg` is that horizontal lockup — the oval with the tagline
+ * set beside it in dark type — so the tagline is part of the asset here rather
+ * than separate markup, and the dark type reads on the bar's white field. It is
+ * drawn at 267×56 for this bar, so it is rendered at that height rather than
+ * scaled to a size of ours. The stacked lockup on the dark hero and footer is
+ * the other asset, `prime-main-logo.svg`.
  */
 function LogoMark() {
   return (
@@ -55,7 +57,7 @@ function LogoMark() {
         src={primeLogo}
         alt="prime NMS — The Steel Building Specialist"
         priority
-        className="h-[44px] w-auto shrink-0"
+        className="h-[56px] w-auto shrink-0"
       />
     </Link>
   );

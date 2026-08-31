@@ -23,7 +23,7 @@ export function BlogListingSkeleton() {
     <div aria-hidden="true" className="animate-pulse">
       {/* Featured */}
       <div className="flex flex-col overflow-hidden rounded-[28px] bg-bg-card shadow-[0px_12px_32px_0px_rgba(15,23,18,0.08)] lg:flex-row">
-        <div className="aspect-[760/460] w-full shrink-0 bg-bg-sunken lg:aspect-auto lg:w-[760px]" />
+        <div className="aspect-[760/460] w-full shrink-0 bg-bg-sunken xl:aspect-auto xl:w-[540px] 2xl:w-[760px]" />
         <div className="flex flex-1 flex-col justify-center gap-5 p-8 sm:p-12 lg:p-14">
           <div className="h-6 w-32 rounded-full bg-bg-sunken" />
           <div className="h-9 w-11/12 rounded bg-bg-sunken" />

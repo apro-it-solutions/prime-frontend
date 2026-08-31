@@ -16,7 +16,12 @@ const LEADERS: Leader[] = [
 /** 06 — Leadership. */
 export function AboutLeadership() {
   return (
-    <section className="bg-text-primary py-20 lg:py-[100px]">
+    // `scroll-mt-28` keeps the heading clear of the sticky header when the
+    // footer's Leadership link lands here.
+    <section
+      id="leadership"
+      className="scroll-mt-28 bg-text-primary py-20 lg:py-[100px]"
+    >
       <Container>
         <FadeHeading className="font-heading text-4xl font-semibold leading-[1.15] tracking-[-0.56px] text-bg-base sm:text-5xl lg:text-[56px]">
           The people accountable.

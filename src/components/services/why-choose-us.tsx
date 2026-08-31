@@ -19,20 +19,20 @@ export function WhyChooseUs() {
   return (
     <section className="bg-bg-base py-20 lg:py-[90px]">
       <Container>
-        <div className="flex flex-col gap-6 lg:flex-row lg:items-start lg:justify-between lg:gap-16">
+        <div className="flex flex-col gap-6 xl:flex-row xl:items-start xl:justify-between xl:gap-16">
           <FadeHeading className="max-w-[1085px] font-heading text-4xl font-semibold leading-[1.15] tracking-[-0.56px] text-text-primary sm:text-5xl lg:text-[56px]">
             Build Your Future with Galvanized Steel Strong.
           </FadeHeading>
-          <p className="max-w-[580px] shrink-0 font-body text-lg leading-[1.65] text-text-secondary lg:pt-2">
+          <p className="font-body text-lg leading-[1.65] text-text-secondary xl:max-w-[480px] xl:shrink-0 xl:pt-2 2xl:max-w-[580px]">
             Harness the strength of pre-engineered galvanized steel to build
             faster, cut lifetime cost, and structures that last. One
             manufacturer, engineered and delivered end to end.
           </p>
         </div>
 
-        <div className="mt-12 flex flex-col gap-6 lg:mt-[54px] lg:flex-row lg:gap-[60px]">
+        <div className="mt-12 flex flex-col gap-6 xl:mt-[54px] xl:flex-row xl:gap-[60px]">
           {/* Facility / team image */}
-          <div className="relative aspect-[760/380] w-full shrink-0 overflow-hidden rounded-[24px] lg:aspect-auto lg:h-[380px] lg:w-[760px]">
+          <div className="relative aspect-[760/380] w-full shrink-0 overflow-hidden rounded-[24px] xl:aspect-auto xl:h-[380px] xl:w-[520px] 2xl:w-[760px]">
             <Image
               src={facility}
               alt="Prime NMS facility and engineering team on site"
