@@ -50,7 +50,8 @@ export function ServiceHero() {
             <FadeUpItem className="mt-6">
               <p className="max-w-[680px] font-body text-lg leading-[1.65] text-white/85">
                 From pre-engineered buildings to insulated panels, roofing
-                systems and custom fabrication — one manufacturer, end to end.
+                systems, automated doors and custom fabrication — one group,
+                end to end.
               </p>
             </FadeUpItem>
             <FadeUpItem className="mt-8">
@@ -61,10 +62,11 @@ export function ServiceHero() {
           {/* Highlight stat */}
           <FadeUpItem className="w-full max-w-[300px] shrink-0">
             <p className="font-heading text-[28px] font-semibold leading-[1.2] tracking-[-0.28px] text-white">
-              11+ product lines
+              16 product lines
             </p>
             <p className="mt-2 font-body text-base leading-[1.5] text-white/80">
-              Delivered across India, engineered in-house.
+              Engineered in-house since 1985, delivered across India, the Middle
+              East and Africa.
             </p>
           </FadeUpItem>
         </FadeUpGroup>

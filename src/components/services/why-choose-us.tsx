@@ -8,10 +8,10 @@ import {
 import facility from "../../../public/images/service-why-facility.png";
 
 const STATS: ServiceStat[] = [
-  { value: "500+", label: "Projects delivered" },
-  { value: "6,000T", label: "Annual capacity" },
-  { value: "100%", label: "On-time record" },
-  { value: "12", label: "States served" },
+  { value: "1985", label: "Engineering since" },
+  { value: "8", label: "Group companies" },
+  { value: "5", label: "Manufacturing units" },
+  { value: "100%", label: "Customer satisfaction" },
 ];
 
 /** 02 — Why Choose Prime NMS. */
@@ -24,9 +24,10 @@ export function WhyChooseUs() {
             Build Your Future with Galvanized Steel Strong.
           </FadeHeading>
           <p className="font-body text-lg leading-[1.65] text-text-secondary xl:max-w-[480px] xl:shrink-0 xl:pt-2 2xl:max-w-[580px]">
-            Harness the strength of pre-engineered galvanized steel to build
-            faster, cut lifetime cost, and structures that last. One
-            manufacturer, engineered and delivered end to end.
+            A structural engineering solution provider since 1985, with
+            factories in Kerala and R.A.K. and projects across India, the Middle
+            East, Africa, Sri Lanka and the Maldives — cost effective solutions
+            without compromising on quality, aesthetics or the environment.
           </p>
         </div>
 

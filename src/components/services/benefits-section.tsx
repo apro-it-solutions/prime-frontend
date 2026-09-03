@@ -12,20 +12,22 @@ interface Benefit {
 
 const BENEFITS: Benefit[] = [
   {
-    title: "Corrosion Resistance",
-    description: "Zinc coating protects steel — rust never reaches the core.",
+    title: "Single Responsibility",
+    description:
+      "One stop for the design, fabrication and supply of your building.",
   },
   {
-    title: "Longer Service Life",
-    description: "50+ year design life, even in humid coastal conditions.",
+    title: "In-House Engineering",
+    description:
+      "Designed to American, Australian, European and IS code standards.",
   },
   {
-    title: "Lower Maintenance",
-    description: "No repainting or rust treatment — near-zero upkeep.",
+    title: "Certified Raw Materials",
+    description: "High quality steel, complete with mill test certificates.",
   },
   {
-    title: "Faster to Build",
-    description: "Pre-engineered and fabricated off-site for rapid assembly.",
+    title: "Faster Project Cycles",
+    description: "Strong stock and high production capacity cut build time.",
   },
 ];
 
@@ -55,7 +57,7 @@ export function BenefitsSection() {
                 className="text-green-accent"
               />
               <FadeHeading className="mt-3 max-w-[280px] font-heading text-3xl font-semibold leading-[1.15] tracking-[-0.32px] text-text-primary lg:text-[32px]">
-                Why galvanized steel wins.
+                Why Prime steel buildings win.
               </FadeHeading>
 
               <ul className="mt-8 flex flex-col gap-6">

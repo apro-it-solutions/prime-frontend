@@ -3,11 +3,11 @@ import { Container } from "@/components/layout/container";
 import { ScrollImageSequence } from "@/components/ui/scroll-image-sequence";
 import { HeroCopy } from "./hero-copy";
 
-/** `/public/banner-sequence/hero_00000.webp` … `hero_00623.webp` */
-const HERO_FRAME_COUNT = 624;
+/** `/public/banner-sequence/hero_00000.webp` … `hero_00528.webp` */
+const HERO_FRAME_COUNT = 529;
 
 /**
- * 01 — Hero. The aerial background is a scroll-driven 624-frame sequence: the
+ * 01 — Hero. The aerial background is a scroll-driven 529-frame sequence: the
  * banner pins for a 300vh runway while scrolling scrubs the footage, then
  * releases into the next section. Copy and header ride along on the sticky
  * layer.

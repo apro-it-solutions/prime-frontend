@@ -3,11 +3,10 @@ import {
   ArrowLeftRight,
   BadgeCheck,
   Blinds,
-  Boxes,
+  Building2,
   CloudRain,
   Cog,
   Combine,
-  DoorOpen,
   Droplets,
   Factory,
   Fan,
@@ -16,14 +15,13 @@ import {
   Gauge,
   Hammer,
   HardHat,
+  Home,
   Layers,
   LayoutGrid,
   Lightbulb,
   Lock,
   Move3d,
   PanelTop,
-  Plane,
-  Refrigerator,
   Ruler,
   Scaling,
   ShieldCheck,
@@ -35,7 +33,6 @@ import {
   Timer,
   Truck,
   Utensils,
-  Warehouse,
   Waves,
   Weight,
   Wind,
@@ -47,7 +44,6 @@ import {
 import pebImg from "../../../public/images/service-peb.png";
 import pufImg from "../../../public/images/service-puf.png";
 import roofingImg from "../../../public/images/service-roofing.png";
-import doorsImg from "../../../public/images/service-doors.png";
 import coldroomImg from "../../../public/images/service-coldroom.png";
 import fabricationImg from "../../../public/images/service-fabrication.png";
 import bandWarehouse from "../../../public/images/band-warehouse.png";
@@ -59,13 +55,41 @@ import roofingSeam from "../../../public/images/service-roofing-seam.png";
 import featuredFacility from "../../../public/images/featured-facility.jpg";
 import serviceBenefits from "../../../public/images/service-benefits.png";
 import whyFacility from "../../../public/images/service-why-facility.png";
-import projectGreenfield from "../../../public/images/project-greenfield-logistics.png";
 import projectHighland from "../../../public/images/project-highland-coldstorage.png";
 import projectMetro from "../../../public/images/project-metro-distribution.png";
 import projectSkyline from "../../../public/images/project-skyline-commercial.png";
 import projectCoastal from "../../../public/images/project-coastal-industrial.png";
 import projectPrime from "../../../public/images/project-prime-manufacturing.png";
-import projectFeatured from "../../../public/images/project-featured.png";
+
+/* Photographs lifted from the Prime product catalogue. These are the company's
+   own project and product shots, so a tab shows the thing it describes rather
+   than a stand-in. */
+import pebWarehouse from "../../../public/images/catalogue/peb-warehouse.jpg";
+import pebIndustrial from "../../../public/images/catalogue/peb-industrial.jpg";
+import pebHighriseFrame from "../../../public/images/catalogue/peb-highrise-frame.jpg";
+import pebHighriseAerial from "../../../public/images/catalogue/peb-highrise-aerial.jpg";
+import pebStructural3d from "../../../public/images/catalogue/peb-structural-3d.jpg";
+import pebVillaTwostorey from "../../../public/images/catalogue/peb-villa-twostorey.jpg";
+import pebVillaTileroof from "../../../public/images/catalogue/peb-villa-tileroof.jpg";
+import pebVillaModern from "../../../public/images/catalogue/peb-villa-modern.jpg";
+import pebMezzanineDecking from "../../../public/images/catalogue/peb-mezzanine-decking.jpg";
+import pebSnowpark from "../../../public/images/catalogue/peb-snowpark.jpg";
+import panelInsulatedBuilding from "../../../public/images/catalogue/panel-insulated-building.jpg";
+import panelInsuroofProfiles from "../../../public/images/catalogue/panel-insuroof-profiles.jpg";
+import roofAquaproofSolar from "../../../public/images/catalogue/roof-aquaproof-solar.jpg";
+import roofStoneColours from "../../../public/images/catalogue/roof-stone-colours.jpg";
+import roofStoneLayers from "../../../public/images/catalogue/roof-stone-layers.jpg";
+import roofArchpan from "../../../public/images/catalogue/roof-archpan.jpg";
+import roofCurvedWalkway from "../../../public/images/catalogue/roof-curved-walkway.jpg";
+import roofWallCladding from "../../../public/images/catalogue/roof-wall-cladding.jpg";
+import coldroomCorridor from "../../../public/images/catalogue/coldroom-corridor.jpg";
+import doorSectionalGlazed from "../../../public/images/catalogue/door-sectional-glazed.jpg";
+import doorGarage from "../../../public/images/catalogue/door-garage.jpg";
+import doorIndustrialRow from "../../../public/images/catalogue/door-industrial-row.jpg";
+import windowAluminiumBifold from "../../../public/images/catalogue/window-aluminium-bifold.jpg";
+import windowSlidingView from "../../../public/images/catalogue/window-sliding-view.jpg";
+import handrailGlass from "../../../public/images/catalogue/handrail-glass.jpg";
+import handrailStairs from "../../../public/images/catalogue/handrail-stairs.jpg";
 
 /** A photo with the alt text that always travels with it. */
 export interface ServiceImage {
@@ -175,6 +199,9 @@ export interface ServiceDetail {
  * The single source of truth for services — the listing grid and every detail
  * page read from this array, so adding a service here adds its card and its
  * route in one edit, and adding a tab adds it to that service alone.
+ *
+ * Content follows the Prime Group product catalogue: figures, profile codes,
+ * material grades and test standards are quoted from it rather than estimated.
  */
 export const SERVICES: ServiceDetail[] = [
   {
@@ -182,319 +209,319 @@ export const SERVICES: ServiceDetail[] = [
     title: "Pre-Engineered Buildings",
     heroTitle: "Pre-Engineered Buildings.",
     description:
-      "Clear-span galvanized steel structures engineered off-site and bolted together on yours — warehouses, factories and commercial builds delivered in months, not years.",
+      "Rigid frames, endwall columns, purlins and girts engineered and fabricated under one roof — cost-effective in material, quick to erect and finished to look the part.",
     bannerImage: {
-      src: pebImg,
-      alt: "Clear-span pre-engineered galvanized steel building frame",
+      src: pebWarehouse,
+      alt: "Large pre-engineered steel warehouse building completed by Prime",
     },
     cardImage: {
       src: pebImg,
       alt: "Pre-engineered galvanized steel building structure",
     },
     cardDescription:
-      "Clear-span galvanized steel structures for warehouses, factories and commercial builds.",
+      "Rigid-frame steel buildings for industry, high-rise, mezzanines and villas.",
     heroStats: [
-      { value: "up to 90m", label: "clear span" },
-      { value: "50+ yr", label: "design life" },
-      { value: "IS 800", label: "compliant" },
+      { value: "up to 30m", label: "eave height" },
+      { value: "up to 20", label: "floors" },
+      { value: "4 code standards", label: "IS, AISC, AS, EN" },
     ],
     specsHeading: "Engineered to the detail.",
     tabs: [
       {
-        id: "manufacturing",
-        title: "Manufacturing Facilities",
+        id: "industrial",
+        title: "Industrial Buildings",
         heroImage: {
-          src: projectPrime,
-          alt: "Manufacturing facility built by Prime NMS",
+          src: pebIndustrial,
+          alt: "Pre-engineered industrial building with profiled steel cladding",
         },
         content: {
           overview: {
-            heading: "Floor space that\nthe line dictates.",
+            heading: "Rigid frames,\nbay by bay.",
             lead: {
               icon: Factory,
-              title: "Built around the process",
-              body: "Bay spacing, crane gantries and service routes are set by your production line, not by a catalogue. Frames are analysed for crane surge and equipment loads before fabrication, so the shell never limits how the plant is laid out.",
+              title: "The PEB steel structure",
+              body: "Interior rigid frames, endwall bearing or rigid frames and endwall wind columns carry the building, with roof purlins, wall girts and wind bracing tying it together. Roof monitors, mezzanines, canopies, fascias, parapets and framed openings are engineered in as subsystems rather than added afterwards.",
             },
           },
           features: [
             {
-              icon: Weight,
-              title: "Crane ready",
-              body: "Gantries designed into the frame.",
-            },
-            {
-              icon: Move3d,
-              title: "Service routes",
-              body: "Ducting and cable trays planned in.",
-            },
-            {
-              icon: HardHat,
-              title: "Live-site erection",
-              body: "Phased around running production.",
-            },
-          ],
-          specs: {
-            note: "Every plant is designed to order — spans, crane capacity and bay spacing specified to your process.",
-            items: [
-              {
-                label: "CLEAR SPAN",
-                value: "up to 60m",
-                detail: "Column-free production floor",
-              },
-              {
-                label: "CRANE CAPACITY",
-                value: "up to 40T",
-                detail: "EOT gantries built into the frame",
-              },
-              {
-                label: "EAVE HEIGHT",
-                value: "6–18m",
-                detail: "Set by equipment clearance",
-              },
-              {
-                label: "FLOOR LOADING",
-                value: "to spec",
-                detail: "Plinths designed with your civil team",
-              },
-            ],
-          },
-        },
-      },
-      {
-        id: "warehouse",
-        title: "Warehouse Buildings",
-        heroImage: {
-          src: projectGreenfield,
-          alt: "Warehouse building constructed by Prime NMS",
-        },
-        content: {
-          overview: {
-            heading: "Racking height,\nnot roof height.",
-            lead: {
-              icon: Warehouse,
-              title: "Storage-first geometry",
-              body: "Eave height, bay spacing and column positions are driven by the racking layout, so pallet positions are never lost to a badly placed column. Roof pitch and gutter sizing follow the local rainfall intensity.",
-            },
-          },
-          features: [
-            {
-              icon: Boxes,
-              title: "Racking aligned",
-              body: "Columns set to the aisle grid.",
-            },
-            {
-              icon: CloudRain,
-              title: "Drained properly",
-              body: "Gutters sized to local rainfall.",
+              icon: Ruler,
+              title: "Economical bays",
+              body: "Interior bays at 7.5–8.5m.",
             },
             {
               icon: Scaling,
-              title: "Expansion bays",
-              body: "End bays ready to extend.",
+              title: "Shorter end bays",
+              body: "6m or less, by-pass girts.",
+            },
+            {
+              icon: CloudRain,
+              title: "1/10 roof slope",
+              body: "The ideal pitch; any slope possible.",
             },
           ],
           specs: {
-            note: "Every warehouse is designed to order — clear height, bay spacing and dock count specified to your operation.",
+            note: "Building width is measured outside eave strut to outside eave strut; length is the sum of all bay lengths.",
             items: [
               {
-                label: "CLEAR SPAN",
-                value: "up to 90m",
-                detail: "Single-span storage floor",
+                label: "INTERIOR BAY",
+                value: "6–10m",
+                detail: "Most economical at 7.5–8.5m",
               },
               {
-                label: "CLEAR HEIGHT",
-                value: "9–15m",
-                detail: "Sized to the racking system",
+                label: "END BAY",
+                value: "6m or less",
+                detail: "With by-pass endwall girts",
               },
               {
-                label: "BAY SPACING",
-                value: "6–12m",
-                detail: "Set to the aisle grid",
+                label: "EAVE HEIGHT",
+                value: "up to 30m",
+                detail: "Base plate to eave strut",
               },
               {
-                label: "DOCK LEVELLERS",
-                value: "Integrated",
-                detail: "Openings framed at design stage",
+                label: "PURLIN SPACING",
+                value: "1500mm",
+                detail: "600mm at the ridge",
               },
             ],
           },
         },
       },
       {
-        id: "cold-storage",
-        title: "Cold Storage",
+        id: "high-rise",
+        title: "High Rise Steel Buildings",
         heroImage: {
-          src: projectHighland,
-          alt: "Cold storage facility built by Prime NMS",
+          src: pebHighriseFrame,
+          alt: "G+6 factory building under erection — foundation to completion in 100 days",
         },
         content: {
           overview: {
-            heading: "A structure that\nholds the cold.",
+            heading: "Twenty floors,\nin steel.",
             lead: {
-              icon: Snowflake,
-              title: "Envelope and frame as one",
-              body: "The steel frame is detailed around the insulated envelope rather than clad after the fact — panel modules, vapour seals and door openings are set out at design stage so there is no thermal bridge where structure meets skin.",
+              icon: Building2,
+              title: "Multistorey, fast",
+              body: "Prime offers multistorey steel buildings up to 20 floors, with the flexibility in design and space utilisation architects ask for. A five-floor building of 20,000 sq.ft built-up area completes in under 90 days, and a G+6 factory has gone from foundation to completion in 100 days.",
             },
           },
           features: [
             {
-              icon: ThermometerSnowflake,
-              title: "Down to −40°C",
-              body: "Freezer and chiller envelopes.",
+              icon: Timer,
+              title: "G+6 in 100 days",
+              body: "Foundation to completion.",
             },
             {
               icon: Layers,
-              title: "Panel modular",
-              body: "Grid set to the panel module.",
+              title: "Fast-track walls",
+              body: "Sandwich panel, not block work.",
             },
             {
               icon: ShieldCheck,
-              title: "Vapour sealed",
-              body: "Junctions detailed, not improvised.",
+              title: "Seismic designed",
+              body: "For the loads of the region.",
             },
           ],
           specs: {
-            note: "Every cold store is designed to order — temperature, panel thickness and door count specified to your product.",
+            note: "Fast-track construction replaces conventional block walls with insulated sandwich panels and floors with deck panel and foam concrete.",
             items: [
               {
-                label: "TEMPERATURE",
-                value: "−40°C to +10°C",
-                detail: "Freezer through chiller range",
+                label: "STOREYS",
+                value: "up to 20",
+                detail: "Multistorey steel framing",
               },
               {
-                label: "PANEL",
-                value: "100–200mm",
-                detail: "Sized to the temperature drop",
+                label: "BUILD TIME",
+                value: "under 90 days",
+                detail: "20,000 sq.ft over five floors",
               },
               {
-                label: "CLEAR HEIGHT",
-                value: "9–14m",
-                detail: "Racked or block-stacked",
+                label: "WALLS",
+                value: "Sandwich Panel",
+                detail: "Replacing block construction",
               },
               {
-                label: "FLOOR",
-                value: "Insulated",
-                detail: "Heated slab for freezer rooms",
+                label: "FLOOR SYSTEM",
+                value: "Deck + Foam",
+                detail: "Or normal concrete slab",
               },
             ],
           },
         },
       },
       {
-        id: "logistics",
-        title: "Logistics Centers",
+        id: "villas",
+        title: "Pre-Engineered Villas",
         heroImage: {
-          src: projectMetro,
-          alt: "Logistics and distribution centre built by Prime NMS",
+          src: pebVillaTwostorey,
+          alt: "Two-storey pre-engineered villa finished in blue and white",
         },
         content: {
           overview: {
-            heading: "Built around\nthe dock line.",
+            heading: "A house, in\nthirty days.",
             lead: {
-              icon: Truck,
-              title: "Throughput by design",
-              body: "Dock positions, canopy depth and yard circulation are laid out before the frame, so trailers turn cleanly and loading never queues into the building. Cross-dock layouts run doors on both elevations.",
+              icon: Home,
+              title: "An alternative to sand and cement",
+              body: "Highly cost-effective, durable, thermally and acoustically insulated residential units built from injected polyurethane sandwich panel, faced inside and out with polyester coated aluminium or galvalume. Electrical and plumbing services run concealed through the panels, and the structure is earthquake resistant.",
             },
           },
           features: [
-            {
-              icon: Forklift,
-              title: "Cross-dock ready",
-              body: "Doors on opposing elevations.",
-            },
-            {
-              icon: PanelTop,
-              title: "Loading canopies",
-              body: "Cantilevered, no yard columns.",
-            },
             {
               icon: Timer,
-              title: "Fast to open",
-              body: "Shell delivered ahead of fit-out.",
+              title: "1,000 sq.ft",
+              body: "A typical unit in under 30 days.",
+            },
+            {
+              icon: ShieldCheck,
+              title: "Earthquake resistant",
+              body: "Panel structure, not masonry.",
+            },
+            {
+              icon: Thermometer,
+              title: "Insulated as built",
+              body: "Thermal and acoustic in the panel.",
             },
           ],
           specs: {
-            note: "Every centre is designed to order — dock count, canopy depth and yard geometry specified to your fleet.",
+            note: "Ideal for housing units and for chalets in tourism resorts on terrain that is difficult to access.",
             items: [
               {
-                label: "DOCK DOORS",
-                value: "up to 60",
-                detail: "Single or cross-dock layout",
+                label: "BUILD TIME",
+                value: "under 30 days",
+                detail: "A typical 1,000 sq.ft unit",
               },
               {
-                label: "CANOPY",
-                value: "3–6m",
-                detail: "Cantilevered over the dock line",
+                label: "COST",
+                value: "₹800–1200",
+                detail: "Per sq.ft, by specification",
               },
               {
-                label: "CLEAR SPAN",
-                value: "up to 45m",
-                detail: "Uninterrupted staging floor",
+                label: "STRUCTURE",
+                value: "PU Sandwich Panel",
+                detail: "Injected polyurethane core",
               },
               {
-                label: "YARD",
-                value: "35m turning",
-                detail: "Set out for articulated trailers",
+                label: "FACES",
+                value: "Aluminium · Galvalume",
+                detail: "Polyester coated both sides",
               },
             ],
           },
         },
       },
       {
-        id: "hangars",
-        title: "Aircraft Hangars",
+        id: "mezzanine",
+        title: "Mezzanine Floors",
         heroImage: {
-          src: projectFeatured,
-          alt: "Large-span steel hangar structure built by Prime NMS",
+          src: pebMezzanineDecking,
+          alt: "Steel mezzanine floors with profiled decking under construction",
         },
         content: {
           overview: {
-            heading: "The whole span,\nno column in it.",
+            heading: "A floor inside\nthe building.",
             lead: {
-              icon: Plane,
-              title: "Door-opening spans",
-              body: "A hangar is defined by its opening: the full front elevation carries no column, so the header truss and sliding door tracks are engineered together with the frame rather than hung off it afterwards.",
+              icon: SquareStack,
+              title: "Columns, beams, joists, deck",
+              body: "A mezzanine is intermediate support columns, main beams, joists and a deck fastened to the joists with self-drilling fasteners. Clear height below the mezzanine beam runs 3–4m above finished floor level, with joists spaced at roughly 1.75m for a 100mm concrete slab.",
             },
           },
           features: [
             {
-              icon: ArrowLeftRight,
-              title: "Full-width doors",
-              body: "Sliding leaves across the elevation.",
+              icon: Ruler,
+              title: "Joists at 1.75m",
+              body: "Spaced for a 100mm slab.",
             },
             {
-              icon: Wind,
-              title: "Wind engineered",
-              body: "Open-door load cases analysed.",
+              icon: Weight,
+              title: "2000 kg/sq.m",
+              body: "Live load on thick decking.",
             },
             {
-              icon: Lightbulb,
-              title: "Daylit interiors",
-              body: "Ridge lights across the span.",
+              icon: Combine,
+              title: "Flush connections",
+              body: "Joists frame into the beams.",
             },
           ],
           specs: {
-            note: "Every hangar is designed to order — door opening, tail height and wind zone specified to the aircraft.",
+            note: "Beams are built-up I-sections spanning in the direction of the rigid frame rafters; columns are square tube or built-up I as design requires.",
             items: [
               {
-                label: "CLEAR SPAN",
-                value: "up to 90m",
-                detail: "Column-free hangar floor",
+                label: "CLEAR HEIGHT",
+                value: "3–4m",
+                detail: "Below the beam, above FFL",
               },
               {
-                label: "DOOR OPENING",
-                value: "up to 80m",
-                detail: "Sliding or folding leaves",
+                label: "JOIST SPACING",
+                value: "1.75m",
+                detail: "For a 100mm concrete slab",
               },
               {
-                label: "TAIL HEIGHT",
-                value: "12–24m",
-                detail: "Clearance to the aircraft",
+                label: "COLUMNS",
+                value: "Tube · Built-Up I",
+                detail: "As required by design",
               },
               {
-                label: "WIND CASE",
-                value: "Doors open",
-                detail: "Analysed for the worst case",
+                label: "DECK",
+                value: "0.5–0.9mm",
+                detail: "Permanent shuttering",
+              },
+            ],
+          },
+        },
+      },
+      {
+        id: "turnkey",
+        title: "Turnkey Solutions",
+        heroImage: {
+          src: pebStructural3d,
+          alt: "Structural 3D model of a pre-engineered steel frame",
+        },
+        content: {
+          overview: {
+            heading: "One responsibility,\nstart to finish.",
+            lead: {
+              icon: HardHat,
+              title: "Design, fabricate, supply, erect",
+              body: "Single responsibility — one stop for the design, fabrication and supply of your pre-engineered steel building, with an in-house erection and supervision division to see the project finished on time. Total solution covers project evaluation, feasibility design and execution of the civil work as well as the steel structure.",
+            },
+          },
+          features: [
+            {
+              icon: Factory,
+              title: "One factory",
+              body: "Every component under one roof.",
+            },
+            {
+              icon: BadgeCheck,
+              title: "Mill test certificates",
+              body: "With all raw materials supplied.",
+            },
+            {
+              icon: Wrench,
+              title: "In-house erection",
+              body: "Own supervision division.",
+            },
+          ],
+          specs: {
+            note: "Strong stock of raw materials and high production capacity give faster and better project cycle times.",
+            items: [
+              {
+                label: "RESPONSIBILITY",
+                value: "Single Point",
+                detail: "Design, fabrication and supply",
+              },
+              {
+                label: "DESIGN CODES",
+                value: "IS · AISC · AS · EN",
+                detail: "In-house engineering team",
+              },
+              {
+                label: "MATERIALS",
+                value: "Mill Certified",
+                detail: "MTC with every consignment",
+              },
+              {
+                label: "ERECTION",
+                value: "In-House",
+                detail: "Erection and supervision division",
               },
             ],
           },
@@ -502,61 +529,61 @@ export const SERVICES: ServiceDetail[] = [
       },
     ],
     gallery: [
-      { src: projectGreenfield, alt: "Greenfield logistics warehouse" },
+      { src: pebHighriseAerial, alt: "High rise steel frame rising floor by floor over a live site" },
+      { src: pebSnowpark, alt: "Snow park at Athirappilly, clad in a patterned steel facade" },
+      { src: pebVillaModern, alt: "Contemporary steel-framed residence" },
       { src: projectPrime, alt: "Prime manufacturing plant" },
-      { src: projectCoastal, alt: "Coastal industrial facility" },
-      { src: projectFeatured, alt: "Completed clear-span steel structure" },
     ],
     faq: [
       {
-        question: "How long does a PEB structure take to deliver?",
+        question: "What bay lengths are the most economical?",
         answer:
-          "Design and approval typically runs three to four weeks, fabrication four to eight weeks depending on tonnage, and erection begins as soon as the foundation is ready. Most projects are weather-tight within four months of order.",
+          "The most common interior bay lengths in the PEB industry are 6, 7.5, 8, 9 and 10m, and the most economical range is 7.5–8.5m. For maximum economy keep the interior bays equal, hold end bays to 6m or less and use by-pass endwall girts.",
       },
       {
-        question: "Can the building be extended later?",
+        question: "Which design codes do you build to?",
         answer:
-          "Yes. End bays are designed as expansion bays on request, so additional length bolts on without disturbing the existing structure or the roof sheeting already in place.",
+          "In-house engineering designs to American, Australian, European and Indian Standard codes. High quality raw materials are supplied complete with mill test certificates, and every product is accompanied by an MTC and packing list.",
       },
       {
-        question: "Do you handle foundation design?",
+        question: "How tall can a Prime steel building go?",
         answer:
-          "We supply anchor-bolt layouts, base reactions and foundation loads for your civil consultant. We can also coordinate directly with them through the approval stage.",
+          "Eave heights up to 30m are possible on single-storey frames, and the multistorey system goes up to 20 floors. A five-floor building with 20,000 sq.ft of built-up area can be completed in less than 90 days.",
       },
       {
-        question: "What loads are the frames designed for?",
+        question: "What is the ideal roof slope?",
         answer:
-          "Dead, live, wind and seismic loads to IS 875 and IS 1893 for your specific site, plus any crane, mezzanine or equipment loads you share with us at the enquiry stage.",
+          "1/10 is the ideal roof slope, though any practical slope is possible. Typical purlin spacing is 1500mm, reducing to 600mm at the ridge to accommodate optional 600mm ridge gravity ventilators.",
       },
     ],
     cta: {
       heading: "Start your next build in steel.",
-      body: "Send us your span, bay spacing and site location — we'll engineer and quote the right frame.",
+      body: "Send us your building width, bay spacing and eave height — we'll engineer and quote the frame.",
       image: {
         src: ctaBuilding,
         alt: "Completed Prime NMS pre-engineered steel building",
       },
     },
     metaDescription:
-      "Clear-span pre-engineered galvanized steel buildings up to 90m — manufacturing plants, warehouses, cold stores, logistics centres and hangars engineered to IS 800.",
+      "Pre-engineered steel buildings from Prime — rigid-frame industrial buildings to 30m eave height, high-rise steel to 20 floors, mezzanines, villas and turnkey execution designed to IS, AISC, AS and EN codes.",
   },
   {
     slug: "sandwich-puf-panels",
     title: "Sandwich PUF Panels",
     heroTitle: "Sandwich PUF Panels.",
     description:
-      "Insulated roof and wall panels with a rigid polyurethane core — holding temperature, cutting energy load and going up as a single finished skin.",
+      "Rigid polyurethane foam sandwiched between metal or flexible facings, manufactured from 25mm to 200mm to the highest international standards — a cost-effective system for buildings and energy conservation.",
     bannerImage: {
-      src: pufImg,
-      alt: "Insulated sandwich PUF wall panels being installed",
+      src: panelInsulatedBuilding,
+      alt: "Building envelope clad entirely in insulated sandwich panels",
     },
     cardImage: { src: pufImg, alt: "Insulated sandwich PUF panels" },
     cardDescription:
-      "Insulated roof and wall panels for temperature control and energy efficiency.",
+      "Insulated roof, wall, polycarbonate and rockwool panels with an engineered core.",
     heroStats: [
-      { value: "30–200mm", label: "core thickness" },
-      { value: "40 kg/m³", label: "core density" },
-      { value: "0.020", label: "W/mK conductivity" },
+      { value: "25–200mm", label: "panel thickness" },
+      { value: "0.024 W/mK", label: "K value" },
+      { value: "35–40 kg/m³", label: "core density" },
     ],
     specsHeading: "Engineered to the detail.",
     tabs: [
@@ -564,57 +591,57 @@ export const SERVICES: ServiceDetail[] = [
         id: "roof-panels",
         title: "Roof Panels",
         heroImage: {
-          src: pufImg,
-          alt: "Insulated roof panel profile",
+          src: roofAquaproofSolar,
+          alt: "Aquaproof insulated roof carrying solar panels fixed without penetration",
         },
         content: {
           overview: {
             heading: "One layer, roof\nto ceiling.",
             lead: {
               icon: PanelTop,
-              title: "Structure, insulation, finish",
-              body: "A five-rib profile spans purlin to purlin and carries its own insulation, so decking, insulation and liner go up in a single pass. Concealed fixings sit under the rib, keeping the weather path clear of fasteners.",
+              title: "Aquaproof sandwich panels",
+              body: "Aquaproof roofing sheets are available as insulated panels, with rigid polyurethane foam sandwiched between two metal sheets. Panels run from 30mm to 75mm thick and give a cost-effective route to excellent thermal insulation in steel buildings, for energy conservation.",
             },
           },
           features: [
             {
               icon: Droplets,
-              title: "Sealed laps",
-              body: "Gasketed side joint at every rib.",
+              title: "100% leak proof",
+              body: "No screw penetrates the sheet.",
             },
             {
-              icon: Waves,
-              title: "Long spans",
-              body: "Fewer purlins for the same load.",
+              icon: Sun,
+              title: "Solar ready",
+              body: "Clamps fix without penetration.",
             },
             {
-              icon: Timer,
-              title: "Single-pass fix",
-              body: "Roof closed in one operation.",
+              icon: Zap,
+              title: "Energy conservation",
+              body: "Insulation cuts the cooling load.",
             },
           ],
           specs: {
-            note: "Every roof panel is made to order — thickness, profile and length specified to your span.",
+            note: "Composite panels are produced with internal and external sheets of aluminium, steel or other architectural materials in different thickness, coating and colour.",
             items: [
               {
                 label: "THICKNESS",
-                value: "30–150mm",
-                detail: "Selected to your thermal load",
+                value: "30–75mm",
+                detail: "Insulated Aquaproof panels",
               },
               {
                 label: "PROFILE",
-                value: "5-Rib",
-                detail: "1000mm effective cover",
+                value: "6-Rib Aquaproof",
+                detail: "Self-locking caps at the ribs",
               },
               {
-                label: "LENGTH",
-                value: "up to 12m",
-                detail: "Cut to length, no site joints",
+                label: "CORE",
+                value: "Rigid PU Foam",
+                detail: "Between two metal sheets",
               },
               {
-                label: "FIXING",
-                value: "Concealed",
-                detail: "Fasteners under the rib",
+                label: "INSUROOF TILE",
+                value: "1065mm",
+                detail: "Nominal width, 195mm tile pitch",
               },
             ],
           },
@@ -622,179 +649,179 @@ export const SERVICES: ServiceDetail[] = [
       },
       {
         id: "wall-panels",
-        title: "Wall Panels",
+        title: "Wall & Liner Panels",
         heroImage: {
-          src: bandWarehouse,
-          alt: "Building envelope clad in insulated wall panels",
+          src: panelInsuroofProfiles,
+          alt: "Insuroof insulated tile and Trafford panel profile drawings",
         },
         content: {
           overview: {
-            heading: "A flat wall that\nstays flat.",
+            heading: "A wall that\ninsulates itself.",
             lead: {
               icon: LayoutGrid,
-              title: "Hidden-fix elevations",
-              body: "Wall panels lock together on a tongue-and-groove joint with no fastener showing, so the elevation reads as one plane. Panels run horizontally or vertically, and micro-ribbed faces hide the oil-canning flat sheet shows.",
+              title: "Polyprime liner sandwich panels",
+              body: "The ultimate cost-effective solution for insulated roof and wall: a polyprime liner panel starting at 30mm thick, priced around 20% below a metal liner in any colour while performing the same function. Applications run from walls and cabin partitions to mezzanine decks and industrial doors.",
             },
           },
           features: [
             {
-              icon: ShieldCheck,
-              title: "No visible fixings",
-              body: "Fasteners hidden in the joint.",
+              icon: Weight,
+              title: "Light, load bearing",
+              body: "High capacity at low weight.",
             },
             {
-              icon: Thermometer,
-              title: "Continuous line",
-              body: "No thermal bridge at the seam.",
-            },
-            {
-              icon: ArrowLeftRight,
-              title: "Either orientation",
-              body: "Horizontal or vertical runs.",
-            },
-          ],
-          specs: {
-            note: "Every wall panel is made to order — thickness, face profile and colour specified to your elevation.",
-            items: [
-              {
-                label: "THICKNESS",
-                value: "30–120mm",
-                detail: "Sized to the thermal target",
-              },
-              {
-                label: "FACE",
-                value: "Micro-Rib · Flat",
-                detail: "Hides surface waviness",
-              },
-              {
-                label: "JOINT",
-                value: "Tongue & Groove",
-                detail: "Gasketed, hidden fixing",
-              },
-              {
-                label: "FINISH",
-                value: "PPGI · PPGL",
-                detail: "RAL matched on request",
-              },
-            ],
-          },
-        },
-      },
-      {
-        id: "partition-panels",
-        title: "Partition Panels",
-        heroImage: {
-          src: projectSkyline,
-          alt: "Internal partitioning within a steel building",
-        },
-        content: {
-          overview: {
-            heading: "Rooms inside\nthe building.",
-            lead: {
-              icon: Combine,
-              title: "Free-standing internal walls",
-              body: "The same panel used on the envelope divides the interior — offices, plant rooms and process areas — carrying its own structure so no separate stud frame is needed. Layouts can be reconfigured without touching the shell.",
-            },
-          },
-          features: [
-            {
-              icon: Wrench,
-              title: "Self-supporting",
-              body: "No stud frame behind it.",
-            },
-            {
-              icon: Move3d,
-              title: "Reconfigurable",
-              body: "Demountable and re-usable.",
+              icon: Timer,
+              title: "Rapid erection",
+              body: "No lifting equipment needed.",
             },
             {
               icon: BadgeCheck,
-              title: "Wipe-clean faces",
-              body: "Food-grade finish available.",
+              title: "20% cheaper",
+              body: "Than an equivalent metal liner.",
             },
           ],
           specs: {
-            note: "Every partition is made to order — height, thickness and opening positions specified to your layout.",
+            note: "Excellent water and vapour barrier, good sound insulation, easy repair and replacement, and a green product that is reusable.",
             items: [
               {
                 label: "THICKNESS",
-                value: "50–100mm",
-                detail: "Acoustic and thermal split",
+                value: "from 30mm",
+                detail: "Polyprime liner panels",
               },
               {
-                label: "HEIGHT",
-                value: "up to 8m",
-                detail: "Free-standing, braced above",
+                label: "SAVING",
+                value: "20% cheaper",
+                detail: "Against a metal liner",
               },
               {
-                label: "OPENINGS",
-                value: "Framed",
-                detail: "Doors and vision panels",
+                label: "FACINGS",
+                value: "Aluminium · Steel",
+                detail: "Architectural options available",
               },
               {
-                label: "FACES",
-                value: "Food-Grade",
-                detail: "Coved junction detail",
+                label: "TRAFFORD PANEL",
+                value: "1012mm",
+                detail: "Cover width, 1092mm overall",
               },
             ],
           },
         },
       },
       {
-        id: "pir-panels",
-        title: "PIR Fire-Rated Panels",
+        id: "polycarbonate-panels",
+        title: "Polycarbonate Panels",
         heroImage: {
-          src: projectCoastal,
-          alt: "Industrial facility clad in fire-rated insulated panels",
+          src: projectSkyline,
+          alt: "Polycarbonate sandwich panel cladding on a building",
         },
         content: {
           overview: {
-            heading: "The same panel,\na harder core.",
+            heading: "Insulation, where\nsteel corrodes.",
             lead: {
-              icon: Flame,
-              title: "PIR where fire rating governs",
-              body: "A polyisocyanurate core replaces PUF where the fire classification is specified, keeping the same skins, profiles and jointing. Panels char rather than melt, holding the envelope together for the rated period.",
+              icon: ShieldCheck,
+              title: "Polyurethane between polycarbonate",
+              body: "Polycarbonate sandwich panels are produced using polyurethane with internal and external sheets of polycarbonate, from 30mm to 200mm thick. They are used in high-saline corrosion segments — marine industry cold rooms among them — where a metal facing would not hold up.",
             },
           },
           features: [
             {
-              icon: ShieldCheck,
-              title: "Rated envelope",
-              body: "Classified to project spec.",
+              icon: Waves,
+              title: "Saline resistant",
+              body: "Built for marine environments.",
             },
             {
               icon: Layers,
-              title: "Drop-in swap",
-              body: "Same profiles and details.",
+              title: "30–200mm",
+              body: "The full thickness range.",
             },
             {
-              icon: Thermometer,
-              title: "Same thermals",
-              body: "No loss of insulating value.",
+              icon: Snowflake,
+              title: "Cold room duty",
+              body: "Used on marine cold rooms.",
             },
           ],
           specs: {
-            note: "Every fire-rated panel is made to order — rating, thickness and profile specified to your approval drawings.",
+            note: "One of a range that also includes bamboo ply wall panels for partition and external walls.",
             items: [
               {
-                label: "CORE",
-                value: "PIR",
-                detail: "Chars rather than melts",
+                label: "THICKNESS",
+                value: "30–200mm",
+                detail: "Polyurethane core",
               },
+              {
+                label: "FACINGS",
+                value: "Polycarbonate",
+                detail: "Internal and external sheets",
+              },
+              {
+                label: "APPLICATION",
+                value: "High Saline",
+                detail: "Marine industry cold rooms",
+              },
+              {
+                label: "CORE",
+                value: "Rigid PU Foam",
+                detail: "Closed cell content above 90%",
+              },
+            ],
+          },
+        },
+      },
+      {
+        id: "rockwool-panels",
+        title: "Rockwool Panels",
+        heroImage: {
+          src: projectCoastal,
+          alt: "Industrial facility clad in rockwool sandwich panels",
+        },
+        content: {
+          overview: {
+            heading: "The same panel,\na mineral core.",
+            lead: {
+              icon: Flame,
+              title: "Rockwool where fire governs",
+              body: "High-density lamellar rockwool replaces the polyurethane core where fire performance is specified. The panel is non-combustible to BS 476 Part 4, holds 30 minutes fire resistance to BS 476 Part 8 and classifies A1/A2 to DIN 4102, while cutting sound transmission by 26 to 30 dB.",
+            },
+          },
+          features: [
+            {
+              icon: Flame,
+              title: "Non-combustible",
+              body: "BS 476 Part 4 classified.",
+            },
+            {
+              icon: ShieldCheck,
+              title: "30 min resistance",
+              body: "BS 476 Part 8 fire rating.",
+            },
+            {
+              icon: Waves,
+              title: "26–30 dB",
+              body: "Sound transmission loss.",
+            },
+          ],
+          specs: {
+            note: "Supplied up to 1m effective width in single lengths up to 12m without joints, depending on site requirements.",
+            items: [
               {
                 label: "THICKNESS",
-                value: "50–150mm",
-                detail: "Rating dependent",
+                value: "50–120mm",
+                detail: "Roof and wall panel profiles",
               },
               {
-                label: "CONDUCTIVITY",
-                value: "0.022 W/mK",
-                detail: "Comparable to standard PUF",
+                label: "DENSITY",
+                value: "100 ±15 kg/m³",
+                detail: "High density lamellar rockwool",
               },
               {
-                label: "SKINS",
-                value: "PPGI · PPGL",
-                detail: "0.5–0.6mm pre-coated",
+                label: "K VALUE",
+                value: "0.040 W/mK",
+                detail: "Maximum at 10°C mean temp",
+              },
+              {
+                label: "MELTING POINT",
+                value: "over 1000°C",
+                detail: "Application range −30 to 250°C",
               },
             ],
           },
@@ -802,30 +829,30 @@ export const SERVICES: ServiceDetail[] = [
       },
     ],
     gallery: [
-      { src: projectHighland, alt: "Highland cold storage facility" },
-      { src: projectGreenfield, alt: "Greenfield logistics warehouse" },
+      { src: panelInsulatedBuilding, alt: "Insulated panel building envelope" },
+      { src: coldroomCorridor, alt: "Cold room corridor built from insulated panels" },
       { src: bandWarehouse, alt: "Insulated warehouse envelope" },
     ],
     faq: [
       {
         question: "What thickness of panel do I need?",
         answer:
-          "It follows the temperature difference you're holding. Ambient warehouses usually sit at 50–80mm, air-conditioned spaces at 80–100mm, and freezer rooms at 150–200mm. Share your target internal temperature and we'll size it.",
+          "Panels are manufactured from 25mm to 200mm, with the polyurethane itself available from 15mm. Thickness follows the U-value you need: at 35 kg/m³ density, 25mm gives 0.96 W/m²°C, 35mm gives 0.68 and 50mm gives 0.48. Higher density is available on request.",
       },
       {
-        question: "Is a PIR core available?",
+        question: "What is the fire classification?",
         answer:
-          "Yes. PIR is offered where a higher fire classification is required, with the same skins, profiles and jointing as the standard PUF panel.",
+          "The polyurethane foam is equipped with reactive and non-reactive flame retardants and meets DIN 4102 Class B3. Where a higher classification is required, the rockwool panel classifies A1/A2 to DIN 4102 and is non-combustible to BS 476 Part 4.",
       },
       {
-        question: "Can panels be curved?",
+        question: "What are the foam properties?",
         answer:
-          "Roof panels can be supplied with a shallow curve on request. Sharper radii are handled with a segmented arrangement engineered to the roof geometry.",
+          "Moulded density 35 kg/m³, closed-cell content above 90%, initial thermal conductivity 21 mW/mK at 23°C and compressive strength of 140 kPa perpendicular to the panel. Dimensional change stays within 1% after 48 hours at both −25°C and 70°C.",
       },
       {
-        question: "How are joints sealed?",
+        question: "Where are these panels used?",
         answer:
-          "Panels lock with a tongue-and-groove joint and a factory-applied gasket. Wall junctions, corners and openings are closed with matching flashings supplied with the order.",
+          "Domestic roofs, walls and cabin partitions, cold rooms and storage, industrial and garage doors, and mezzanine decks — as well as chalets for the tourism sector, schools, institutions and specialised food industry applications.",
       },
     ],
     cta: {
@@ -837,263 +864,263 @@ export const SERVICES: ServiceDetail[] = [
       },
     },
     metaDescription:
-      "Insulated sandwich panels — PUF and PIR roof, wall, partition and fire-rated panels from 30 to 200mm, continuous-line manufactured and cut to length.",
+      "Insulated sandwich panels from Prime — polyurethane roof, wall, polycarbonate and rockwool panels from 25 to 200mm, with K values from 0.024 W/mK and DIN 4102 fire classification.",
   },
   {
     slug: "roofing-wall-sheets",
     title: "Roofing & Wall Sheets",
     heroTitle: "Roofing & Wall Sheets.",
     description:
-      "Aquaproof profiled sheets rolled from galvanized and pre-coated coil — engineered for weather resistance, long spans and a roof that stays sealed.",
+      "Aquaproof, tile, Trafford, Arch Pan and decking profiles rolled in aluminium and steel aluzinc — every colour to the customer's choice, coated to hold it.",
     bannerImage: {
       src: roofingDaylight,
       alt: "Daylit steel roof structure over an industrial interior",
     },
     cardImage: { src: roofingImg, alt: "Profiled roofing and wall sheets" },
     cardDescription:
-      "Aquaproof profiled sheets engineered for weather resistance and long life.",
+      "Aquaproof, tile, Trafford and Arch Pan profiles in aluminium and steel aluzinc.",
     heroStats: [
-      { value: "up to 12m", label: "sheet length" },
-      { value: "1000mm", label: "cover width" },
-      { value: "AZ150", label: "coating mass" },
+      { value: "0.4–0.9mm", label: "sheet thickness" },
+      { value: "340 MPa", label: "aluzinc yield" },
+      { value: "AZ150", label: "alloy coating" },
     ],
     specsHeading: "Engineered to the detail.",
     tabs: [
       {
-        id: "trapezoidal",
-        title: "Trapezoidal Sheets",
+        id: "aquaproof",
+        title: "Aquaproof Roofing",
         heroImage: {
-          src: roofingImg,
-          alt: "Trapezoidal profiled roofing sheets",
+          src: roofAquaproofSolar,
+          alt: "Aquaproof roof sheeting with solar panels clamped to the ribs",
         },
         content: {
           overview: {
-            heading: "Deep ribs carry\nwater and load.",
+            heading: "A roof with no\nscrews in it.",
             lead: {
-              icon: Waves,
-              title: "The workhorse profile",
-              body: "A deep trapezoidal rib does two jobs at once: it stiffens the sheet so it spans further between purlins, and it moves water off the roof fast. Anti-capillary grooves at the side lap stop driven rain tracking back in.",
-            },
-          },
-          features: [
-            {
               icon: Droplets,
-              title: "Anti-capillary lap",
-              body: "Groove at every side joint.",
+              title: "100% leak proof",
+              body: "Aquaproof is a 100% leak-proof profile sheet with self-locking caps at alternate ribs, optional at every rib. Tighten the sheet with screws first, then press the caps on over the ribs and nothing is left exposed to the weather. It lays over Z purlins or box purlins.",
             },
-            {
-              icon: Ruler,
-              title: "Fewer purlins",
-              body: "Rib depth buys span.",
-            },
-            {
-              icon: ShieldCheck,
-              title: "Crest fixed",
-              body: "Fasteners above the water line.",
-            },
-          ],
-          specs: {
-            note: "Every roof is rolled to order — profile, thickness and length specified to your purlin spacing.",
-            items: [
-              {
-                label: "SHEET LENGTH",
-                value: "up to 12m",
-                detail: "Continuous eave-to-ridge runs",
-              },
-              {
-                label: "RIB DEPTH",
-                value: "28–45mm",
-                detail: "Selected to the span",
-              },
-              {
-                label: "COVER",
-                value: "1000mm",
-                detail: "Effective width per sheet",
-              },
-              {
-                label: "THICKNESS",
-                value: "0.40–0.80mm",
-                detail: "TCT to span and load",
-              },
-            ],
           },
-        },
-      },
-      {
-        id: "standing-seam",
-        title: "Standing Seam",
-        heroImage: {
-          src: roofingSeam,
-          alt: "Standing-seam galvanized roof edge detail",
-        },
-        content: {
-          overview: {
-            heading: "A roof with no\nholes in it.",
-            lead: {
+          features: [
+            {
+              icon: Sun,
+              title: "Solar without holes",
+              body: "Clamps grip the rib, not the sheet.",
+            },
+            {
               icon: Lock,
-              title: "Clipped, not screwed",
-              body: "Panels clip to concealed sliding clips and the seam is rolled shut on site, so nothing penetrates the weather plane. The clips let the sheet expand and contract with temperature instead of fighting the fixings.",
-            },
-          },
-          features: [
-            {
-              icon: ShieldCheck,
-              title: "No penetrations",
-              body: "Weather plane stays unbroken.",
-            },
-            {
-              icon: Move3d,
-              title: "Free to move",
-              body: "Sliding clips absorb expansion.",
-            },
-            {
-              icon: Scaling,
-              title: "Low pitch",
-              body: "Works down to shallow falls.",
-            },
-          ],
-          specs: {
-            note: "Every seam roof is rolled to order — panel width, clip type and pitch specified to your roof.",
-            items: [
-              {
-                label: "SEAM",
-                value: "360° Rolled",
-                detail: "Closed on site by machine",
-              },
-              {
-                label: "MIN PITCH",
-                value: "1.5°",
-                detail: "Suits near-flat roofs",
-              },
-              {
-                label: "CLIPS",
-                value: "Sliding",
-                detail: "Concealed, thermally broken",
-              },
-              {
-                label: "PANEL WIDTH",
-                value: "400–600mm",
-                detail: "Set to the roof module",
-              },
-            ],
-          },
-        },
-      },
-      {
-        id: "curved",
-        title: "Curved Roofing",
-        heroImage: {
-          src: roofingDaylight,
-          alt: "Curved steel roof over an industrial interior",
-        },
-        content: {
-          overview: {
-            heading: "The roof follows\nthe radius.",
-            lead: {
-              icon: Move3d,
-              title: "Rolled to your curve",
-              body: "Sheets are crimp-curved or smooth-curved to the radius on the drawing, so an arched roof runs continuously from eave to eave without a ridge joint. Tighter radii use crimping; gentle sweeps roll smooth.",
-            },
-          },
-          features: [
-            {
-              icon: Waves,
-              title: "No ridge joint",
-              body: "One sheet over the arch.",
-            },
-            {
-              icon: Ruler,
-              title: "To drawing",
-              body: "Radius set from your geometry.",
+              title: "Self-locking caps",
+              body: "Pressed on over every screw.",
             },
             {
               icon: CloudRain,
-              title: "Shed by shape",
-              body: "Curve keeps water moving.",
+              title: "No exposed screws",
+              body: "Nothing for water to track down.",
             },
           ],
           specs: {
-            note: "Every curved roof is rolled to order — radius, arc length and profile specified to your structure.",
+            note: "A complete environment-friendly roofing system that prevents leaks, prevents heat through insulation and takes solar panels without roof penetration.",
             items: [
               {
-                label: "MIN RADIUS",
-                value: "1.5m",
-                detail: "Crimp-curved profiles",
+                label: "ALUZINC",
+                value: "0.4–0.9mm",
+                detail: "340 MPa yield, AZ150 coating",
               },
               {
-                label: "SMOOTH CURVE",
-                value: "from 30m",
-                detail: "Rolled without crimping",
+                label: "ALUMINIUM",
+                value: "0.6–0.9mm",
+                detail: "140 MPa minimum yield",
               },
               {
-                label: "ARC LENGTH",
-                value: "up to 12m",
-                detail: "Eave to eave in one piece",
+                label: "TOP COAT",
+                value: "20 microns",
+                detail: "PVDF, HD and RMP finishes",
               },
               {
-                label: "THICKNESS",
-                value: "0.50–0.80mm",
-                detail: "Heavier gauge for curving",
+                label: "BOTTOM COAT",
+                value: "8 microns",
+                detail: "Minimum, on both materials",
               },
             ],
           },
         },
       },
       {
-        id: "roof-lights",
-        title: "Roof Lights & Skylights",
+        id: "profiled-sheets",
+        title: "Tile & Trafford Profiles",
         heroImage: {
-          src: roofingInterior,
-          alt: "Underside of a roof with daylight panels between purlins",
+          src: pebVillaTileroof,
+          alt: "House roofed in Prime tile profile sheeting",
         },
         content: {
           overview: {
-            heading: "Light that works\nfor the building.",
+            heading: "Five profiles,\none coil.",
             lead: {
-              icon: Sun,
-              title: "Daylight in the same profile",
-              body: "Translucent panels are rolled to match the metal profile exactly, so they drop into the sheeting run and lap like any other sheet. Daylight replaces lighting load through the working day without breaking the roof line.",
+              icon: Waves,
+              title: "The profiles Prime rolls",
+              body: "Tile profile 27/195, Bravo tile, Trafford 25/252, the Aquaproof six-rib and the decking profile all come off the same line, in aluminium or steel aluzinc base material. Every colour is available to the customer's choice, with accessories folded from matching coil.",
             },
           },
           features: [
             {
-              icon: Zap,
-              title: "Energy savings",
-              body: "Cuts daytime lighting load.",
+              icon: LayoutGrid,
+              title: "Tile 27/195",
+              body: "Mangalore and Bravo tile profiles.",
             },
             {
-              icon: ShieldCheck,
-              title: "UV stable",
-              body: "Polycarbonate that stays clear.",
+              icon: Ruler,
+              title: "Trafford 25/252",
+              body: "The classic industrial profile.",
             },
             {
-              icon: Droplets,
-              title: "Laps like steel",
-              body: "Same profile, same side joint.",
+              icon: BadgeCheck,
+              title: "Any colour",
+              body: "To the customer's choice.",
             },
           ],
           specs: {
-            note: "Every roof light is made to order — profile, transmission and layout specified to your roof.",
+            note: "Weights quoted for 0.50mm sheet. Weight and thickness are subject to rolling tolerance as per ASTM standards.",
             items: [
               {
-                label: "GLAZING",
-                value: "UV Polycarbonate",
-                detail: "Diffused, impact-resistant",
+                label: "PROFILES",
+                value: "25/252 · 35/207",
+                detail: "Plus 38/200, 45/250 and 45/150",
               },
               {
-                label: "PROFILE",
-                value: "Matched",
-                detail: "Rolled to the metal sheet",
+                label: "ALUMINIUM",
+                value: "1.52–1.93 kg/m²",
+                detail: "At 0.50mm thickness",
               },
               {
-                label: "TRANSMISSION",
-                value: "up to 80%",
-                detail: "Selected to the interior",
+                label: "STEEL",
+                value: "4.34–5.32 kg/m²",
+                detail: "At 0.50mm thickness",
               },
               {
-                label: "LENGTH",
+                label: "BASE MATERIAL",
+                value: "Aluminium · Aluzinc",
+                detail: "ASTM A653, JIS 3302, IS 277",
+              },
+            ],
+          },
+        },
+      },
+      {
+        id: "stone-coated",
+        title: "Stone Coated Tiles",
+        heroImage: {
+          src: roofStoneColours,
+          alt: "Stone coated roof tile colour range, Jh101 to Jh114",
+        },
+        content: {
+          overview: {
+            heading: "Stone on steel,\nfor thirty years.",
+            lead: {
+              icon: Layers,
+              title: "Colourful stone coated metal tile",
+              body: "A high-corrosion Al-Zn plate carries natural stone particles bonded with watercraft acrylic resin under a clear acrylic overglaze. It keeps the depth and decorative quality of traditional clay tile with the light weight and durability of modern metal, and suits wood, steel or concrete roof structures.",
+            },
+          },
+          features: [
+            {
+              icon: Timer,
+              title: "30 year life",
+              body: "Corrosion resistance 3–6× galvanized.",
+            },
+            {
+              icon: Weight,
+              title: "1/6 of cement tile",
+              body: "Only the weight of clay tile.",
+            },
+            {
+              icon: Zap,
+              title: "1.4–7× reflective",
+              body: "Heat reflected, not absorbed.",
+            },
+          ],
+          specs: {
+            note: "Shingle tile JH04 and Roman tile JH05, in fifteen colours from natural rock through to black, using non-toxic bonds.",
+            items: [
+              {
+                label: "SHINGLE JH04",
+                value: "1340 × 420mm",
+                detail: "2.08 sheets/m², 2.8 kg each",
+              },
+              {
+                label: "ROMAN JH05",
+                value: "1300 × 420mm",
+                detail: "2.16 sheets/m², 3.0 kg each",
+              },
+              {
+                label: "SERVICE LIFE",
+                value: "up to 30 yrs",
+                detail: "Al-Zn plate with stone facing",
+              },
+              {
+                label: "COLOURS",
+                value: "15",
+                detail: "Jh101 through Jh115",
+              },
+            ],
+          },
+        },
+      },
+      {
+        id: "arch-pan-curved",
+        title: "Arch Pan & Curved Roofing",
+        heroImage: {
+          src: roofArchpan,
+          alt: "Arch Pan curved roof spanning a building without interior columns",
+        },
+        content: {
+          overview: {
+            heading: "The span, with\nno column in it.",
+            lead: {
+              icon: Move3d,
+              title: "Interlocking arch and curved sheet",
+              body: "Arch Pan interlocks free of holes, nuts and bolts, so there is nothing to leak and no column in the middle of the workspace — around 10,000 sq.ft goes up in 12 hours. Curved roof sheets are supplied to various curvature up to a length of 12m in steel or aluminium profile.",
+            },
+          },
+          features: [
+            {
+              icon: Timer,
+              title: "10,000 sq.ft",
+              body: "Installed in around 12 hours.",
+            },
+            {
+              icon: Lock,
+              title: "Interlocked",
+              body: "No holes, nuts or bolts.",
+            },
+            {
+              icon: Waves,
+              title: "Curved to 12m",
+              body: "Steel or aluminium profile.",
+            },
+          ],
+          specs: {
+            note: "Arch Pan uses high-grade pre-coated galvalume with RMP or SMP coating; HILTI is the preferred fastener.",
+            items: [
+              {
+                label: "THICKNESS",
+                value: "0.8–1.5mm",
+                detail: "Pre-coated galvalume",
+              },
+              {
+                label: "STRENGTH",
+                value: "300–350 MPa",
+                detail: "High grade material",
+              },
+              {
+                label: "PANEL WIDTH",
+                value: "0.61–0.71m",
+                detail: "From 0.914m coil width",
+              },
+              {
+                label: "CURVED SHEET",
                 value: "up to 12m",
-                detail: "Continuous ridge runs",
+                detail: "Various curvature to drawing",
               },
             ],
           },
@@ -1103,57 +1130,57 @@ export const SERVICES: ServiceDetail[] = [
         id: "wall-cladding",
         title: "Wall Cladding",
         heroImage: {
-          src: bandWarehouse,
-          alt: "Profiled steel wall cladding on an industrial elevation",
+          src: roofWallCladding,
+          alt: "Building elevation clad in colour-coated profiled steel",
         },
         content: {
           overview: {
-            heading: "The elevation,\nin one material.",
+            heading: "The elevation,\ncoated to last.",
             lead: {
-              icon: LayoutGrid,
-              title: "Cladding that matches the roof",
-              body: "The same profiles run down the walls in a lighter gauge, vertically or horizontally, in a finish matched to the roof. Corners, cills and openings are closed with flashings folded from the same coil.",
+              icon: ShieldCheck,
+              title: "PPGI and PPGL cladding",
+              body: "Base material conforms to ASTM A653 or equivalent, hot-dip galvanized at 180–270 g/m² for PPGI or coated with AZ150 alu-zinc for PPGL. The zinc-rich interdendritic portion corrodes preferentially and fills with zinc corrosion products, giving both barrier and galvanic protection to the steel beneath.",
             },
           },
           features: [
             {
-              icon: ArrowLeftRight,
-              title: "Either direction",
-              body: "Vertical or horizontal runs.",
+              icon: ShieldCheck,
+              title: "Barrier + galvanic",
+              body: "Two protection mechanisms at once.",
+            },
+            {
+              icon: Sun,
+              title: "PVDF or polyester",
+              body: "UV and alkali resistance.",
             },
             {
               icon: BadgeCheck,
-              title: "Matched flashings",
-              body: "Folded from the same coil.",
-            },
-            {
-              icon: ShieldCheck,
-              title: "Coastal grades",
-              body: "PPGL where salt is a factor.",
+              title: "ISO 9001",
+              body: "MTC and packing list with every order.",
             },
           ],
           specs: {
-            note: "Every elevation is rolled to order — profile, orientation and colour specified to the facade.",
+            note: "Pencil hardness H or harder, gloss 15–80% at 60° to ASTM D 523, flexibility 2T (ECCA) with no adhesion loss.",
             items: [
               {
-                label: "THICKNESS",
-                value: "0.40–0.60mm",
-                detail: "Lighter than roof gauge",
+                label: "PPGI ZINC",
+                value: "180–270 g/m²",
+                detail: "Hot dipped, to ASTM standard",
               },
               {
-                label: "ORIENTATION",
-                value: "Vertical · Horizontal",
-                detail: "Set by the elevation",
+                label: "PPGL ALU-ZINC",
+                value: "AZ150",
+                detail: "Aluminium zinc alloy coating",
               },
               {
-                label: "FINISH",
-                value: "PPGI · PPGL",
-                detail: "RAL matched to the roof",
+                label: "PVDF",
+                value: "20–25 microns",
+                detail: "Over 5–7 micron epoxy primer",
               },
               {
-                label: "FLASHINGS",
-                value: "Folded to Suit",
-                detail: "Corners, cills and reveals",
+                label: "POLYESTER",
+                value: "20–25 microns",
+                detail: "Over 6–10 micron epoxy primer",
               },
             ],
           },
@@ -1161,299 +1188,302 @@ export const SERVICES: ServiceDetail[] = [
       },
     ],
     gallery: [
+      { src: roofArchpan, alt: "Arch Pan curved roof structure" },
+      { src: roofCurvedWalkway, alt: "Curved roof cladding over a walkway" },
+      { src: roofStoneLayers, alt: "Stone coated tile construction, layer by layer" },
       { src: roofingDaylight, alt: "Daylit steel roof interior" },
-      { src: roofingInterior, alt: "Roof purlins and sheeting from below" },
-      { src: roofingSeam, alt: "Standing-seam roof detail" },
-      { src: projectMetro, alt: "Metro distribution centre roof" },
     ],
     faq: [
       {
-        question: "What is the maximum sheet length you can supply?",
+        question: "Which base materials do you roll?",
         answer:
-          "We roll continuous sheets up to 12m for transport by road. Longer roofs are handled by on-site roll forming so the run stays lap-free from eave to ridge.",
+          "Aluminium and steel aluzinc. Base material conforms to ASTM A 653 or other equivalent standards such as JIS 3302, EN 10326/10327 and IS 277, and all colours are available to the customer's choice.",
       },
       {
-        question: "Which coating should I choose?",
+        question: "What is the difference between PVDF and polyester coating?",
         answer:
-          "AZ150 galvalume is the default for industrial roofs. Coastal and chemical environments take a pre-coated PPGL sheet, and colour-matched PPGI is used where appearance matters.",
+          "Polyester (RMP) is an economical long-life coating — 20–25 microns externally over a 6–10 micron epoxy primer. PVDF has high resistance to alkaline atmospheres and excellent UV resistance compared to polyester, at 20–25 microns externally over a 5–7 micron primer.",
       },
       {
-        question: "Do you supply the accessories?",
+        question: "How does Aquaproof take solar panels?",
         answer:
-          "Yes — ridge caps, barge boards, gutters, valley and corner flashings, fasteners and sealants are all supplied with the sheets in the matching finish.",
+          "Solar panels install above the Aquaproof profile using special clamps that tighten onto the rib without penetrating the roofing sheet. Even after the panels are fixed the roof remains 100% leakproof.",
       },
       {
-        question: "Can these sheets be used on walls?",
+        question: "How long do stone coated tiles last?",
         answer:
-          "The same profiles are used for wall cladding, usually in a lighter thickness. Wall sheets can be run vertically or horizontally to match the elevation.",
+          "Product life is up to 30 years. The aluminium zinc alloy steel plate is 3–6 times more corrosion resistant than galvanized steel, and the heat-reflective rate is 1.4–7 times that of common roofing materials.",
       },
     ],
     cta: {
       heading: "Sheet your roof properly.",
-      body: "Tell us your roof pitch, span and finish — we'll roll and quote the right profile.",
+      body: "Tell us your profile, base material and colour — we'll roll and quote it.",
       image: {
         src: roofingSeam,
-        alt: "Close-up of a standing-seam galvanized roof edge",
+        alt: "Close-up of a profiled galvanized roof edge",
       },
     },
     metaDescription:
-      "Aquaproof profiled roofing and wall sheets — trapezoidal, standing seam, curved, roof lights and cladding in AZ150 galvalume, PPGI and PPGL up to 12m.",
+      "Aquaproof, tile, Trafford and Arch Pan roofing from Prime — aluminium and steel aluzinc sheets 0.4–0.9mm with PVDF and polyester coatings, plus stone coated roof tiles and curved cladding to 12m.",
   },
   {
     slug: "doors-windows",
     title: "Doors & Windows",
     heroTitle: "Doors & Windows.",
     description:
-      "Automated and manual steel doors, windows and rolling shutters — sized to the opening, sealed to the envelope and built for industrial duty cycles.",
+      "Zenith doors from Prime Automated Doors — sectional overhead doors, insulated rolling shutters, dock equipment and aluminium and UPVC windows, engineered for industry.",
     bannerImage: {
-      src: doorsImg,
-      alt: "Industrial steel doors fitted to a warehouse elevation",
+      src: doorIndustrialRow,
+      alt: "Row of insulated sectional doors along an industrial elevation",
     },
-    cardImage: { src: doorsImg, alt: "Industrial steel doors and windows" },
+    cardImage: {
+      src: doorSectionalGlazed,
+      alt: "Glazed sectional overhead doors on a building elevation",
+    },
     cardDescription:
-      "Automated and manual steel doors, windows and rolling shutters.",
+      "Zenith sectional doors, rolling shutters, dock equipment and windows.",
     heroStats: [
-      { value: "up to 8m", label: "clear opening" },
-      { value: "Motorised", label: "or manual" },
-      { value: "IP55", label: "sealed drives" },
+      { value: "6 × 6m", label: "industrial door" },
+      { value: "40mm", label: "insulated panel" },
+      { value: "25+ yrs", label: "door engineering" },
     ],
     specsHeading: "Engineered to the detail.",
     tabs: [
       {
-        id: "rolling-shutters",
-        title: "Rolling Shutters",
+        id: "sectional-doors",
+        title: "Sectional Overhead Doors",
         heroImage: {
-          src: doorsImg,
-          alt: "Industrial rolling shutter fitted to a steel building",
+          src: doorGarage,
+          alt: "Remote-operated sectional garage door on a modern house",
         },
         content: {
           overview: {
-            heading: "The opening rolls\nout of the way.",
+            heading: "The door folds\ninto the roof.",
             lead: {
-              icon: Blinds,
-              title: "Interlocking slat curtains",
-              body: "Roll-formed slats interlock into a curtain that coils above the opening, so nothing swings into the yard or the floor. Guides, barrel and drive are sized together for the opening's weight and its duty cycle.",
+              icon: ArrowLeftRight,
+              title: "Garage and industrial sections",
+              body: "Sectional overhead doors are fast becoming the most popular and practical choice for safe, secure, easy-to-use openings — operated manually or by remote, with a spring-assisted mechanism for smooth, quiet movement. Against a conventional rolling shutter they are stronger, completely sealed and well insulated with sandwich panels.",
             },
           },
           features: [
             {
-              icon: Cog,
-              title: "Motorised drives",
-              body: "Chain, tubular or side motor.",
+              icon: Layers,
+              title: "40mm PU panels",
+              body: "Injected, monolithically protected.",
             },
             {
               icon: Lock,
-              title: "Secure by build",
-              body: "Interlocked slats, drop bolts.",
+              title: "Complete sealing",
+              body: "All the way around the door.",
             },
             {
-              icon: Thermometer,
-              title: "Insulated option",
-              body: "Foam-filled slats available.",
+              icon: Cog,
+              title: "Remote operated",
+              body: "Hi-tech operators, full safety.",
             },
           ],
           specs: {
-            note: "Every shutter is made to order — opening size, slat type and drive specified to the duty cycle.",
+            note: "Heavy duty anodized steel hardware to suit any site condition, meeting international standards. Other sizes are possible on request.",
             items: [
               {
-                label: "CLEAR OPENING",
-                value: "up to 8m",
-                detail: "Wider spans on twin drives",
+                label: "GARAGE DOOR",
+                value: "5.8 × 2.75m",
+                detail: "Maximum width and height",
               },
               {
-                label: "SLATS",
-                value: "GI · Insulated",
-                detail: "0.8–1.2mm interlocking",
+                label: "INDUSTRIAL",
+                value: "6 × 6m",
+                detail: "Maximum width and height",
+              },
+              {
+                label: "PANEL",
+                value: "40mm PU",
+                detail: "Injected polyurethane insulated",
               },
               {
                 label: "OPERATION",
-                value: "Manual · Motorised",
-                detail: "Manual override on all drives",
-              },
-              {
-                label: "FINISH",
-                value: "Powder Coated",
-                detail: "RAL matched to the cladding",
+                value: "Manual · Electric",
+                detail: "Chain hoist or remote control",
               },
             ],
           },
         },
       },
       {
-        id: "sliding-doors",
-        title: "Sliding & Sectional Doors",
+        id: "rolling-shutters",
+        title: "Rolling Shutters",
         heroImage: {
           src: projectMetro,
-          alt: "Loading doors on a distribution centre elevation",
+          alt: "Rolling shutters on a distribution centre elevation",
         },
         content: {
           overview: {
-            heading: "Big openings,\nfast cycles.",
+            heading: "Strength, with\nsome elegance.",
             lead: {
-              icon: ArrowLeftRight,
-              title: "Sideways or overhead",
-              body: "Sliding leaves run clear of the opening on a top track; sectional doors fold overhead into the roof space. Both keep the full width usable, and both take insulated panels where the door sits on a temperature boundary.",
+              icon: Blinds,
+              title: "Insulated and perforated shutters",
+              body: "Where heat loss is a primary concern the insulated rolling shutter is the obvious choice — polyurethane foam infill minimises energy waste while the shutter design stays aesthetically pleasing. Aluminium perforated shutters cover retail and ventilated openings. Both run on a tubular or side motor with push button or remote.",
             },
           },
           features: [
             {
-              icon: Timer,
-              title: "Fast cycles",
-              body: "Sized for repeat traffic.",
+              icon: Thermometer,
+              title: "PU foam infill",
+              body: "Minimises energy waste.",
             },
             {
-              icon: Layers,
-              title: "Insulated leaves",
-              body: "PUF-cored panel construction.",
+              icon: Cog,
+              title: "Tubular or side motor",
+              body: "Push button or remote option.",
             },
             {
-              icon: ShieldCheck,
-              title: "Sealed all round",
-              body: "Brush and gasket perimeter.",
+              icon: LayoutGrid,
+              title: "Perforated option",
+              body: "Aluminium, for retail fronts.",
             },
           ],
           specs: {
-            note: "Every door is made to order — leaf configuration, insulation and drive specified to the opening.",
+            note: "The ideal solution for any modern architecture — industrial, commercial, retail or domestic.",
             items: [
               {
-                label: "CLEAR OPENING",
-                value: "up to 12m",
-                detail: "Multi-leaf sliding sets",
+                label: "SLOTTED SLATS",
+                value: "42 · 55mm",
+                detail: "Standard slat profiles",
               },
               {
-                label: "LEAF",
-                value: "40–80mm",
-                detail: "Insulated panel construction",
+                label: "HEAVY SLATS",
+                value: "77 · 98mm",
+                detail: "For wider openings",
+              },
+              {
+                label: "INFILL",
+                value: "Polyurethane",
+                detail: "Insulated slat construction",
               },
               {
                 label: "DRIVE",
-                value: "Motorised",
-                detail: "Remote, button or sensor",
-              },
-              {
-                label: "SEALS",
-                value: "Perimeter",
-                detail: "Brush and gasket, four sides",
+                value: "Tubular · Side",
+                detail: "Push button or remote option",
               },
             ],
           },
         },
       },
       {
-        id: "personnel-doors",
-        title: "Personnel Doors",
+        id: "dock-equipment",
+        title: "Dock Levellers & Shelters",
         heroImage: {
-          src: projectSkyline,
-          alt: "Steel personnel doors in a building elevation",
+          src: bandWarehouse,
+          alt: "Loading dock equipment at a warehouse elevation",
         },
         content: {
           overview: {
-            heading: "The door people\nactually use.",
+            heading: "A bridge to\nthe trailer bed.",
             lead: {
-              icon: DoorOpen,
-              title: "Framed into the cladding",
-              body: "Single and double-leaf steel doors are fabricated to the structural opening and framed into the cladding line, so the seal closes on all four sides. Panic hardware, vision panels and closers are fitted in the shop.",
+              icon: Truck,
+              title: "Loading and unloading solutions",
+              body: "A dock leveller creates a movable bridge between the loading area and the surface of the vehicle, levelling out the difference in heights under hydraulic operation. Dock shelters cover the vehicle while it is loaded from the platform, on strong carrying frames designed to absorb the crashes that come with reversing manoeuvres.",
             },
           },
           features: [
             {
-              icon: ShieldCheck,
-              title: "Fire-rated options",
-              body: "Rated leaf and frame sets.",
+              icon: Gauge,
+              title: "Hydraulic operation",
+              body: "Levels out height differences.",
             },
             {
-              icon: Lock,
-              title: "Panic hardware",
-              body: "Push-bar exits where required.",
+              icon: ShieldCheck,
+              title: "Crash absorbing",
+              body: "Frames built for manoeuvres.",
+            },
+            {
+              icon: Flame,
+              title: "Fire retardant",
+              body: "Robust polyester and PVC covers.",
+            },
+          ],
+          specs: {
+            note: "Dock leveller, dock shelter and dock seal are supplied as one loading solution — installed across food, marine and logistics facilities.",
+            items: [
+              {
+                label: "LEVELLER",
+                value: "Hydraulic",
+                detail: "Movable bridge to the vehicle",
+              },
+              {
+                label: "SHELTER",
+                value: "Framed Cover",
+                detail: "Absorbs reversing impacts",
+              },
+              {
+                label: "COVERS",
+                value: "Polyester · PVC",
+                detail: "Robust and fire retardant",
+              },
+              {
+                label: "SERVICE",
+                value: "AMC Available",
+                detail: "Any make of sectional door",
+              },
+            ],
+          },
+        },
+      },
+      {
+        id: "windows",
+        title: "Aluminium & UPVC Windows",
+        heroImage: {
+          src: windowAluminiumBifold,
+          alt: "Aluminium bifold doors opening onto a garden",
+        },
+        content: {
+          overview: {
+            heading: "Windows, in two\nmaterials.",
+            lead: {
+              icon: LayoutGrid,
+              title: "Italian design, German technology",
+              body: "Aluminium windows and doors are made from high quality virgin aluminium extrusions on specialised Italian punching machines, with European rollers and superior European locks. UPVC systems are manufactured using German technology on state-of-the-art machinery imported from the UK. Sliding and casement options are available in both.",
+            },
+          },
+          features: [
+            {
+              icon: Waves,
+              title: "Noise and heat",
+              body: "Double glazed or laminated glass.",
             },
             {
               icon: BadgeCheck,
-              title: "Shop finished",
-              body: "Hardware fitted before dispatch.",
-            },
-          ],
-          specs: {
-            note: "Every door set is made to order — leaf size, rating and hardware specified to your compliance drawings.",
-            items: [
-              {
-                label: "LEAVES",
-                value: "Single · Double",
-                detail: "Handed to your layout",
-              },
-              {
-                label: "LEAF",
-                value: "46mm",
-                detail: "Steel skinned, insulated core",
-              },
-              {
-                label: "FIRE RATING",
-                value: "up to 120 min",
-                detail: "Rated leaf and frame set",
-              },
-              {
-                label: "HARDWARE",
-                value: "Factory Fitted",
-                detail: "Closers, panic bars, vision",
-              },
-            ],
-          },
-        },
-      },
-      {
-        id: "windows-louvres",
-        title: "Windows & Louvres",
-        heroImage: {
-          src: whyFacility,
-          alt: "Windows and louvres in an industrial facility elevation",
-        },
-        content: {
-          overview: {
-            heading: "Light and air,\nwhere you need it.",
-            lead: {
-              icon: Wind,
-              title: "Glazing and ventilation openings",
-              body: "Fixed and openable steel windows bring daylight to the working floor, and weather louvres let plant rooms breathe without letting rain in. Both are framed into the sheeting run with matching flashings.",
-            },
-          },
-          features: [
-            {
-              icon: CloudRain,
-              title: "Weather louvres",
-              body: "Air in, driven rain out.",
-            },
-            {
-              icon: Lightbulb,
-              title: "Daylight openings",
-              body: "Fixed or openable glazing.",
+              title: "Limitless finishes",
+              body: "Anodized, PVDF, powder and wood.",
             },
             {
               icon: ShieldCheck,
-              title: "Insect screened",
-              body: "Mesh behind the blade set.",
+              title: "Rust free",
+              body: "Endlessly recyclable green metal.",
             },
           ],
           specs: {
-            note: "Every opening is made to order — size, blade pitch and glazing specified to the elevation.",
+            note: "UPVC is impact resistant and tested for heat reversion, heat ageing at 150°C, weathering, weldability and Vicat softening.",
             items: [
               {
-                label: "WINDOWS",
-                value: "Fixed · Openable",
-                detail: "Steel framed, glazed to spec",
+                label: "SLIDING",
+                value: "2–3 Tracks",
+                detail: "Up to four shutters",
               },
               {
-                label: "LOUVRES",
-                value: "Weather Rated",
-                detail: "Chevron blade, rain resistant",
+                label: "CASEMENT",
+                value: "Tilt & Turn",
+                detail: "Internal and external opening",
               },
               {
-                label: "SCREENS",
-                value: "Insect Mesh",
-                detail: "Fitted behind the blades",
+                label: "GLAZING",
+                value: "Double · Laminated",
+                detail: "Noise and heat insulation",
               },
               {
-                label: "FINISH",
-                value: "Powder Coated",
-                detail: "RAL matched to the cladding",
+                label: "FINISHES",
+                value: "Anodized · PVDF",
+                detail: "Powder coated and wood finish",
               },
             ],
           },
@@ -1461,298 +1491,298 @@ export const SERVICES: ServiceDetail[] = [
       },
     ],
     gallery: [
-      { src: projectMetro, alt: "Loading bay shutters" },
-      { src: projectSkyline, alt: "Commercial steel glazing" },
-      { src: doorsImg, alt: "Industrial door assembly" },
+      { src: doorSectionalGlazed, alt: "Glazed sectional overhead doors" },
+      { src: doorIndustrialRow, alt: "Insulated sectional doors along a loading elevation" },
+      { src: windowSlidingView, alt: "Aluminium sliding doors framing a sea view" },
     ],
     faq: [
       {
-        question: "Can shutters be automated after installation?",
+        question: "What sizes do the sectional doors come in?",
         answer:
-          "Manual shutters can be motorised later provided the barrel and guides were sized for it. Tell us at the enquiry stage and we'll build in the allowance at no extra cost.",
+          "Garage doors go up to 5.8m wide by 2.75m high, and industrial sectional doors up to 6m by 6m. Other sizes are possible on request — the door is built to the measured opening.",
       },
       {
-        question: "What happens in a power cut?",
+        question: "Which door products does the division make?",
         answer:
-          "Every motorised shutter is supplied with a manual override — a chain hoist or crank that releases the drive so the door can be opened by hand.",
+          "American automatic garage doors, sectional overhead industrial doors, aluminium perforated window shutters, insulated rolling shutters, dock levellers, shelters and seals, fire rated steel doors, speed roller doors and hangar doors.",
       },
       {
-        question: "Do you fit doors into existing buildings?",
+        question: "Do you service doors you did not supply?",
         answer:
-          "Yes. We survey the opening, fabricate the frame to the measured size and fit into masonry, concrete or steel-framed elevations.",
+          "Yes. The service team attends service calls immediately, offers annual maintenance contracts and can service or repair any make of sectional door.",
       },
       {
-        question: "Are insulated shutters available for cold rooms?",
+        question: "Which industries do you supply?",
         answer:
-          "Foam-filled slats with brush and gasket seals are used where the door sits on a temperature boundary. For freezer interfaces we pair them with a heated guide.",
+          "Food and marine processing above all. Sectional overhead doors with 40 or 50mm polyurethane insulated panels, dock levellers, shelters and seals, insulated rolling and window shutters and steel doors are installed across seafood, spice and logistics facilities.",
       },
     ],
     cta: {
       heading: "Close the openings properly.",
-      body: "Send us your opening sizes and duty cycle — we'll specify and quote the right doors.",
+      body: "Send us your opening sizes and duty cycle — we'll specify and quote the doors.",
       image: {
-        src: projectSkyline,
-        alt: "Commercial building elevation with steel glazing",
+        src: windowSlidingView,
+        alt: "Aluminium sliding door system framing an open view",
       },
     },
     metaDescription:
-      "Industrial steel doors, windows and louvres — rolling shutters, sliding and sectional doors and fire-rated personnel sets up to 12m clear opening.",
+      "Zenith doors from Prime Automated Doors — sectional overhead garage and industrial doors to 6 × 6m, insulated rolling shutters, dock levellers and shelters, and aluminium and UPVC windows.",
   },
   {
     slug: "cold-room-panels",
     title: "Cold Room Panels",
     heroTitle: "Cold Room Panels.",
     description:
-      "Insulated panels for cold storage, food processing and controlled environments — sealed, hygienic and specified to hold temperature down to −40°C.",
+      "Factory-made insulated panels with a self-bonding polyurethane core and a tongue-and-groove side joint — 1170mm wide, up to 12 metres long, 30 to 200mm thick.",
     bannerImage: {
-      src: coldroomImg,
-      alt: "Cold room interior built from insulated panels",
+      src: coldroomCorridor,
+      alt: "Cold room corridor lined with insulated panels and cold store doors",
     },
     cardImage: { src: coldroomImg, alt: "Cold room insulated panels" },
     cardDescription:
-      "Insulated panels for cold storage, food processing and controlled environments.",
+      "Insulated panels for cold rooms, food processing plants and truck bodies.",
     heroStats: [
-      { value: "−40°C", label: "to ambient" },
-      { value: "60–200mm", label: "panel thickness" },
-      { value: "Cam-lock", label: "jointing" },
+      { value: "1170mm", label: "panel width" },
+      { value: "up to 12m", label: "panel length" },
+      { value: "0.027 W/mK", label: "K value" },
     ],
     specsHeading: "Engineered to the detail.",
     tabs: [
       {
-        id: "freezer-rooms",
-        title: "Freezer Rooms",
+        id: "cold-rooms",
+        title: "Cold Rooms",
         heroImage: {
           src: coldroomImg,
-          alt: "Freezer room built from insulated cam-lock panels",
+          alt: "Cold room built from insulated tongue-and-groove panels",
         },
         content: {
           overview: {
-            heading: "Cold held down\nto minus forty.",
+            heading: "Tongue, groove,\nand no gap.",
             lead: {
               icon: Snowflake,
-              title: "A continuous cold box",
-              body: "Walls, ceiling and floor are supplied as one panel system with cam-lock joints pulled tight onto factory gaskets, so the vapour path never opens. Under-floor heating cable stops the ground below from heaving.",
+              title: "A factory-made cold box",
+              body: "The cold room panel is a factory-made insulated wall panel with a metal facing combined with a polyurethane foam core. Panels are 1170mm wide with lengths up to 12.0 metres, and the side joint is formed with a tongue and groove, so the envelope closes without a site-made seal.",
             },
           },
           features: [
-            {
-              icon: ThermometerSnowflake,
-              title: "−25°C holding",
-              body: "Long-term frozen storage.",
-            },
             {
               icon: Layers,
-              title: "Insulated floors",
-              body: "Anti-heave heating beneath.",
+              title: "30–200mm",
+              body: "Thickness to the temperature.",
             },
             {
-              icon: ShieldCheck,
-              title: "Vapour sealed",
-              body: "Gasketed cam-lock joints.",
+              icon: Combine,
+              title: "Tongue and groove",
+              body: "Formed into the panel edge.",
+            },
+            {
+              icon: ThermometerSnowflake,
+              title: "0.14 U value",
+              body: "At 200mm panel thickness.",
             },
           ],
           specs: {
-            note: "Every freezer is made to order — temperature, panel thickness and door count specified to your product.",
+            note: "Density 40 kg/m³ with a K value of 0.027 W/m-K. U values run 0.54 at 50mm, 0.27 at 100mm, 0.20 at 150mm and 0.14 at 200mm.",
             items: [
               {
-                label: "TEMPERATURE",
-                value: "−18°C to −25°C",
-                detail: "Long-term frozen holding",
+                label: "WIDTH",
+                value: "1170mm",
+                detail: "Single panel width",
+              },
+              {
+                label: "LENGTH",
+                value: "up to 12m",
+                detail: "In one piece, no joints",
               },
               {
                 label: "THICKNESS",
-                value: "150–200mm",
-                detail: "Walls, ceiling and floor",
+                value: "30–200mm",
+                detail: "Sized to the U value needed",
               },
               {
-                label: "FLOOR",
-                value: "Insulated + Heated",
-                detail: "Anti-heave cable beneath",
-              },
-              {
-                label: "DOORS",
-                value: "Sliding · Hinged",
-                detail: "Heated frames as standard",
+                label: "CORE",
+                value: "Self-Bonding PU",
+                detail: "40 kg/m³, K 0.027 W/m-K",
               },
             ],
           },
         },
       },
       {
-        id: "chiller-rooms",
-        title: "Chiller Rooms",
-        heroImage: {
-          src: projectHighland,
-          alt: "Chilled storage facility built by Prime NMS",
-        },
-        content: {
-          overview: {
-            heading: "Steady degrees,\nall day long.",
-            lead: {
-              icon: Refrigerator,
-              title: "Tight tolerance, high traffic",
-              body: "Chillers live or die on door traffic, so panel thickness is matched to how often the room is opened rather than to the set point alone. Air curtains and fast doors hold the temperature band through picking.",
-            },
-          },
-          features: [
-            {
-              icon: Timer,
-              title: "High door traffic",
-              body: "Fast doors and air curtains.",
-            },
-            {
-              icon: Gauge,
-              title: "Tight band",
-              body: "Holds set point through picking.",
-            },
-            {
-              icon: BadgeCheck,
-              title: "Food-grade skins",
-              body: "Wipe-clean, coved junctions.",
-            },
-          ],
-          specs: {
-            note: "Every chiller is made to order — set point, room size and door traffic specified to your operation.",
-            items: [
-              {
-                label: "TEMPERATURE",
-                value: "0°C to +5°C",
-                detail: "Fresh produce and dairy",
-              },
-              {
-                label: "THICKNESS",
-                value: "80–100mm",
-                detail: "Sized to door traffic",
-              },
-              {
-                label: "FLOOR",
-                value: "Insulated Slab",
-                detail: "No heating cable needed",
-              },
-              {
-                label: "DOORS",
-                value: "Fast Action",
-                detail: "Air curtain on high traffic",
-              },
-            ],
-          },
-        },
-      },
-      {
-        id: "blast-freezers",
-        title: "Blast Freezers",
-        heroImage: {
-          src: projectCoastal,
-          alt: "Blast freezing facility built by Prime NMS",
-        },
-        content: {
-          overview: {
-            heading: "Core temperature,\nfast.",
-            lead: {
-              icon: Wind,
-              title: "Built for the air blast",
-              body: "A blast room runs high air velocity across the product, which loads the panels and the seals far harder than static storage. Panels, doors and ceiling suspension are all specified for that pressure and the thermal cycling.",
-            },
-          },
-          features: [
-            {
-              icon: Zap,
-              title: "Rapid pull-down",
-              body: "Core temperature in hours.",
-            },
-            {
-              icon: Weight,
-              title: "Braced ceilings",
-              body: "Suspended for blast pressure.",
-            },
-            {
-              icon: ShieldCheck,
-              title: "Cycled seals",
-              body: "Rated for repeated thermal swing.",
-            },
-          ],
-          specs: {
-            note: "Every blast room is made to order — pull-down time, batch size and air velocity specified to your product.",
-            items: [
-              {
-                label: "TEMPERATURE",
-                value: "−35°C to −40°C",
-                detail: "Blast operating range",
-              },
-              {
-                label: "THICKNESS",
-                value: "200mm",
-                detail: "Full envelope, floor included",
-              },
-              {
-                label: "CEILING",
-                value: "Suspended",
-                detail: "Braced for air pressure",
-              },
-              {
-                label: "DOORS",
-                value: "Heated Frame",
-                detail: "Sized for trolley loading",
-              },
-            ],
-          },
-        },
-      },
-      {
-        id: "processing-halls",
-        title: "Processing Halls",
+        id: "food-processing",
+        title: "Food Processing Factories",
         heroImage: {
           src: featuredFacility,
           alt: "Food processing hall built from insulated panels",
         },
         content: {
           overview: {
-            heading: "A room you can\nwash down.",
+            heading: "A factory built\nfrom puff panel.",
             lead: {
               icon: Utensils,
-              title: "Hygiene as a structural spec",
-              body: "Processing halls are built to be cleaned: food-grade skins, coved wall-to-floor junctions and sealed penetrations, with panel joints laid out so there is no ledge for water or product to sit on.",
+              title: "Puff panels through the plant",
+              body: "Food processing factories are built out with the same puff panels through walls, partitions and ceilings, with facings chosen for the process: polyester coated aluminium, aluzinc, stainless steel or FRP. Prime has completed installations across seafood, spice and ingredient plants.",
             },
           },
           features: [
             {
-              icon: Droplets,
-              title: "Wash-down rated",
-              body: "Sealed joints and coving.",
-            },
-            {
               icon: BadgeCheck,
-              title: "Food-grade faces",
-              body: "Stainless available on request.",
+              title: "Stainless facings",
+              body: "Where the process demands it.",
             },
             {
-              icon: Thermometer,
-              title: "Ambient to chilled",
-              body: "+2°C through room temperature.",
+              icon: Droplets,
+              title: "FRP option",
+              body: "For wash-down environments.",
+            },
+            {
+              icon: ShieldCheck,
+              title: "Vapour tight",
+              body: "Tongue and groove throughout.",
             },
           ],
           specs: {
-            note: "Every hall is made to order — temperature, finish and drainage detail specified to your process.",
+            note: "Facings are available in polyester coated aluminium, aluzinc, stainless steel or FRP to suit the process.",
             items: [
               {
-                label: "TEMPERATURE",
-                value: "+2°C to +18°C",
-                detail: "Chilled through ambient",
+                label: "FACINGS",
+                value: "Aluminium · Aluzinc",
+                detail: "Polyester coated both sides",
+              },
+              {
+                label: "HYGIENE",
+                value: "Stainless · FRP",
+                detail: "Selected to the process",
               },
               {
                 label: "THICKNESS",
-                value: "60–100mm",
-                detail: "Walls and ceiling",
+                value: "30–200mm",
+                detail: "Walls, partitions and ceilings",
               },
               {
-                label: "JUNCTIONS",
-                value: "Coved",
-                detail: "Wall-to-floor, sealed",
+                label: "JOINT",
+                value: "Tongue & Groove",
+                detail: "Formed in the panel edge",
+              },
+            ],
+          },
+        },
+      },
+      {
+        id: "skid-mounted",
+        title: "Skid Mounted Cold Rooms",
+        heroImage: {
+          src: projectHighland,
+          alt: "Skid mounted cold room ready for transport",
+        },
+        content: {
+          overview: {
+            heading: "A cold room\nthat travels.",
+            lead: {
+              icon: Forklift,
+              title: "Built on a skid, moved as one",
+              body: "The same panel system built onto a steel skid, so the finished cold room can be lifted, transported and set down complete. It suits sites where the room has to be commissioned off-site, relocated later, or dropped into a plant that is already running.",
+            },
+          },
+          features: [
+            {
+              icon: Move3d,
+              title: "Relocatable",
+              body: "Lifted and set down complete.",
+            },
+            {
+              icon: Timer,
+              title: "Off-site build",
+              body: "Commissioned before delivery.",
+            },
+            {
+              icon: Layers,
+              title: "Same panel",
+              body: "Standard cold room construction.",
+            },
+          ],
+          specs: {
+            note: "Built from the standard 1170mm cold room panel on a steel skid, to the room size and holding temperature you specify.",
+            items: [
+              {
+                label: "CONSTRUCTION",
+                value: "Skid Mounted",
+                detail: "Steel base, panel envelope",
               },
               {
-                label: "SKINS",
-                value: "Food-Grade PPGI",
-                detail: "Stainless on request",
+                label: "PANEL",
+                value: "1170mm Wide",
+                detail: "Up to 12m in one length",
+              },
+              {
+                label: "THICKNESS",
+                value: "30–200mm",
+                detail: "Sized to the holding temperature",
+              },
+              {
+                label: "FACINGS",
+                value: "Aluminium · Aluzinc",
+                detail: "Stainless or FRP on request",
+              },
+            ],
+          },
+        },
+      },
+      {
+        id: "truck-panels",
+        title: "Truck Panels",
+        heroImage: {
+          src: projectCoastal,
+          alt: "Insulated panels for refrigerated vehicle bodies",
+        },
+        content: {
+          overview: {
+            heading: "The cold chain,\non the road.",
+            lead: {
+              icon: Truck,
+              title: "Insulated panels for vehicle bodies",
+              body: "Truck panels take the cold room system onto refrigerated vehicle bodies — the same self-bonding polyurethane core and metal facings, cut to the body dimensions. Panels come in single lengths, so the body closes without joints running across it.",
+            },
+          },
+          features: [
+            {
+              icon: Snowflake,
+              title: "Cold chain rated",
+              body: "The same core as the cold room.",
+            },
+            {
+              icon: Weight,
+              title: "Light bodies",
+              body: "High insulation at low weight.",
+            },
+            {
+              icon: ShieldCheck,
+              title: "Sealed joints",
+              body: "Tongue and groove side joint.",
+            },
+          ],
+          specs: {
+            note: "Cut to the vehicle body from the same 30–200mm panel range, in the facing the operator specifies.",
+            items: [
+              {
+                label: "THICKNESS",
+                value: "30–200mm",
+                detail: "To the vehicle's duty",
+              },
+              {
+                label: "LENGTH",
+                value: "up to 12m",
+                detail: "Cut to the body dimensions",
+              },
+              {
+                label: "CORE",
+                value: "Self-Bonding PU",
+                detail: "40 kg/m³ density",
+              },
+              {
+                label: "FACINGS",
+                value: "Aluminium · FRP",
+                detail: "Aluzinc and stainless available",
               },
             ],
           },
@@ -1760,49 +1790,49 @@ export const SERVICES: ServiceDetail[] = [
       },
     ],
     gallery: [
-      { src: projectHighland, alt: "Highland cold storage facility" },
+      { src: coldroomCorridor, alt: "Cold store doors along an insulated corridor" },
       { src: coldroomImg, alt: "Cold room panel interior" },
       { src: projectCoastal, alt: "Coastal processing facility" },
     ],
     faq: [
       {
-        question: "Do you supply the refrigeration as well?",
+        question: "What size are the panels?",
         answer:
-          "We supply and install the insulated envelope — panels, doors, floors and flashings. We coordinate openings and loads with your refrigeration contractor so the two systems meet cleanly.",
+          "Cold room panels are 1170mm wide with a maximum length of 12 metres, and are available from 30 to 200mm thick. The side joint is formed with a tongue and groove.",
       },
       {
-        question: "What thickness does a freezer room need?",
+        question: "What insulation value do they give?",
         answer:
-          "Freezer rooms holding −18°C to −25°C typically use 150mm panels, and blast freezers 200mm. Chillers at 0°C to +5°C are usually 80–100mm.",
+          "The core is self-bonding polyurethane foam at 40 kg/m³ with a K value of 0.027 W/m-K. U values run 0.54 W/m²°C at 50mm, 0.27 at 100mm, 0.20 at 150mm and 0.14 at 200mm.",
       },
       {
-        question: "Can the room be relocated later?",
+        question: "Which facings are available?",
         answer:
-          "Cam-lock panels are demountable. A room can be dismantled and rebuilt on a new site with new gaskets and fixings, provided the panels are handled carefully.",
+          "Polyester coated aluminium, aluzinc, stainless steel or FRP — chosen for the process the room serves.",
       },
       {
-        question: "How are floors handled?",
+        question: "Do you supply the doors as well?",
         answer:
-          "Insulated floor panels are supplied for freezer rooms, with an anti-skid finish or a screed overlay. Chillers often run on an insulated slab instead — we'll advise per room.",
+          "Yes. Prime Automated Doors supplies sectional overhead doors with 40 or 50mm polyurethane insulated panels, insulated rolling shutters and window shutters, and dock levellers, shelters and seals for the loading bays.",
       },
     ],
     cta: {
       heading: "Build the cold chain right.",
-      body: "Tell us your room size and holding temperature — we'll specify and quote the full cold box.",
+      body: "Tell us your room size and holding temperature — we'll specify and quote the panels.",
       image: {
         src: projectHighland,
         alt: "Completed cold storage building",
       },
     },
     metaDescription:
-      "Insulated cold room panels with cam-lock jointing — freezer rooms, chillers, blast freezers and wash-down processing halls from −40°C to ambient.",
+      "Prime cold room panels — 1170mm wide, up to 12m long and 30 to 200mm thick, with a self-bonding polyurethane core at 40 kg/m³ and a K value of 0.027 W/m-K.",
   },
   {
     slug: "custom-fabrication",
     title: "Custom Fabrication",
     heroTitle: "Custom Fabrication.",
     description:
-      "Z-purlins, decking sheets, skylights, ventilators and bespoke steel components — rolled, cut and galvanized in-house to your drawings.",
+      "Z and C purlins, decking sheets and foam concrete, turbo ventilators, polycarbonate skylights and handrail systems — rolled, formed and finished to your drawings.",
     bannerImage: {
       src: fabricationImg,
       alt: "Custom fabricated galvanized steel components in the plant",
@@ -1812,11 +1842,11 @@ export const SERVICES: ServiceDetail[] = [
       alt: "Custom fabricated steel components",
     },
     cardDescription:
-      "Z-purlins, decking sheets, skylights, ventilators and bespoke steel components.",
+      "Z and C purlins, decking, ventilators, skylights and handrail systems.",
     heroStats: [
-      { value: "6,000T", label: "annual capacity" },
-      { value: "In-house", label: "galvanizing" },
-      { value: "±2mm", label: "roll tolerance" },
+      { value: "345 N/mm²", label: "purlin yield" },
+      { value: "up to 12m", label: "section length" },
+      { value: "10 yr", label: "ventilator warranty" },
     ],
     specsHeading: "Engineered to the detail.",
     tabs: [
@@ -1832,49 +1862,49 @@ export const SERVICES: ServiceDetail[] = [
             heading: "The sections the\nroof sits on.",
             lead: {
               icon: Ruler,
-              title: "Rolled to your section",
-              body: "Z and C sections are roll-formed from galvanized coil to the depth and gauge on your drawing, punched in line so holes land where the frame expects them. Z sections lap over the rafter to run continuous across bays.",
+              title: "Secondary supports, rolled to size",
+              body: "Z and C sections are structural members designed for use as secondary supports for roof and wall sheeting, manufactured from ASTM A653 structural quality pre-hot-dipped galvanized sheet to G90, with a minimum guaranteed yield strength of 345 N/mm². Length runs up to 12 metres, and any cut length is available.",
             },
           },
           features: [
             {
-              icon: Combine,
-              title: "Lapped continuity",
-              body: "Z sections nest over rafters.",
+              icon: ShieldCheck,
+              title: "G90 galvanized",
+              body: "Pre-hot-dipped, ASTM A653.",
             },
             {
               icon: Hammer,
-              title: "Punched in line",
-              body: "Holes formed, not drilled on site.",
+              title: "Black steel option",
+              body: "Also available at 345 N/mm².",
             },
             {
-              icon: ShieldCheck,
-              title: "Pre-galvanized",
-              body: "Coated coil, cut ends treated.",
+              icon: Ruler,
+              title: "Z100 to Z250",
+              body: "Four standard section depths.",
             },
           ],
           specs: {
-            note: "Every run is rolled to order — depth, gauge and hole pattern specified to your frame drawings.",
+            note: "Black steel with 245 N/mm² yield is also available. Channels come in any length in thicknesses from 0.5 to 1.5mm.",
             items: [
               {
                 label: "SECTIONS",
-                value: "Z · C",
-                detail: "Purlins, girts and rails",
+                value: "Z100–Z250",
+                detail: "Z100, Z170, Z200 and Z250",
               },
               {
-                label: "DEPTH",
-                value: "150–300mm",
-                detail: "Selected to the span",
+                label: "THICKNESS",
+                value: "1.5–2.5mm",
+                detail: "Rolled to the span",
               },
               {
-                label: "GAUGE",
-                value: "1.6–3.2mm",
-                detail: "Rolled to ±2mm tolerance",
+                label: "YIELD",
+                value: "345 N/mm²",
+                detail: "Minimum guaranteed strength",
               },
               {
                 label: "LENGTH",
                 value: "up to 12m",
-                detail: "Cut and punched to drawing",
+                detail: "Or any cut length",
               },
             ],
           },
@@ -1882,119 +1912,59 @@ export const SERVICES: ServiceDetail[] = [
       },
       {
         id: "decking",
-        title: "Decking Sheets",
+        title: "Decking & Foam Concrete",
         heroImage: {
-          src: serviceBenefits,
-          alt: "Profiled steel decking sheets ready for dispatch",
+          src: pebMezzanineDecking,
+          alt: "Profiled steel decking spanning mezzanine floor beams",
         },
         content: {
           overview: {
             heading: "Formwork that\nstays in the slab.",
             lead: {
               icon: SquareStack,
-              title: "Permanent shuttering",
-              body: "Profiled decking spans between beams as formwork and stays put as tensile reinforcement once the concrete cures. Embossed ribs key into the slab, so the deck and the concrete act together rather than separately.",
+              title: "Deck panel and light foam concrete",
+              body: "The mezzanine deck panel carries only the dead load of the wet concrete, acting as permanent shuttering; a thick decking system takes live loads up to 2000 kg/sq.mt. Paired with light weight foam concrete at 500–800 kg/m³, the floor carries up to 500 kg/m² live while cutting dead weight by as much as 80%.",
             },
           },
           features: [
             {
               icon: Weight,
-              title: "Composite action",
-              body: "Embossments key to the slab.",
+              title: "2000 kg/sq.m",
+              body: "Live load on thick decking.",
+            },
+            {
+              icon: Zap,
+              title: "80% lighter",
+              body: "Against conventional concrete.",
             },
             {
               icon: Timer,
               title: "No stripping",
-              body: "Formwork never comes down.",
-            },
-            {
-              icon: Move3d,
-              title: "Working platform",
-              body: "Safe deck from day one.",
+              body: "Shuttering stays in the slab.",
             },
           ],
           specs: {
-            note: "Every deck is rolled to order — profile, gauge and span specified to your slab design.",
+            note: "Highly cost effective and time saving — suited to car showrooms, commercial buildings and mezzanine offices.",
             items: [
               {
-                label: "RIB DEPTH",
-                value: "50–75mm",
-                detail: "Selected to the span",
+                label: "DECK THICKNESS",
+                value: "0.5–0.9mm",
+                detail: "For mezzanine and floor slabs",
               },
               {
-                label: "THICKNESS",
-                value: "0.80–1.20mm",
-                detail: "TCT to loading",
+                label: "LIVE LOAD",
+                value: "2000 kg/m²",
+                detail: "On the thick decking system",
               },
               {
-                label: "SPAN",
-                value: "up to 4m",
-                detail: "Unpropped, deck dependent",
+                label: "FOAM DENSITY",
+                value: "500–800 kg/m³",
+                detail: "By sand and flash percentage",
               },
               {
-                label: "FINISH",
-                value: "Galvanized",
-                detail: "Embossed for composite action",
-              },
-            ],
-          },
-        },
-      },
-      {
-        id: "skylights",
-        title: "Skylights",
-        heroImage: {
-          src: roofingDaylight,
-          alt: "Skylights bringing daylight into an industrial interior",
-        },
-        content: {
-          overview: {
-            heading: "Light that works\nfor the building.",
-            lead: {
-              icon: Sun,
-              title: "Natural daylighting",
-              body: "Fixed directly to the roof, skylights bring daylight and fresh air into interiors — reducing lighting, heating and cooling loads. Ventilating units open to release hot air and draw fresh air in.",
-            },
-          },
-          features: [
-            {
-              icon: Zap,
-              title: "Energy savings",
-              body: "Cuts daytime lighting and HVAC costs.",
-            },
-            {
-              icon: Move3d,
-              title: "Curved & flat",
-              body: "Panels up to 12m, steel or aluminium profiles.",
-            },
-            {
-              icon: ShieldCheck,
-              title: "Weather-sealed",
-              body: "UV-stable, leak-proof polycarbonate glazing.",
-            },
-          ],
-          specs: {
-            note: "Every skylight is made to order — profiles, glazing and curvature specified to your roof.",
-            items: [
-              {
-                label: "PANEL LENGTH",
-                value: "up to 12m",
-                detail: "Continuous curved or flat spans",
-              },
-              {
-                label: "PROFILES",
-                value: "Steel · Aluminium",
-                detail: "Multiple standing-seam options",
-              },
-              {
-                label: "GLAZING",
-                value: "UV Polycarbonate",
-                detail: "Diffused, impact-resistant",
-              },
-              {
-                label: "CURVATURE",
-                value: "Curved or Flat",
-                detail: "Radius engineered to design",
+                label: "FOAM STRENGTH",
+                value: "8–20 kg/cm²",
+                detail: "Depending on the mix",
               },
             ],
           },
@@ -2002,7 +1972,7 @@ export const SERVICES: ServiceDetail[] = [
       },
       {
         id: "ventilators",
-        title: "Ventilators",
+        title: "Turbo Ventilators",
         heroImage: {
           src: roofingInterior,
           alt: "Roof ventilation running along a building ridge",
@@ -2012,109 +1982,169 @@ export const SERVICES: ServiceDetail[] = [
             heading: "Heat leaves\nby itself.",
             lead: {
               icon: Fan,
-              title: "Air movement without power",
-              body: "Turbo ventilators and continuous ridge vents use the stack effect and wind to pull hot air out of the roof space, so the working floor stays cooler with no fan, no ducting and no running cost.",
+              title: "Centrifugal force, no power",
+              body: "The air ventilator works on centrifugal force created by continuously running vanes. Minimum wind pressure rotates it on a self-lubricated Teflon cap; hot and polluted air escapes, pressure drops beneath and fresh cold air is drawn in. The flywheel effect keeps it turning, and it prevents entry of water and dust particles.",
             },
           },
           features: [
             {
               icon: Wind,
-              title: "No running cost",
-              body: "Driven by stack and wind.",
+              title: "2 mph is enough",
+              body: "Wind velocity to start it turning.",
             },
             {
-              icon: CloudRain,
-              title: "Rain excluded",
-              body: "Throated and weather-hooded.",
+              icon: Zap,
+              title: "No operating cost",
+              body: "Runs on wind power alone.",
             },
             {
-              icon: Combine,
-              title: "Ridge or unit",
-              body: "Continuous vent or turbo units.",
+              icon: BadgeCheck,
+              title: "10 year warranty",
+              body: "On the ventilator head.",
             },
           ],
           specs: {
-            note: "Every ventilation set is made to order — throat size, count and layout specified to your roof volume.",
+            note: "A typical 25 × 25 × 5m warehouse at 15 km/h wind, needing eight air exchanges an hour, takes four ventilators.",
             items: [
               {
-                label: "TURBO THROAT",
-                value: "300–900mm",
-                detail: "Sized to air changes needed",
-              },
-              {
-                label: "RIDGE VENT",
-                value: "Continuous",
-                detail: "Runs the length of the ridge",
+                label: "THROAT SIZE",
+                value: "365 · 610mm",
+                detail: "14 inch and 24 inch",
               },
               {
                 label: "MATERIAL",
-                value: "GI · Aluminium",
-                detail: "Stainless bearings throughout",
+                value: "Aluminium · Steel",
+                detail: "Stainless steel option",
               },
               {
-                label: "WEATHERING",
-                value: "Hooded",
-                detail: "Bird and rain protected",
+                label: "BASE FRAMES",
+                value: "4–20 Slope",
+                detail: "UV stabilised fibre resin",
+              },
+              {
+                label: "RIDGE VENT",
+                value: "Any Roof Type",
+                detail: "Metal, asbestos, FRP and more",
               },
             ],
           },
         },
       },
       {
-        id: "bespoke",
-        title: "Bespoke Components",
+        id: "skylights",
+        title: "Skylights & Polycarbonate",
         heroImage: {
-          src: whyFacility,
-          alt: "Prime NMS fabrication floor",
+          src: roofingDaylight,
+          alt: "Skylights bringing daylight into an industrial interior",
         },
         content: {
           overview: {
-            heading: "Made to your\ndrawing, not ours.",
+            heading: "Light that works\nfor the building.",
             lead: {
-              icon: Wrench,
-              title: "One plant, every component",
-              body: "Roll forming, cutting, welding and galvanizing sit under one roof, so a bracket, a cleat and a bespoke assembly all come off the same line to the same tolerance — and land on site together with the rest of the order.",
+              icon: Sun,
+              title: "Multiwall sheet and FRP",
+              body: "Multiwall polycarbonate cladding comes in 5.8m by 2.1m sheets from 4mm to 10mm thick in nine colours. An extremely high thermal insulation value is achieved even with transparency, which makes it the most complete answer where a design has to be both transparent and insulating. FRP translucent sheets are contact-moulded to any profile.",
             },
           },
           features: [
             {
-              icon: Factory,
-              title: "6,000T a year",
-              body: "Single-plant throughput.",
+              icon: Zap,
+              title: "Insulating and clear",
+              body: "Thermal value with transparency.",
             },
             {
-              icon: Hammer,
-              title: "Galvanized in-house",
-              body: "No third-party bath, no delay.",
+              icon: Droplets,
+              title: "Waterproof air inlet",
+              body: "Skylights with fly mesh.",
             },
             {
-              icon: BadgeCheck,
-              title: "Sample matched",
-              body: "Rolled from drawing or sample.",
+              icon: LayoutGrid,
+              title: "Moulded to profile",
+              body: "FRP matched to the sheet.",
             },
           ],
           specs: {
-            note: "Every component is made to order — section, gauge and finish rolled to your drawings.",
+            note: "Used for skylights, stadium and sports cladding, light boxes, station and bus stop roofing. Colours are subject to availability.",
             items: [
               {
-                label: "INPUT",
-                value: "Drawing · Sample",
-                detail: "Roll setup confirmed first",
+                label: "SHEET SIZE",
+                value: "5.8 × 2.1m",
+                detail: "Multiwall polycarbonate",
               },
               {
-                label: "GAUGE",
-                value: "1.2–3.2mm",
-                detail: "Rolled to ±2mm tolerance",
+                label: "THICKNESS",
+                value: "4–10mm",
+                detail: "Selected to the span",
               },
               {
-                label: "CAPACITY",
-                value: "6,000T / yr",
-                detail: "Single-plant throughput",
+                label: "COLOURS",
+                value: "9",
+                detail: "Clear, opal, blue, bronze, grey",
               },
               {
-                label: "FINISH",
-                value: "Hot-Dip Galvanized",
-                detail: "Pre-coated options available",
+                label: "SKYLIGHT",
+                value: "Galvalume · Alu",
+                detail: "Polyester coated, with fly mesh",
+              },
+            ],
+          },
+        },
+      },
+      {
+        id: "handrails",
+        title: "Handrail Systems",
+        heroImage: {
+          src: handrailStairs,
+          alt: "Stainless steel and glass handrail on a timber staircase",
+        },
+        content: {
+          overview: {
+            heading: "Beauty and\nstrength, joined.",
+            lead: {
+              icon: Combine,
+              title: "Three series of handrail",
+              body: "Handrails come in three series — stainless steel, wood and colour coated. The stainless is 304 grade, chosen because it does not rust or get damaged easily, and the wooden range pairs stainless with exotic and natural woods, at its best against stairs made of toughened glass.",
+            },
+          },
+          features: [
+            {
+              icon: ShieldCheck,
+              title: "304 grade steel",
+              body: "Does not rust or damage easily.",
+            },
+            {
+              icon: LayoutGrid,
+              title: "Wire rope and glass",
+              body: "Clamps, posts and balconies.",
+            },
+            {
+              icon: Lightbulb,
+              title: "LED light system",
+              body: "Integrated into the run.",
+            },
+          ],
+          specs: {
+            note: "Wire rope systems, glass clamps, pre-assembled posts and handrails, Juliette glass balconies and LED lighting.",
+            items: [
+              {
+                label: "SERIES",
+                value: "Steel · Wood",
+                detail: "Plus colour coated finishes",
+              },
+              {
+                label: "STAINLESS",
+                value: "304 Grade",
+                detail: "Rust and damage resistant",
+              },
+              {
+                label: "FITTINGS",
+                value: "Pre-Assembled",
+                detail: "Posts and handrail sections",
+              },
+              {
+                label: "OPTIONS",
+                value: "Glass · LED",
+                detail: "Juliette balcony, light system",
               },
             ],
           },
@@ -2122,43 +2152,43 @@ export const SERVICES: ServiceDetail[] = [
       },
     ],
     gallery: [
+      { src: pebMezzanineDecking, alt: "Decking sheets laid over mezzanine framing" },
+      { src: handrailGlass, alt: "Glass balustrade with a stainless handrail" },
       { src: fabricationImg, alt: "Fabricated steel components" },
       { src: whyFacility, alt: "Prime NMS manufacturing facility" },
-      { src: projectPrime, alt: "Prime manufacturing plant" },
-      { src: featuredFacility, alt: "Fabrication floor" },
     ],
     faq: [
       {
-        question: "Do you fabricate from customer drawings?",
+        question: "What are the Z and C purlins made from?",
         answer:
-          "Yes. Send the section drawing or a sample and we'll confirm the roll setup, tolerances and finish before production starts.",
+          "ASTM A653 structural quality pre-hot-dipped galvanized sheet to G90, with a minimum guaranteed yield strength of 345 N/mm². Z sections are also available in black steel, in thicknesses from 1.5 to 2.5mm and lengths up to 12 metres or any cut length.",
       },
       {
-        question: "Is there a minimum order quantity?",
+        question: "How many ventilators does a building need?",
         answer:
-          "Standard Z and C sections have no meaningful minimum. A bespoke roll profile carries a setup cost that is easier to justify above roughly five tonnes.",
+          "Multiply the shed volume by the air exchanges needed per hour and divide by the ventilator's exhaust capacity. A 25 × 25 × 5m warehouse at 15 km/h wind velocity needing eight air exchanges an hour takes four units.",
       },
       {
-        question: "Which components do you supply?",
+        question: "What live load can a decking floor carry?",
         answer:
-          "Z and C purlins, girts, decking sheets, skylights, turbo and ridge ventilators, louvres, brackets, cleats and bespoke assemblies fabricated to drawing.",
+          "A thick decking system takes live loads up to 2000 kg/sq.mt. Combined with light weight foam concrete the floor carries up to 500 kg/m² while reducing dead weight by as much as 80%.",
       },
       {
-        question: "Is galvanizing done in-house?",
+        question: "What sizes does polycarbonate come in?",
         answer:
-          "Yes — hot-dip galvanizing is part of the same plant, so components are coated and inspected before dispatch instead of travelling to a third-party bath.",
+          "Multiwall polycarbonate sheets are 5.8m long by 2.1m wide, from 4mm to 10mm thick, in nine colours including clear, translucent, grass green, opal, blue, lake blue, bronze, green and grey — subject to availability.",
       },
     ],
     cta: {
       heading: "Send us the drawing.",
-      body: "Share your section, gauge and quantity — we'll roll, galvanize and quote the run.",
+      body: "Share your section, gauge and quantity — we'll roll, finish and quote the run.",
       image: {
         src: serviceBenefits,
         alt: "Fabricated steel components ready for dispatch",
       },
     },
     metaDescription:
-      "Custom steel fabrication — Z and C purlins, composite decking, skylights, ventilators and bespoke components rolled to drawing and hot-dip galvanized in-house.",
+      "Prime roofing accessories and fabrication — Z and C purlins to 345 N/mm², decking sheets and light weight foam concrete, turbo ventilators, multiwall polycarbonate and stainless handrail systems.",
   },
 ];
 

@@ -25,6 +25,7 @@ const nextConfig: NextConfig = {
   // DHCP hands this machine a different address from time to time; list every
   // one it has answered on rather than chasing the current lease.
   allowedDevOrigins: [
+    "192.168.0.110",
     "192.168.0.119",
     "192.168.0.113",
     "192.168.0.105",

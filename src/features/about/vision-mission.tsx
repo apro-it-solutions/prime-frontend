@@ -80,7 +80,7 @@ export function VisionMission() {
             <FadeHeading className="mt-4 font-heading text-4xl font-semibold leading-[1.15] tracking-[-0.56px] text-text-primary sm:text-5xl lg:text-[56px]">
               What we&apos;re
               <br />
-              building toward.
+              building towards.
             </FadeHeading>
             <p className="mt-6 max-w-[520px] font-body text-lg leading-[1.65] text-text-secondary">
               Two commitments guide every structure we manufacture — a clear

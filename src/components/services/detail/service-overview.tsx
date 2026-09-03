@@ -42,11 +42,18 @@ export function ServiceOverview({
         />
 
         <RevealRow className="mt-8 grid gap-6 lg:mt-[30px] lg:grid-cols-[620fr_1076fr] lg:items-stretch">
-          <RevealItem preset="left" className="lg:min-h-[380px]">
+          {/* `min-w-0` on both items is load-bearing, not tidying. A grid item
+              defaults to `min-width: auto`, so an auto track cannot size below
+              its content's min-content width — and the photo below combines an
+              aspect ratio with a min-height, which gives it an intrinsic
+              *minimum width* of 220 × 1076/380 ≈ 623px. Without this the track
+              is pinned at 623px and the whole page scrolls sideways on a
+              phone. Desktop is unaffected: the lg tracks are far wider. */}
+          <RevealItem preset="left" className="min-w-0 lg:min-h-[380px]">
             <ServiceFeatureCard feature={lead} size="lead" />
           </RevealItem>
 
-          <RevealItem preset="image" className="lg:min-h-[380px]">
+          <RevealItem preset="image" className="min-w-0 lg:min-h-[380px]">
             <div className="relative aspect-[1076/380] min-h-[220px] w-full overflow-hidden rounded-[24px] bg-bg-sunken lg:h-full lg:min-h-[380px] lg:aspect-auto">
               <Image
                 src={image.src}

@@ -17,9 +17,10 @@ export function ServicesGrid() {
             </FadeHeading>
           </div>
           <p className="max-w-[640px] shrink-0 font-body text-lg leading-[1.65] text-text-secondary lg:pt-[52px]">
-            From pre-engineered structures to insulated panels, roofing and
-            custom fabrication — everything your project needs, manufactured and
-            delivered by one team.
+            Pre-engineered and high-rise steel buildings, insulated sandwich and
+            rockwool panels, Aquaproof and stone coated roofing, Zenith
+            automated doors, cold room panels, purlins, decking and ventilators
+            — manufactured across five factories and delivered by one group.
           </p>
         </div>
 
