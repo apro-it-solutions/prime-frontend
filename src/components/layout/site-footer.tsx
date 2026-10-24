@@ -23,9 +23,9 @@ const FOOTER_COLUMNS: FooterColumn[] = [
       // Non-breaking spaces hold the parts of the address that are meaningless
       // apart — a highway number away from its highway, a PIN away from its
       // state — on one line when the column is too narrow for the whole line.
-      { label: "1/33/1/A/1, Aspeen South Gate, NH 66", href: "/contact" },
-      { label: "Hejamady, Udupi", href: "/contact" },
-      { label: "Karnataka 57410, India", href: "/contact" },
+      { label: "Aspeen South Gate, Nh-66", href: "/contact" },
+      { label: "Hejamadi  Village, Kapu Taluku", href: "/contact" },
+      { label: "Udupi  574103, Near Mangalore", href: "/contact" },
     ],
   },
   {
