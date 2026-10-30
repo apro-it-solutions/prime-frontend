@@ -91,7 +91,7 @@ export function ExperienceSection() {
           >
             <RevealChild>
               <h3 className="font-body text-[28px] font-medium leading-[1.15] tracking-[-0.28px] text-text-primary">
-                Your Trusted Partner in Pre-Engineered Building
+                Your Trusted Partner in Pre-Engineered Building.
               </h3>
             </RevealChild>
             <RevealChild className="mt-4">
